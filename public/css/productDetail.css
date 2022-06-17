@@ -1,0 +1,263 @@
+* {
+    box-sizing: border-box;
+}
+@font-face{
+    font-family: "gotham";
+    src: url(../font/Gotham_Book_Font.otf);
+}
+
+@font-face{
+    font-family: "artifact";
+    src: url(../font/Artifact.otf);
+}
+
+
+body {
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: gotham;
+    
+
+}
+
+.container {
+    height: 95vh;
+    width: 80vw;
+    background-color: #D9AD77;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.tarjeta{
+    background-color: #ffffff;
+    width: 90%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    max-height: 350px;
+
+}
+
+.tarjeta .imagen {
+    width: 100%;
+    height: 40%;
+}
+
+.tarjeta .info {
+    width: 100%;
+    height: 60%;
+}
+
+
+
+
+
+div.info  {
+    padding: 5px;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    
+}
+
+h2 {
+    display: block;
+    margin: 0px;
+    font-size: 0.8rem;
+    padding: 10px;
+    font-family: gotham;
+    font-weight: 900;
+}
+
+.precio h3 {
+    display: block;
+    margin: 0px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 0 0 0 10px;
+    font-family: gotham;
+}
+
+.descrip h4 {
+    display: block;
+    margin: 0px;
+    font-size: 0.6rem;
+    font-weight: 800;
+    padding: 10px 0 0 10px;
+    font-family: gotham;
+}
+
+.detalla-producto p {
+    display: block;
+    margin: 0px;
+    font-size: 0.4rem;
+    font-weight: 800;
+    padding: 10px
+    
+}
+
+.boton {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    
+}
+
+.boton button{
+    width: 100px;
+    height: 34px;
+    font-size: 0.6rem;
+    border: none;
+    border-radius: 40px;
+    color: #ffff;
+    background-color: #D92B4B;
+    
+}
+
+@media(min-width:361px){
+    .tarjeta{
+        flex-direction: row;
+        flex-wrap: nowrap;
+        max-width: 480px;
+        max-height: 280px;
+
+    }
+    img{
+        height: 280px;
+    }
+    h2 {
+        font-size: .85rem;
+        padding: 10 10px;
+    }
+    
+    .precio h3 {
+        font-size: 0.7rem;
+        padding: 5px 0 0 10px;
+    }
+    
+    .descrip h4 {
+        font-size: 0.6rem;
+        padding: 10px 0 0 10px;
+    }
+    
+    .detalla-producto p {
+        font-size: 0.5rem;
+        font-weight: 800;
+        padding: 15px 10px;
+    }
+    
+    .boton {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: right;
+        
+    }
+    
+    .boton button{
+        width: 60%;
+        height: 60%;
+        font-size: 0.7rem;
+        border: none;
+        border-radius: 40px;
+        color: #ffff;
+        background-color: #D92B4B;
+        
+    }
+}
+
+@media(min-width:450px){
+    h2 {
+        font-size: 1rem;
+        padding: 10 10px;
+    }
+    
+    .precio h3 {
+        font-size: 0.8rem;
+        padding: 5px 0 0 10px;
+    }
+    
+    .descrip h4 {
+        font-size: 0.7rem;
+        padding: 10px 0 0 10px;
+    }
+    
+    .detalla-producto p {
+        font-size: 0.5rem;
+        font-weight: 800;
+        padding: 15px 10px;
+    }
+    
+    .boton {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: right;
+        
+    }
+    
+    .boton button{
+        width: 60%;
+        height: 60%;
+        font-size: 0.7rem;
+        border: none;
+        border-radius: 40px;
+        color: #ffff;
+        background-color: #D92B4B;
+        
+    }
+}
+
+@media(min-width:500px){
+
+    h2 {
+        font-size: 1.2rem;
+        padding: 10 10px;
+    }
+    
+    .precio h3 {
+        font-size: 0.9rem;
+        padding: 10px 0 0 10px;
+    }
+    
+    .descrip h4 {
+        font-size: 0.75rem;
+        padding: 10px 0 0 10px;
+        margin-top: 5px;
+    }
+    
+    .detalla-producto p {
+        font-size: 0.5rem;
+        font-weight: 700;
+        padding: 15px 10px;
+    }
+    
+    .boton {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: right;
+        margin-right: 10px;
+        
+        
+    }
+    
+    .boton button{
+        width: 60%;
+        height: 60%;
+        font-size: 0.7rem;
+        border: none;
+        border-radius: 40px;
+        color: #ffff;
+        background-color: #D92B4B;
+    }
+}
