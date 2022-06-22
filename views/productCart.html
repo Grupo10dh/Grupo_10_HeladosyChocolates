@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vraiklat</title>
+    <script src="https://kit.fontawesome.com/c09ff292ee.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/normalize.css"> 
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/styleCart.css">
+
+</head>
+<body>
+    <header>  
+        <!--NAV BAR MENOS DE 769PX ---------------------------------------------->
+            
+        <!-- LOGO 1-->
+            <div class="header-principal">
+                <div class="header-principal-1">
+                    <!--BURGER-->
+                    <div class="hamburguesa">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                    <div class="logo-2">
+                        <img src="/img/vraiklat-logo.png" alt="Logo Vraiklat-769pxVV">
+                    </div>
+    
+                    <div class="logo-1">
+                        <img  src="/img/Logo.jpg" alt="Logo Vraiklat-769px^^">
+                    </div>   
+                </div>
+                <!-- BUSCADOR-->    
+                <div class="iconos">
+                    <div class="body-buscar">
+                        <div class="buscar">
+                            <input type="text" placeholder="Buscar" required>
+                            <div class="btn">
+                                <i class="fas fa-search icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!--LOGIN/REGISTER-->
+                    <div class="login-register">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <!--CARRITO-->
+                    <div class="carrito">
+                        <i class="fa-solid fa-cart-arrow-down"></i>
+                    </div>  
+                </div>
+            </div>
+    
+            <!--NAV BAR-->
+            <nav class="barra-nav">
+                <ul class="opciones">
+                    <li><a href="/home">HOME<a></li>
+                    <li><a href="/vraiklat">VRAIKLAT<a></li>
+                    <li><a href="/helados">HELADOS<a></li>
+                    <li><a href="/chocolates">CHOCOLATES<a></li>
+                    <li><a href="/alfajores">ALFAJORES<a></li>
+                </ul>
+            </nav>
+            <!--Carrito de Compras-->
+        <div class="contenedor-carrito">
+            <div class="contenedor-lista">
+                <h2 class="titulo-principal">Carrito</h2>
+                <table class="tabla">
+                    <thead>
+                        <tr class="titulos">
+                            <th class="titulo-articulo" colspan="2">Artículo</th>
+                            <th class="titulo-precio">Precio</th>
+                            <th class="titulo-cantidad">Cantidad</th>
+                            <th class="titulo-total">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody class="lista-articulos">
+                        <tr class="articulo">
+                            <td class="articulo-eliminar">
+                                <div class="contenedor-boton-eliminar">
+                                    <button class="boton-borrar-articulo">x</button>
+                                </div>
+                            </td>
+                            <td class="articulo-img">
+                                <div class="contenedor-articulo-img">
+                                    <img class="imagen-articulo" src="/img/choco-pedido.jpg" alt="">   
+                                </div>
+                            </td>
+                            <td class="articulo-nombre">
+                                <a href="/"><span class="nombre">chocolate Amargo 80% x kg</span></a>
+                            </td>
+                            <td class="articulo-precio">
+                                <div class="contenedor-precio">
+                                    <span class="precio">$2000</span>
+                                </div>
+                            </td>
+                            <td class="articulo-cantidad">
+                                <div class="contenedor-cantidad">
+                                    <form action="/">
+                                        <input type="number" class="input-articulo-cantidad" name="cantidad-articulo">
+                                    </form>
+                                </div>
+                            </td>
+                            <td class="articulo-subtotal">
+                                <div class="contenedor-subtotal">
+                                    <span class="subtotal">$2000</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="articulo">
+                            <td class="articulo-eliminar">
+                                <div class="contenedor-boton-eliminar">
+                                    <button class="boton-borrar-articulo">x</button>
+                                </div>
+                            </td>
+                            <td class="articulo-img">
+                                <div class="contenedor-articulo-img">   
+                                </div>
+                            </td>
+                            <td class="articulo-nombre">
+                                <a href="/"><span class="nombre">Caja de Alfajores x 12 und</span> </a>
+                            </td>
+                            <td class="articulo-precio">
+                                <div class="contenedor-precio">
+                                    <span class="precio">$1800</span>
+                                </div>
+                            </td>
+                            <td class="articulo-cantidad">
+                                <div class="contenedor-cantidad">
+                                    <form action="/">
+                                        <input type="number" class="input-articulo-cantidad" name="cantidad-articulo">
+                                    </form>
+                                </div>
+                            </td>
+                            <td class="articulo-subtotal">
+                                <div class="contenedor-subtotal">
+                                    <span class="subtotal">$1800</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="articulo">
+                            <td class="articulo-eliminar">
+                                <div class="contenedor-boton-eliminar">
+                                    <button class="boton-borrar-articulo"><span class="x">x</span></button>
+                                </div>
+                            </td>
+                            <td class="articulo-img">
+                                <div class="contenedor-articulo-img">   
+                                </div>
+                            </td>
+                            <td class="articulo-nombre">
+                                <a href="/"><span class="nombre">1kg de helado</span></a>
+                            </td>
+                            <td class="articulo-precio">
+                                <div class="contenedor-precio">
+                                    <span class="precio">$1600</span>
+                                </div>
+                            </td>
+                            <td class="articulo-cantidad">
+                                <div class="contenedor-cantidad">
+                                    <form action="/">
+                                        <input type="number" class="input-articulo-cantidad" name="cantidad-articulo">
+                                    </form>
+                                </div>
+                            </td>
+                            <td class="articulo-subtotal">
+                                <div class="contenedor-subtotal">
+                                    <span class="subtotal">$1600</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="6" class="fila-fomulario-cupon">
+                                <div class="contenedor-cupon">
+                                    <form action="#" class="formulario-cupon">
+                                        <input type="text" name="codigo" class="input-cupon" placeholder="Código de Cupón">
+                                        <button type="submit" name="activar-cupon" class="activar-cupon"></button>
+                                        <button type="submit" name="actualizar-carrito" class="actualizar-carrito">Actualizar Carrito</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="contenedor-resumen">
+                <div class="resumen">
+                    <h2 class="titulo-resumen">Totales</h2>
+                    <table class="subtotal">
+                        <tbody>
+                            <tr class="subtotal-carrito">
+                                <th class="resumen-titulo-subtotal">Subtotal</th>
+                                <td>
+                                    <div class="contenedor-resumen-subtotal">
+                                        <span class="resumen-subtotal">$5400</span>
+                                    </div>  
+                                </td>
+                            </tr>
+                            <tr class="envio-carrito">
+                                <th class="resumen-titulo-envio">Envio</th>
+                                <td>
+                                    <div class="contenedor-resumen-envio">
+                                        <span class="resumen-subtotal">$500</span>
+                                    </div>  
+                                </td>
+                            </tr>
+                            <tr class="total-carrito">
+                                <th class="total-carrito">Total</th>
+                                <td>
+                                    <div class="contenedor-total-carrito">
+                                        <span class="resumen-total">$5900</span>
+                                    </div>  
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="boton-finalizar-compra">
+                        <form action="#" class="formulario-finalizar-comprar">
+                            <button type="submit" name="finalizar-compra" class="finalizar-compra">Finalizar compra</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </header>
+        
+</body>
+</html>

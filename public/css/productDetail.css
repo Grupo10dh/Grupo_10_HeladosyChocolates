@@ -123,6 +123,14 @@ h2 {
     
 }
 
+.boton button:hover{
+    background-color: #593515;
+    color: #ffff;
+    border: 2px solid #593515;
+}
+.boton button{
+    transition: background-color 1s, border 2s;
+}
 @media(min-width:361px){
     .tarjeta{
         flex-direction: row;
