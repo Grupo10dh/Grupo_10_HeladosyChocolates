@@ -1,0 +1,144 @@
+
+img {
+
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    
+}
+
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+    margin: 5%;
+    padding-top: 0px;
+}
+
+
+form.formulario div {
+    padding: 1px 0px;
+    width: 100%;
+}
+.nombre, .usuario, .email, .fecha, .domicilio, .password{
+    border: 2px solid #ebebeb;
+    border-radius: 8px;
+    height: 40px;
+    width: 100%;
+    padding-left: 1px;
+    background-image: url("/img/choco-pedido.jpg");
+    background-repeat: no-repeat;
+    background-size: 45px;
+    background-position: right;
+    background-color: wheat;
+}
+
+.label{
+    padding: 0px;
+}
+
+.label-form{
+    margin: 0;
+    display: block;
+    font-weight: 600;
+    padding-bottom: 15px;
+
+}
+
+div.perfil .contenedor-pefil{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+
+.intereses-lebel-input{
+    padding-left: 15px;
+}
+
+.contenedor-foto-usuario{
+    margin: 0;
+    padding: 0;
+}
+
+
+div.contraseña div.label-contraseña,div.contraseña div.contenedor-contraseña{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.contenedor-button{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+button{
+    border: 2px solid #ebebeb;
+    border-radius: 8px;
+    height: 40px;
+    width: 100%;
+    background-color: #ffff;
+    color: black;
+}
+/* validacion de formularios*/
+form.busqueda input:valid{
+    box-shadow: none;
+    
+}
+form.busqueda input:invalid{
+    box-shadow: none;
+    
+}
+
+input:focus:valid{
+    box-shadow: 0 0 6px 2px #39b54a;
+    
+}
+
+
+input:Focus:invalid {
+    box-shadow: 0 0 6px 2px red;
+}
+
+
+/* animacion de botones*/
+button.button-enviar:hover{
+    background-color: #0022AA;
+    color: #ffff;
+}
+
+button.button-borrar:hover{
+    background-color: #EAC926;
+    color: #ffff;
+}
+
+
+button{
+    transition: background-color 1.5s;
+}
+
+
+
+
+@media(min-width:361px){
+    .formulario{
+        width: 70%;
+    }
+
+}
+
+
+
+@media(min-width:769px){
+    .formulario{
+        width: 40%;
+    }
+
+}

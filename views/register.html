@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">  
+    <link rel="stylesheet" href="/css/register.css">    
+</head>
+        
+            <header class="banner-principal">
+                <img class="banner" src="/img/banner.png" alt="banner">
+            </header>    
+
+
+    <!--Formulario de registro-->
+    <form action="/" method="GET" class="formulario" enctype="multipart/form-data">
+            <div class="nombre-apellido">
+                <input type="text" name="nombre" placeholder="Nombre y apellido" class="nombre" required minlength="8"  >
+            </div>
+            <div class="nombre-usuario">
+                <input type="text" name="usuario" placeholder="Nombre de usuario" class="usuario" required minlength="4">
+            </div>
+            <div class="e-mail">
+                <input type="text" name="email" placeholder="E-mail" class="email" required>
+            </div>
+            <div class="fecha-div">
+                <div class="label">
+                    <label class="label-form">Fecha de nacimiento</label>
+                </div>
+                <input type="date" name="fecha" placeholder="Fecha de nacimiento" class="fecha">
+            </div>
+            <div class="domicilio-div">
+                <input type="text" name="domicilio" placeholder="Domicilio" class="domicilio">
+            </div>
+            <!-- <div class="perfil">
+                <div><label class="label-form">Perfil del Usuario</label></div>
+                <div class="contenedor-pefil">
+                    <input type= "radio" name="perfil" value="comprador" class="comprador"><label>Comprador</label>
+                    <input type= "radio" name="perfil" value="vendedor" class="vendedor"><label>Vendedor</label>
+                </div>
+            </div> -->
+
+            <!-- <div class="intereses">
+                <div class="label">
+                    <label class="label-form">Intereses</label>
+                </div>
+                <div class="electro">
+                    <input type= "checkbox" name="intereses" class="electro-in">
+                    <label class="intereses-lebel-input">Electro</label>
+                    
+                </div>
+                <div class="moda">
+                    <input type= "checkbox" name="intereses" class="moda-in">
+                    <label class="intereses-lebel-input">Moda</label>
+                    
+                </div>
+                <div class="hogar">
+                    <input type= "checkbox" name="intereses" class="hogar-in">
+                    <label class="intereses-lebel-input">Hogar</label>
+                    
+                </div>
+                <div class="jugueteria">
+                    <input type= "checkbox" name="intereses" class="jugueteria-in">
+                    <label class="intereses-lebel-input">Juguetería</label>
+                    
+                </div>
+                <div class="vida-sana">
+                    <input type= "checkbox" name="intereses" class="vida-sana-in">
+                    <label class="intereses-lebel-input">Vida sana</label>
+                    
+                </div>
+            </div>                
+            <div class="foto-usuario">
+                <div><label class="label-form">Foto de usuario</label></div>
+                <div class="contenedor-foto-usuario">
+                    <input type="file" name="foto-usuario" accept=".jpg, .png, .svg" class="adjuntar">
+                </div>
+                <span>.jpg, .png, .svg</span>
+            </div> -->
+            <div class="contraseña">
+                <div class="label-contraseña"><label class="label-form">Contraseña</label></div>
+                <div class="contenedor-contraseña">
+                    <input type="password" name="password" placeholder="Contraseña nueva" class= "password" required minlength="8">
+                    <input type="password" name="password" placeholder=" Confirmar contraseña" class= "password" required minlength="8">
+                </div> 
+            </div>
+            <div class="contenedor-button">
+                <div class="contenedor-button-uno">
+                    <button type="submit" class="button-enviar">Enviar</button>
+                </div>
+                <div class="contenedor-button-dos">
+                    <button type="reset" class="button-borrar">Borrar</button>
+                </div> 
+                    
+                
+            </div>
+    </form>
+    
+
+</html>

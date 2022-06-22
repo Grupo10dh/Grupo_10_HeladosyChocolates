@@ -93,7 +93,7 @@ div.truck{
 
 
 main section.productos-populares article img:hover {
-    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+    box-shadow: 0px 0px 20px rgb(100, 100, 100);
 }
 
 
@@ -183,9 +183,9 @@ div.pedido-productos{
     position: relative;
 }
 
-.conteiner-helado, .conteiner-chocolate, .conteiner-alfajor:hover {
+/*.conteiner-helado, .conteiner-chocolate, .conteiner-alfajor:hover {
     box-shadow: 0px 0px 10px rgb(100, 100, 100);
-}
+}*/
 
 
 .conteiner-alfajor p{
@@ -264,8 +264,15 @@ div.pedido-productos{
     border-radius: 50%;
     cursor: pointer;
 }
- 
 
+ 
+div.btn:hover{
+    background:#0e0088 ;
+}
+
+div.btn{
+    transition: all 1s;
+}
 /*CLASES*/
 
 .header-principal{
@@ -318,7 +325,20 @@ div.carrito i{
     margin: 11px 2px 2px 2px;
 }
 
+div.carrito i:hover{
+    background: #0e0088;
+}
 
+div.carrito i{
+    transition: all 1s;
+}
+div.login-register i:hover{
+    background: #0e0088;
+}
+
+div.login-register i{
+    transition: all 1s;
+}
   
 .opciones {
     display: flex;
