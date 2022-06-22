@@ -1,0 +1,495 @@
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    font-size: 1rem;
+}
+
+body{
+    font-family: 'Gotham', sans-serif;
+    background-color: black;
+}
+
+img{
+    max-height: 100%;
+    max-width: 100%;
+}
+
+@font-face {
+    font-family: "gotham" ;
+    src: url(../font/Gotham_Book_Font.otf);
+}
+
+@font-face {
+    font-family: "artifact";
+    src: url(../css/font/Artifact.otf);
+}
+
+
+/*NAV BAR*/
+
+header{
+    padding: 20px;
+}
+
+.logo-1{
+    display: none;
+}
+
+.logo-2{
+    display: block;
+}
+
+.barra-nav{
+    display: none;   
+}
+
+div.hamburguesa{
+    text-align: center;
+}
+
+div.hamburguesa i{
+    display: block;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    border-radius: 5px;
+    margin: 16px 0px 20px 0px;
+    padding: 10px;
+    width: 40px
+
+}
+
+div.header-principal-1{
+    display: flex;
+    align-items: center;
+}
+
+div.banner img{
+    width: 100%;
+}
+
+
+/*PRODUCTOS*/
+
+main{
+    background-color: #d9ad77 ;
+    margin: 0 auto;
+    text-align: center;
+}
+
+main section.productos-populares div.productos article i{
+    font-size: 16px;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #000000;
+    border-radius: 50%;
+    right: 17px;
+    top: 2px;
+    color: black;
+}
+
+div.truck{
+    margin:5px
+}
+
+
+main section.productos-populares article img:hover {
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+}
+
+
+
+
+.titular-pedido{
+    font-size: 24px;
+    line-height: 50px;
+    margin: -5px;
+    padding-top: 19px;
+    color: black;
+}
+
+.titular-popular{
+    color:#D9AD77;
+    font-size: 24px;
+    line-height: 50px;
+    padding-top: 19px;
+}
+
+.pedido-productos{
+    display: flex;
+    flex-direction: column
+}
+
+
+
+.fotos-pedido{
+    height: 50%;
+    width: 96%;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+section.pedido-hoy{
+    line-height: 0px;
+}
+
+
+
+a{
+    outline: none;
+    text-decoration: none;
+    color: white;
+}
+
+div.productos{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+
+
+section.productos-populares{
+    background-color:#730E16;
+    color:#D9AD77
+}
+
+h4.titular-popular{
+    background-color:#730E16;
+    color:#D9AD77;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+main section.productos-populares article{
+    margin-bottom: 20px;
+    margin-left: 7px;
+    width: 35%;
+}
+
+main section.productos-populares article img{
+    width: 45vw;
+    height: 20vh;
+    border-radius: 5%;
+}
+
+div.pedido-productos{
+    max-width: 600px;
+    margin: auto;
+}
+
+.conteiner-helado, .conteiner-chocolate, .conteiner-alfajor{
+    position: relative;
+}
+
+.conteiner-helado, .conteiner-chocolate, .conteiner-alfajor:hover {
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+}
+
+
+.conteiner-alfajor p{
+    font-size: 3rem;
+    position: absolute;
+    color: white;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow:  0  0 8px rgba(0,0,0, 0.8);
+}
+
+.conteiner-helado p{
+    font-size: 3rem;
+    position: absolute;
+    color: white;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow:  0 0 8px rgba(0,0,0, 0.8);
+}
+
+.conteiner-chocolate p{
+    font-size: 3rem;
+    position: absolute;
+    color: white;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow:  0 0 8px rgba(0,0,0,0.8);
+}
+
+
+
+
+
+
+/*BOTON BUSQUEDA*/
+
+.body-buscar{
+    display: flex;
+  align-items: center;
+  justify-content: center;
+    
+}
+
+
+.buscar {
+    position: relative;
+    padding: 8px;
+    margin: 11px 2px 2px 2px;
+  }
+  
+.buscar input {
+    width:120px;
+    height: 40px;
+    font-size: 18px;
+    color: #222;
+    outline: none;
+    border: 1px solid silver;
+    border-radius: 30px;
+    padding: 5px;
+}
+  
+.btn {
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    top: 0;
+    right: 0;
+    position: absolute;
+    background: #884800;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+ 
+
+
+/*CLASES*/
+
+.header-principal{
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+
+
+div.iconos{
+    display: flex;
+    justify-content: center;
+}
+
+
+.banner img{
+    width: 100 vw;
+    margin: auto;
+}
+
+
+
+div.login-register i{
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    background: #884800;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    margin: 11px 2px 2px 2px;
+}
+
+div.carrito i{
+    width: 55px;
+    height: 55px;
+    line-height: 55px;    
+    background: #884800;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    margin: 11px 2px 2px 2px;
+}
+
+
+  
+.opciones {
+    display: flex;
+    text-decoration: none;
+    font-size:  1.5rem;   
+    color: white;
+}
+
+
+a{
+    outline: none;
+    text-decoration: none;
+    color: white;
+}
+
+
+
+/*footer*/
+footer{
+    height: 500px;
+    padding: 35px;
+}
+
+div.bottom-footer{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+}
+
+h4.footer{
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+footer div.bottom-footer i{
+    font-size: 2em;
+
+}
+
+
+
+/*MEDIA*/
+
+@media (min-width:360px) {
+
+}
+
+
+
+@media(min-width:700px){
+.buscar input{
+    width: 240px;
+}
+
+.banner img{
+    width:100vw;
+}
+
+section.productos-populares{
+display: flex;
+align-items: center;
+padding: 40px;
+width: 100vw;
+}
+
+div.productos{
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: auto;
+}
+
+
+}
+
+@media(min-width:800px){
+.logo-1{
+    display: block;
+    height: 170px;
+    width: 160px;
+}
+    
+.logo-2{
+    display: none;
+}
+
+div.login-register{
+    display: flex;
+    align-items: center;
+}
+
+div.carrito{
+    display: flex;
+    align-items: center;
+}
+
+.hamburguesa{
+    display: none;
+}
+
+.barra-nav{
+    display: block;   
+}
+    
+.barra-nav ul{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;   
+}
+
+
+.barra-nav li{
+    margin: 0 10px;
+}
+
+.barra-nav ul{
+    font-size: 40px;
+    margin: 45px 0px 0px 0px;
+}
+
+.barra-nav li{
+    margin: 0 10px;
+}
+
+main section.productos-populares article img {
+    width: 45vw;
+    height: 35vh;
+    border-radius: 5%;
+}
+
+}
+
+@media(min-width:1000px){
+.header-principal{
+    max-width: 1200px;
+    margin: auto;
+}
+
+nav.barra-nav{
+    max-width: 1200px;
+    margin: auto;
+}
+
+.pedido-productos{
+    display: flex;
+    flex-direction: row;
+}
+    
+.fotos-pedido{
+    height: 100%;
+    width: 100%;
+
+}
+div.pedido-productos {
+    max-width: 950px;
+    margin: auto;
+    margin-bottom: 100px;
+    margin-top: 60px;
+}    
+
+article.conteiner-chocolate{
+    margin: 0px 20px;
+}
+
+div.productos{
+    flex-wrap: nowrap;
+    max-width: 1400px;
+    margin: auto;
+}
+
+}
