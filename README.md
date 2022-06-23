@@ -3,6 +3,11 @@
 
 <img src="./img/README_img/BANNER_V.jpg" alt="Banner principal de este repo" style = "width:100%">
 
+
+### TRELLO - TABLERO DE TRABAJO
+[Ir a Trello](https://trello.com/b/xAFR0VXU/agile-board "Ir a trello")
+
+
 ### BRIEFING
 ------------
 Vraiklat es una marca que ofrece chocolates y helados artesanales y productos regionales, es una marca elegante y flexible que representa:
@@ -120,3 +125,5 @@ Soy Ingeniero Industrial, fanático de la tecnología y la innovación y apasion
 - **Diego Gonzalez Palau**
 
 Ingeniero agrónomo, de Córdoba capital, emprendedor y Me gusta viajar. Amante de los deportes y explorando este nuevo mundo de la programación
+
+

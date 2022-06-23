@@ -1,0 +1,163 @@
+*{
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;  
+}
+
+/* temporal */
+.barra {
+
+    background-color: #ebebeb;
+    font-size: 14px;
+    width: 45px;
+}
+/*------------*/
+
+.login-navbar{
+    display: flex;
+    
+}
+
+body {
+	background-color: rgba(0, 0, 0, .1);
+	background-image: url("/img/fondoLogin.jpg");
+	background-repeat: repeat;
+	background-size: 100%;
+	background-attachment: scroll;
+   
+} 
+
+.banner{
+    display:block;
+	background-repeat: repeat;
+	background-size: 100%;
+	background-attachment:fixed;
+    width: 104%;
+    padding: 0px 0px;
+    border: 2px solid #d9ad77;
+}
+
+/*p {
+	display: flex;
+    flex-direction: row;
+    width: 30px;
+    padding: 6px;
+	border: 1px solid #ebebeb;
+    background: white;
+    width: 40%;
+    border-radius: 5px;
+    justify-content: center;
+    margin: auto;
+	height: 15px;
+}
+*/
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+	color: black;    
+}
+
+form.formulario div {
+	
+    padding: 1px 0px;
+    width: 100%;
+	justify-content: center;
+    margin: 0px 0px 0px 60%;
+}
+.inp-usuario, .inp-contrase{
+    border: 1px solid #ebebeb;
+    border-radius: 8px;
+    height: 30px;
+    width: 60%;
+    padding-left: 18px;
+    background: #ffff;
+	border: 1px solid #593515;
+	border-radius: 5px;
+	justify-content: center;
+    font-size: 14px;
+    margin-top: 8px;
+    font-family: "gotham";
+}
+@font-face {
+    font-family: "gotham";
+    src: url(/public/css/Gotham_Book_Font.otf);
+}
+
+@font-face {
+    font-family: "artifact";
+    src: url(/public/css/Artifact.otf);
+}
+
+button{
+    border: 1px solid #593515;
+    border-radius: 8px;
+    height: 30px;
+    width: 60%;
+    background-color: #ffff;
+    color: #593515;
+    font-family: "gotham" bold;
+    font-size: 18px;
+    padding-left: 42px;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+button:hover{
+    background-color: #593515;
+    color: #ffff;
+    font-family: "artifact" white;
+}
+
+button{
+    transition: background-color 1.5s;
+}
+
+form.busqueda input:valid{
+    box-shadow: none;    
+}
+form.busqueda input:invalid{
+    box-shadow: none;
+    
+}
+
+input:focus:valid{
+    box-shadow: 0 0 6px 2px #39b54a;
+}
+
+input:Focus:invalid {
+    box-shadow: 0 0 6px 2px red;
+}
+
+
+@media(min-width:361px){
+    .formulario{
+        width: 70%;
+    }
+
+}
+
+
+
+@media(min-width:769px){
+    .formulario{
+        width: 40%;
+    }
+    .inp-usuario, .inp-contrase{
+        width: 85%;
+        
+    }
+    button {
+        width: 85%;
+    }
+
+    form.formulario div {
+        margin: 0px 0px 0px 160%;
+}
+}

@@ -1,0 +1,360 @@
+
+.contenedor-carrito{
+    height: 100%;
+    width: 90vw;
+    margin: auto;
+    background-color: #D92B4B;
+    display: flex;
+    flex-direction: column;
+}
+
+.tabla{
+    height: 100%;
+    width: 100%;
+}
+/*titulo de la tabla*/
+
+.titulo-principal{
+    margin-left: 20px;
+    font-size: 1em;
+    font-family: gotham;
+    font-weight: 900;
+}
+
+
+
+/*emcabezados de la tabla*/
+.titulos{
+    display: flex;
+    width: 100%;
+    background-color: #D9AD77;
+    padding: 10px;
+    
+    
+}
+
+.titulos th{
+    font-size: 0.6em;
+   
+}
+
+.titulo-articulo{
+    
+    width: 45%;
+}
+
+.titulo-precio, .titulo-cantidad, .titulo-total{
+    width: 24%;
+
+}
+
+.lista-articulos{
+    display: flex;
+    flex-direction: column;
+}
+
+tbody .lista-articulos{
+    display: flex;
+    
+}
+
+
+/*fila articulo*/
+.articulo{
+    display: flex;
+    border-bottom: 1px solid black;
+    padding: 10px;
+
+}
+
+/*contador cantidad*/
+.input-articulo-cantidad{
+    width: 30%;
+    
+    height: 70%;
+}
+
+.nombre, .precio, .subtotal{
+    font-size: 0.6em;
+}
+/*celda nombre del articulo*/
+.articulo-nombre{
+    width: 31%;
+    margin-left: 5px;
+}
+/*alineando los precios cantidad y subtotal de cada articulo seria cada celda*/
+.articulo-precio, .articulo-cantidad, .articulo-subtotal{
+    width: 23.5%;
+    text-align: center;
+}
+.articulo-eliminar{
+    width: 8%;
+}
+/*contenedor de la imagen*/
+/* .articulo-img{
+    display: none;
+} */
+.articulo-img{
+    display: block;
+    width: 20%;
+    
+    
+}
+.contenedor-articulo-img{
+    margin-left: 3px;
+}
+
+.imagen-articulo{
+    border-radius: 8px
+   
+}
+/*boton eliminar articulo*/
+
+.articulo-eliminar{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.boton-borrar-articulo{
+    background-color: #D92B4B;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    border: 1px solid black;
+    padding-bottom: 5px;
+    
+}
+
+.x{
+    display: block;
+    font-size: 15px;
+    
+    
+}
+
+
+/*alineando el formulario del cupón*/
+
+.formulario-cupon{
+    display: flex;
+    width: 100%;
+}
+
+/*campo de introducir el cupón*/
+.input-cupon{
+    width: 35%;
+    height: 30px;
+    font-size: 0.6em;
+    padding-left: 5px;
+
+}
+
+/*botones de formulario de cupón*/
+button.activar-cupon {
+    border: 2px solid #ebebeb;
+    border-radius: 50%;
+    width: 6%;
+    height: 15px;
+    background-color: #ffff;
+    color: black;
+    font-size: 0.6em;
+    margin: 5px 0px 0px 5px;
+}
+
+button.actualizar-carrito {
+    border: 2px solid #ebebeb;
+    border-radius: 6px;
+    height: 30px;
+    width: 20%;
+    background-color: #ffff;
+    color: black;
+    font-size: 0.6em;
+    margin-left: 100px;
+
+}
+
+.contenedor-resumen{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.resumen{
+    width: 50%;
+    flex-direction: column;
+    margin-right: 10px;
+    background-color: #D9AD77;
+    
+}
+
+/*estilo del titulo del resumen*/
+.titulo-resumen{
+    
+    opacity: 80%;
+    padding-left: 5px;
+    font-size: 0.9em;
+    font-weight: 700;
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+
+}
+
+.resumen-titulo-subtotal,  .resumen-titulo-envio, .total-carrito{
+    width: 80%;
+    font-size: 13px;
+    text-align: left;
+    padding-left: 5px;
+}
+
+.resumen-subtotal, .resumen-subtotal, .resumen-total{
+    width: 80%;
+    font-size: 0.8em;
+}
+
+/*boton finalizar compra*/
+.finalizar-compra{
+    border: 2px solid #ebebeb;
+    border-radius: 6px;
+    height: 30px;
+    width: 70%;
+    background-color: #ffff;
+    color: black;
+    font-size: 0.6em;
+    margin-left: 13%;
+}
+/* animacion de botones*/
+button.activar-cupon:hover{
+    background-color: #593515;
+}
+button.actualizar-carrito:hover, button.finalizar-compra:hover{
+    background-color: #593515;
+    color: #ffff;
+    border: 2px solid #593515;
+
+}
+button.button-borrar:hover{
+    background-color: 593515;
+    color: #ffff;
+}
+
+button.boton-borrar-articulo:hover{
+    background-color: #730E16;
+    border: 1px solid #ebebeb;
+    color: #ebebeb;
+}
+
+
+button{
+    transition: background-color 1s;
+}
+
+
+
+
+
+
+@media(min-width:361px){
+    .titulo-articulo{
+    
+        width: 50%;
+    }
+    
+    .titulo-precio, .titulo-cantidad, .titulo-total{
+        width: 20%;
+    
+    }
+
+    .articulo-img{
+        display: block;
+        width: 20%;
+    }
+
+    .resumen{
+        width: 40%;
+        margin-right: 20px;
+        
+        
+    }
+    .finalizar-compra{
+        margin-left: 20px;
+    }
+}
+
+@media(min-width:700px){
+    .articulo-img{
+        width: 15%;
+    }
+    /*resumen de precios*/
+    .resumen{
+        width: 30%;
+        margin-right: 30px;
+        
+        
+    }
+    
+    .nombre, .precio, .subtotal{
+        font-size: 0.75em;
+    }
+    /* titulos encabezados tabla*/
+    .titulos th{
+        font-size: 0.9em;  
+    }
+    
+    .titulo-articulo{
+        
+        width: 45%;
+    }
+    
+    .titulo-precio, .titulo-cantidad, .titulo-total{
+        width: 20%;
+    
+    }
+    /*contador cantidad*/
+    .input-articulo-cantidad{
+        width: 18%;
+        height: 70%;
+    }
+    /*boton finalizar compra*/
+    .finalizar-compra{
+        margin-left: 15%;
+    }
+
+}
+@media(min-width:800px){
+    .contenedor-carrito{
+        margin: 30px ;
+        
+    }
+}
+
+@media(min-width:1200px){
+    .articulo-img{
+        width: 13%;
+    }
+    /*resumen de precios*/
+    .resumen{
+        width: 20%;
+        margin-right: 40px;
+        
+        
+    }
+    
+    .nombre, .precio, .subtotal{
+        font-size: 0.84em;
+    }
+    /* titulos encabezados tabla*/
+    .titulos th{
+        font-size: 0.97em;  
+    }
+    
+    /*contador cantidad*/
+    .input-articulo-cantidad{
+        width: 14%;
+        height: 70%;
+    }
+    /*boton finalizar compra*/
+    .finalizar-compra{
+        margin-left: 15%;
+    }
+}
