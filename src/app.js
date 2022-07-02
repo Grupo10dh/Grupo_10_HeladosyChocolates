@@ -4,10 +4,25 @@ const app = express();
 
 const path = require("path")
 
+app.use(express.static(path.join(__dirname,'../public')))
+app.set('view engine', 'ejs');
+
+
+const routerMain = require('./routes/main')
+const routerUsers = require('./routes/users')
+
+
+app.use(routerUsers)
+app.use(routerMain)
+
+
+
+
+
+
 app.listen(3030, () => console.log("Servidor funcionando en puerto 3030"));
 
-app.use(express.static("public"));
-
+/*
 app.get('/', (req, res) =>{
     res.sendFile(path.join(__dirname, './views/index.html'))
 })
@@ -27,3 +42,5 @@ app.get('/product', (req, res) =>{
 app.get('/cart', (req, res) =>{
     res.sendFile(path.join(__dirname, './views/productCart.html'))
 })
+
+*/
