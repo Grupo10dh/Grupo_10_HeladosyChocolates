@@ -73,6 +73,7 @@ main{
     background-color: #d9ad77 ;
     margin: 0 auto;
     text-align: center;
+    width: 100vw;
 }
 
 main section.productos-populares div.productos article i{
@@ -183,9 +184,9 @@ div.pedido-productos{
     position: relative;
 }
 
-/*.conteiner-helado, .conteiner-chocolate, .conteiner-alfajor:hover {
-    box-shadow: 0px 0px 10px rgb(100, 100, 100);
-}*/
+.fotos-pedido:hover {
+    box-shadow: 0px 0px 50px rgb(100, 100, 100);
+}
 
 
 .conteiner-alfajor p{
@@ -226,28 +227,27 @@ div.pedido-productos{
 /*BOTON BUSQUEDA*/
 
 .body-buscar{
-    display: flex;
-  align-items: center;
-  justify-content: center;
-    
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
 
 .buscar {
     position: relative;
     padding: 8px;
-    margin: 11px 2px 2px 2px;
-  }
-  
+}
+
 .buscar input {
-    width:120px;
+    width:0;
     height: 40px;
+    padding: 0 20px;
     font-size: 18px;
     color: #222;
     outline: none;
     border: 1px solid silver;
     border-radius: 30px;
-    padding: 5px;
+    transition: all 1s ease;
 }
   
 .btn {
@@ -263,14 +263,37 @@ div.pedido-productos{
     font-size: 18px;
     border-radius: 50%;
     cursor: pointer;
+    margin: 5px 2px 2px 2px;
 }
 
- 
+.buscar:hover input {
+    width: 127px;
+}
+
+.buscar input:focus {
+    width: 127px;
+}
+
 div.btn:hover{
     background:#0e0088 ;
 }
 
 div.btn{
+    transition: all 1s;
+}
+
+div.carrito i:hover{
+    background: #0e0088;
+}
+
+div.carrito i{
+    transition: all 1s;
+}
+div.login-register i:hover{
+    background: #0e0088;
+}
+
+div.login-register i{
     transition: all 1s;
 }
 /*CLASES*/
@@ -325,21 +348,6 @@ div.carrito i{
     margin: 11px 2px 2px 2px;
 }
 
-div.carrito i:hover{
-    background: #0e0088;
-}
-
-div.carrito i{
-    transition: all 1s;
-}
-div.login-register i:hover{
-    background: #0e0088;
-}
-
-div.login-register i{
-    transition: all 1s;
-}
-  
 .opciones {
     display: flex;
     text-decoration: none;
@@ -354,12 +362,35 @@ a{
     color: white;
 }
 
+.map-responsive{
+    overflow:hidden;
+    padding-bottom:60.25%;
+    position:relative;
+    height:0;
+}
 
+.map-responsive iframe{
+    left:0px;
+    top:0px;
+    height:60%;
+    width:60%;
+    position:absolute;
+    transform: translate(30%, 30%);
+}
+
+div.map-responsive-textos{
+    padding-bottom: 50px;
+}
+
+.texto-mapa{
+    font-size: 20px;
+    font-weight: 300;
+}
 
 /*footer*/
 footer{
-    height: 500px;
     padding: 35px;
+    padding-top: 50px;
 }
 
 div.bottom-footer{
@@ -391,7 +422,12 @@ footer div.bottom-footer i{
 
 
 @media(min-width:700px){
-.buscar input{
+
+.buscar:hover input {
+    width: 240px;
+}
+    
+.buscar input:focus {
     width: 240px;
 }
 
@@ -412,6 +448,10 @@ div.productos{
     margin: auto;
 }
 
+div.bottom-footer{
+    flex-direction: row;
+    justify-content: space-around;
+}
 
 }
 
@@ -508,6 +548,46 @@ div.productos{
     flex-wrap: nowrap;
     max-width: 1400px;
     margin: auto;
+}
+
+
+.buscar {
+    position: relative;
+}
+
+.buscar input {
+    width: 0;
+    height: 40px;
+    padding: 0 20px;
+    font-size: 18px;
+    color: #222;
+    outline: none;
+    border: 1px solid silver;
+    border-radius: 30px;
+    transition: all 0.6s ease;
+}
+
+.btn {
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    top: 0;
+    right: 0;
+    position: absolute;
+    background: #884800;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.buscar:hover input {
+    width: 240px;
+}
+
+.buscar input:focus {
+    width: 240px;
 }
 
 }
