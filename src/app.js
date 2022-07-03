@@ -10,12 +10,11 @@ app.set('view engine', 'ejs');
 
 const routerMain = require('./routes/main')
 const routerUsers = require('./routes/users')
-
+const routerProducts = require('./routes/products')
 
 app.use(routerUsers)
 app.use(routerMain)
-
-
+app.use(routerProducts)
 
 
 
@@ -23,6 +22,7 @@ app.use(routerMain)
 app.listen(3030, () => console.log("Servidor funcionando en puerto 3030"));
 
 /*
+
 app.get('/', (req, res) =>{
     res.sendFile(path.join(__dirname, './views/index.html'))
 })
