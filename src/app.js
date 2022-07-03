@@ -10,10 +10,12 @@ app.set('view engine', 'ejs');
 
 const routerMain = require('./routes/main')
 const routerUsers = require('./routes/users')
+const routerProduct = require('./routes/products')
 
 
 app.use(routerUsers)
 app.use(routerMain)
+app.use(routerProduct)
 
 
 

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head.ejs') %>
+</head>
+<body>
+    <header>  
+        <%- include('../partials/header.ejs') %>
+
+        <%- include('../partials/nav-bar.ejs') %>
+    </header>
+    <!--Formulario-->
+    <form action="/crear-producto" method="POST" class="create-form" >
+        <div class="caja-form">
+            <h3 class="titulo-form-producto">Crear producto</h3>
+            <div><label>Nombre del producto</label></div>
+            <div class="control-formulario">
+                <input type="text" name="nombre" class="control" placeholder="Alfajor de Frambuesa" >
+            </div>
+            <div class="control-formulario">
+                <div><label>Precio</label></div>
+                <input type="number" name="precio" placeholder="200.50" class="control">
+            </div>
+            <div class="control-formulario">
+                <div><label>Categoría</label></div>
+                <select name="categoria" class="control">
+                    <option value="bombones">Bombones</option>
+                    <option value="tabletas">Tabletas</option>
+                    <option value="helados">Helados</option>
+                    <option value="alfajores">Alfajores</option>
+                    <option value="mermeladas">Mermeladas</option>
+                </select>
+            </div>
+            <div class="foto-productos">
+                <div><label class="label-form">Foto del producto</label></div>
+                <div class="contenedor-foto-producto">
+                    <input type="file" name="foto-producto" accept=".jpg, .png, .svg" class="adjuntar">
+                </div>
+                <span>.jpg, .png, .svg</span>
+            </div>
+            <div class="control-formulario">
+                <div><label>Descripción</label></div>
+                <textarea name="descripcion" class="control"></textarea>
+            </div>
+            <div class="control-formulario-descuento">
+                <div><label>Está en descuento</label></div>
+                <input type="radio" name="enOferta">
+            </div>
+            <button type="reset" class="boton-formulario">Borrar</button>
+            <button type="submit" class="boton-formulario">Guardar</button>
+        </div>
+            
+    </form>
+    <footer>
+        <%- include('../partials/footer.ejs') %>
+    </footer> 
+</body>
+</html>

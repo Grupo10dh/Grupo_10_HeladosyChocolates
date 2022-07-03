@@ -1,39 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <link rel="stylesheet" href="css/login.css">    
+    <%- include('../partials/head.ejs') %>
 </head>
-        
-            <header class="banner-principal">
-                <img class="banner" src="/img/banner.png" alt="banner">
+<body>
+    <header>  
+        <%- include('../partials/header.ejs') %>
 
-                <nav class="barra">
-                    <ul class="login-navbar">
-                        <li><a href="/register">Creá tu cuenta <i class="fa-solid fa-address-card"></i></a></li>
-
-                    </ul>
-                </nav>
-            </header>    
+        <%- include('../partials/nav-bar.ejs') %>
+    </header> 
             
-            <body>
-                <form action="/" method="GET" class="formulario">
+    <section class="formulario-login">       
+        <form action="/" method="GET" class="formulario">
 
-                    <div class="contenedor-usuario">
-                        <input type="text"  name="inp-usuario" class="inp-usuario" placeholder="Nombre de Usuario" required minlength="4">
-                    </div>
+            <div class="contenedor-usuario">
+                <input type="text"  name="inp-usuario" class="inp-usuario" placeholder="Nombre de Usuario" required minlength="4">
+            </div>
 
-                    <div class="contrase">
-                        <input type="password" name="contraseña" class="inp-contrase" placeholder="Ingrese su contraseña" required minlength="8" >
-                    </div>
+            <div class="contrase">
+                <input type="password" name="contraseña" class="inp-contrase" placeholder="Ingrese su contraseña" required minlength="8" >
+            </div>
 
-                    <div class="boton">
-                        <button type="submit">Enviar</button>
-                    </div>
-                </form>
-            </body>
+            <div class="boton">
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+    </section>            
+    
+    <footer>
+        <%- include('../partials/footer.ejs') %>
+    </footer> 
+    
+</body>           
 </html>
