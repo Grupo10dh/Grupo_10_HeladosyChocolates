@@ -62,7 +62,7 @@ div.header-principal-1{
     align-items: center;
 }
 
-div.banner img{
+div.banner-home img{
     width: 100%;
 }
 
@@ -313,7 +313,7 @@ div.iconos{
 }
 
 
-.banner img{
+.banner-home img{
     width: 100 vw;
     margin: auto;
 }
@@ -364,9 +364,9 @@ a{
 
 .map-responsive{
     overflow:hidden;
-    padding-bottom:60.25%;
+    /*padding-bottom:60.25%;*/
     position:relative;
-    height:0;
+    height:500px;
 }
 
 .map-responsive iframe{
@@ -383,7 +383,7 @@ div.map-responsive-textos{
 }
 
 .texto-mapa{
-    font-size: 20px;
+    font-size: 1.5rem;
     font-weight: 300;
 }
 
@@ -432,7 +432,7 @@ footer div.bottom-footer i{
     width: 240px;
 }
 
-.banner img{
+.banner-home img{
     width:100vw;
 }
 
