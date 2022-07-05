@@ -4,7 +4,7 @@
     <%- include('../partials/head.ejs') %>
 </head>
 <body>
-    <header>  
+    <header class="header-login">  
         <%- include('../partials/header.ejs') %>
 
         <%- include('../partials/nav-bar.ejs') %>
@@ -25,9 +25,13 @@
                 <button type="submit">Enviar</button>
             </div>
         </form>
+        <div class="no-tienes-cuenta">
+            <span>¿No tienes una cuenta?</span>
+            <div class="link-registrar"><a href="/register">Crear cuenta</a></div>
+        </div>
     </section>            
     
-    <footer>
+    <footer class="footer-login">
         <%- include('../partials/footer.ejs') %>
     </footer> 
     

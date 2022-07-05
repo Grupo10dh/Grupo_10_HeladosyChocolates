@@ -12,23 +12,24 @@ img {
 .formulario{
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 80%;
     align-items: center;
     justify-content: center;
-    margin: 5%;
+    margin: auto;
     padding-top: 0px;
+    
 }
 
 
 form.formulario div {
-    padding: 1px 0px;
+    padding: 5px 0px;
     width: 100%;
 }
-.nombre, .usuario, .email, .fecha, .domicilio, .password{
+.nombre-r, .usuario-r, .email-r, .fecha-r, .domicilio-r, .password-r{
     border: 2px solid #ebebeb;
     border-radius: 8px;
-    height: 40px;
-    width: 100%;
+    height: 30px;
+    width: 80%;
     padding-left: 1px;
     background-image: url("/img/choco-pedido.jpg");
     background-repeat: no-repeat;
@@ -45,7 +46,7 @@ form.formulario div {
     margin: 0;
     display: block;
     font-weight: 600;
-    padding-bottom: 15px;
+    padding-bottom: 5px;
 
 }
 
@@ -57,19 +58,10 @@ div.perfil .contenedor-pefil{
     padding: 0;
 }
 
-.intereses-lebel-input{
-    padding-left: 15px;
-}
-
-.contenedor-foto-usuario{
-    margin: 0;
-    padding: 0;
-}
-
 
 div.contraseña div.label-contraseña,div.contraseña div.contenedor-contraseña{
     margin: 0px;
-    padding: 0px;
+    padding-bottom: 0px;
 }
 
 
@@ -77,13 +69,29 @@ div.contraseña div.label-contraseña,div.contraseña div.contenedor-contraseña
     display: flex;
     flex-direction: row;
     
+    
+}
+
+input.password-r{
+    margin-bottom: 10px;
+}
+
+
+input::placeholder{
+    font-size: 0.6em;
+    padding-left: 10px;
+}
+
+input.fecha-r{
+    font-size: 0.6em;
+    padding-left: 10px;
 }
 
 button{
     border: 2px solid #ebebeb;
     border-radius: 8px;
     height: 40px;
-    width: 100%;
+    width: 60%;
     background-color: #ffff;
     color: black;
 }
@@ -129,7 +137,7 @@ button{
 
 @media(min-width:361px){
     .formulario{
-        width: 70%;
+        width: 60%;
     }
 
 }
