@@ -10,44 +10,51 @@
         <%- include('../partials/nav-bar.ejs') %>
     </header>
     <!--Formulario-->
-    <form action="/products" method="POST" class="create-form" enctype="multipart/form-data" >
+    <form action="/products/:id/?_method=PUT" method="POST" class="create-form" enctype="multipart/form-data" >
         <div class="caja-form">
-            <h3 class="titulo-form-producto">Crear producto</h3>
+            <h3 class="titulo-form-producto">Editar producto</h3>
+            <div><label>ID del producto</label></div>
+            <div class="control-formulario">
+                <input type="text" name="id" class="control"  value="<%= detalle.id%>" readonly="true" >
+            </div>
             <div><label>Nombre del producto</label></div>
             <div class="control-formulario">
-                <input type="text" name="nombre" class="control" placeholder="Alfajor de Frambuesa" >
+                <input type="text" name="nombre" class="control" placeholder="Alfajor de Frambuesa" value="<%= detalle.name%>" >
             </div>
             <div class="control-formulario">
                 <div><label>Precio</label></div>
-                <input type="number" name="precio" placeholder="200.50" class="control">
+                <input type="number" name="precio" placeholder="200.50" class="control" value="<%= detalle.price%>">
             </div>
             <div class="control-formulario">
                 <div><label>Categoría</label></div>
                 <select name="categoria" class="control">
-                    <option value="bombones">Bombones</option>
-                    <option value="tabletas">Tabletas</option>
-                    <option value="helados">Helados</option>
-                    <option value="alfajores">Alfajores</option>
-                    <option value="mermeladas">Mermeladas</option>
+                    <option value="<%= detalle.category%>">Actualmente : <%= detalle.category.toUpperCase()%></option>
+                    <option value="bombones">BOMBONES</option>
+                    <option value="tabletas">TABLETAS</option>
+                    <option value="helados">HELADOS</option>
+                    <option value="alfajores">ALFAJORES</option>
+                    <option value="mermeladas">MERMELADAS</option>
                 </select>
             </div>
             <div class="foto-productos">
                 <div><label class="label-form">Foto del producto</label></div>
                 <div class="contenedor-foto-producto">
-                    <input type="file" name="foto-producto" accept=".jpg, .png, .svg" class="adjuntar">
+                    <input type="file" name="foto-producto" accept=".jpg, .png, .svg" class="adjuntar" value="<%= detalle.image%>">
                 </div>
                 <span>.jpg, .png, .svg</span>
             </div>
             <div class="control-formulario">
                 <div><label>Descripción</label></div>
-                <textarea name="descripcion" class="control"></textarea>
+                <textarea name="descripcion" class="control"><%= detalle.description%></textarea>
             </div>
             <div class="control-formulario-descuento">
                 <div><label>Está en descuento</label></div>
                 <input type="radio" name="enOferta">
             </div>
-            <button type="reset" class="boton-formulario">Borrar</button>
+
+            <button type="submit" class="boton-formulario">Borrar</button>
             <button type="submit" class="boton-formulario">Guardar</button>
+            
         </div>
             
     </form>

@@ -9,7 +9,8 @@ body{
     background-color: black;
 }
 
-img{
+
+img.fotos{
     max-height: 100%;
     max-width: 100%;
 }
@@ -132,8 +133,6 @@ main section.productos-populares article img:hover {
 section.pedido-hoy{
     line-height: 0px;
 }
-
-
 
 a{
     outline: none;

@@ -22,10 +22,11 @@
                       <a href="/products/<%= json[i].id %>"><img src="img/product/<%= json[i].image%>" alt="Foto json" ></a>  
                     <%}%>
                         <div class="info-producto-grilla">
-                        <div class="truck-grilla"><i class="fa-solid fa-truck"></i></div>
+                        <form action="/products/<%= json[i].id %>?_method=DELETE" method="POST"><button type="submit">Borrar</button></form><a href="/products/<%= json[i].id%>/edit"><i class="fa-solid fa-pen-to-square"></i></a>
                         <div class="descripcion-grilla"><%= json[i].name %></div>
                         <div class="precios-grilla">$ <%= json[i].price %></div>
                     </div>
+                    
                 </article>
                 <%}%>
             </div>

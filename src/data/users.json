@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "name": "Fitzgerald Blakesley",
+    "username": "fblakesley0",
+    "email": "fblakesley0@bandcamp.com",
+    "password": "oP2zrs",
+    "phonenumber": "6817782679",
+    "city": "Velyka Bahachka",
+    "date": "1/5/2020"
+  },
+  {
+    "id": 2,
+    "name": "Nadine Elington",
+    "username": "nelington1",
+    "email": "nelington1@ameblo.jp",
+    "password": "5jLywqs5SA",
+    "phonenumber": "7492106924",
+    "city": "Río Colorado",
+    "date": "9/23/2019"
+  },
+  {
+    "id": 3,
+    "name": "Marillin Cayley",
+    "username": "mcayley2",
+    "email": "mcayley2@noaa.gov",
+    "password": "YTIH6blTiii",
+    "phonenumber": "2598858616",
+    "city": "El Cantón de San Pablo",
+    "date": "10/21/2019"
+  },
+  {
+    "id": 4,
+    "name": "Lynna Roseman",
+    "username": "lroseman3",
+    "email": "lroseman3@java.com",
+    "password": "RqYBa05T",
+    "phonenumber": "3487807376",
+    "city": "Sumberagung",
+    "date": "1/20/2020"
+  },
+  {
+    "id": 5,
+    "name": "Pierre Edlyne",
+    "username": "pedlyne4",
+    "email": "pedlyne4@devhub.com",
+    "password": "KHqgK5r8",
+    "phonenumber": "5319471583",
+    "city": "Surenavan",
+    "date": "6/21/2019"
+  },
+  {
+    "id": 6,
+    "name": "Maxim Welberry",
+    "username": "mwelberry5",
+    "email": "mwelberry5@deliciousdays.com",
+    "password": "j42l6xtGUVc",
+    "phonenumber": "6159123176",
+    "city": "Maria",
+    "date": "8/12/2019"
+  },
+  {
+    "id": 7,
+    "name": "Natalya Hammelberg",
+    "username": "nhammelberg6",
+    "email": "nhammelberg6@biblegateway.com",
+    "password": "cYmIae",
+    "phonenumber": "5594406969",
+    "city": "Pomerode",
+    "date": "7/19/2019"
+  },
+  {
+    "id": 8,
+    "name": "Giana Magwood",
+    "username": "gmagwood7",
+    "email": "gmagwood7@un.org",
+    "password": "ArdJCqpX",
+    "phonenumber": "8543131425",
+    "city": "Capulaan",
+    "date": "12/15/2019"
+  },
+  {
+    "id": 9,
+    "name": "Ciel Caret",
+    "username": "ccaret8",
+    "email": "ccaret8@about.com",
+    "password": "AsPYbh8",
+    "phonenumber": "6321072232",
+    "city": "Dankunku",
+    "date": "5/28/2019"
+  },
+  {
+    "id": 10,
+    "name": "Audra McGaugan",
+    "username": "amcgaugan9",
+    "email": "amcgaugan9@dedecms.com",
+    "password": "3GoOPpSlVT",
+    "phonenumber": "9204986779",
+    "city": "Bắc Ninh",
+    "date": "1/21/2020"
+  }
+]

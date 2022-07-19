@@ -1,0 +1,208 @@
+[
+  {
+    "id": 1,
+    "name": "Chocolate Amargo 72%",
+    "description": "Elaborado con fino Chocolate amargo 72% cacao importado del Perú",
+    "price": 1588.55,
+    "discount": 35,
+    "category": "helado",
+    "image": "/img/popu-1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Chocolate con Almendras",
+    "description": "Elaborado con Chocolate Danuë sembrado con almendras tostadas",
+    "price": 3401.11,
+    "discount": 21,
+    "category": "helado",
+    "image": ""
+  },
+  {
+    "id": 3,
+    "name": "Chocolate Tronador",
+    "description": "Elaborado con Chocolate Danuë e Incrustaciones de Chocolate en Rama Blanco Danuë",
+    "price": 2039.97,
+    "discount": 1,
+    "category": "helado",
+    "image": ""
+  },
+  {
+    "id": 4,
+    "name": "Chocolate Blanco con Frutilla",
+    "description": "Elaborado con fina base de Chocolate Blanco y veteados de Frutillas seleccionadas de la Patgonia",
+    "price": 4575.7,
+    "discount": 26,
+    "category": "helado",
+    "image": ""
+  },
+  {
+    "id": 5,
+    "name": "Chocolate Blanco Danuë",
+    "description": "Elaborado con Chocolate Blanco, veteado de Dulce de Leche, trozos de chocolate en rama Blanco y Brownie SIN TACC",
+    "price": 4447.49,
+    "discount": 5,
+    "category": "helado",
+    "image": ""
+  },
+  {
+    "id": 6,
+    "name": "Dulce de leche",
+    "description": "Elaborado con nuestro clásico Dulce de Leche",
+    "price": 2983.11,
+    "discount": 11,
+    "category": "helado",
+    "image": ""
+  },
+  {
+    "id": 7,
+    "name": "Dulce de leche granizado",
+    "description": "Elaborado con Dulce de Leche Danuë y trozos de Chocolate en Rama Danuë",
+    "price": 2961.4,
+    "discount": 1,
+    "category": "helado",
+    "image": ""
+  },
+  {
+    "id": 8,
+    "name": "Dulce de leche con brownie",
+    "description": "Elaborado con Dulce de Leche Danuë con Brownie SIN TACC",
+    "price": 4270.3,
+    "discount": 21,
+    "category": "helado",
+    "image": ""
+  },
+  {
+    "id": 9,
+    "name": "Chocolate",
+    "description": "Elaborado con Chocolate Danuë semiamargo.",
+    "price": 3935.34,
+    "discount": 8,
+    "category": "helado",
+    "image": ""
+  },
+  {
+    "id": 10,
+    "name": "Chocolate vegano",
+    "description": "Elaborado con nuestra perfecta receta de helado de chocolate sin agregado de productos de Origen Animal.",
+    "price": 1379.35,
+    "discount": 29,
+    "category": "helado",
+    "image": ""
+  },
+  {
+    "id": 11,
+    "name": "Tableta Marroc",
+    "description": "Con 3 capas de sabor - crema de avellanas, crema de cacao y cream de maní",
+    "price": 1379.35,
+    "discount": 29,
+    "category": "tableta",
+    "image": ""
+  },
+  {
+    "id": 12,
+    "name": "Tiramisú",
+    "description": "Vainillas al oporto",
+    "price": 1379.35,
+    "discount": 29,
+    "category": "tableta",
+    "image": ""
+  },
+  {
+    "id": 13,
+    "name": "Milhojas",
+    "description": "Clara combinacion del sabor argentino entre finas capas de chocolate y dulce de leche",
+    "price": 1379.35,
+    "discount": 29,
+    "category": "tableta",
+    "image": ""
+  },
+  {
+    "id": 14,
+    "name": "Pistacho",
+    "description": "Es una gianduja de pistacho lograda a partir del grano previamente tostado",
+    "price": 1379.35,
+    "discount": 29,
+    "category": "tableta",
+    "image": ""
+  },
+  {
+    "id": 15,
+    "name": "Bombón mojito de chocolate",
+    "description": "El ingrediente principal de esta creación es el ron, acompañado con hierba buena, sal y limón",
+    "price": 1379.35,
+    "discount": 29,
+    "category": "bombón",
+    "image": ""
+  },
+  {
+    "id": 16,
+    "name": "Bombón mousse de frambuesa",
+    "description": "Reducción de frambuesa emulsionado con manteca ghee",
+    "price": 1379.35,
+    "discount": 29,
+    "category": "bombón",
+    "image": ""
+  },
+  {
+    "id": 17,
+    "name": "Bombón kafir cremoso con lima",
+    "description": "Una emulsión ligera, reforzada con el aroma cítrico de la lima kafir",
+    "price": 1379.35,
+    "discount": 29,
+    "category": "bombón",
+    "image": ""
+  },
+  {
+    "id": 18,
+    "name": "Bombón mousse de maracuyá",
+    "description": "Dosificamos un cremoso marucuyá preocido añadiendo una porción de manteca ghee",
+    "price": 1379.35,
+    "discount": 29,
+    "category": "bombón",
+    "image": ""
+  },
+  {
+    "id": 19,
+    "name": "Bombón mousse pasas al ron",
+    "description": "Es una mousse de pasas al ron",
+    "price": 1379.35,
+    "discount": 29,
+    "category": "bombón",
+    "image": ""
+  },
+  {
+    "id": 20,
+    "name": "Bombón ositos",
+    "description": "Usamos dulce de leche más suave con azúcar orgánica.",
+    "price": 1379.35,
+    "discount": 29,
+    "category": "bombón",
+    "image": ""
+  },
+  {
+    "id": 21,
+    "name": "PRUEBA 1",
+    "description": "aaa",
+    "price": "150",
+    "discount": "on",
+    "category": "bombones",
+    "image": ""
+  },
+  {
+    "id": 22,
+    "name": "PRUEBA 2",
+    "description": "MERMELADA",
+    "price": "200.000",
+    "discount": "on",
+    "category": "mermeladas",
+    "image": ""
+  },
+  {
+    "id": 23,
+    "name": "PRUEBA 3 CAMBIO",
+    "description": "HELADOaaaaa",
+    "price": "15000",
+    "category": "helados",
+    "image": ""
+  }
+]
