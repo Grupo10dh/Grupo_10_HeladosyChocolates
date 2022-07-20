@@ -13,7 +13,8 @@
 	background-repeat: no-repeat;
 	background-size: 100%;
 	background-attachment: scroll;
-    height: 60vh;
+    height: 70vh;
+    width: 100vw;
     padding-top: 20px;
 }
 
@@ -49,6 +50,10 @@ form.formulario div {
     font-family: "gotham";
 }
 
+.inp-usuario::placeholder, .inp-contrase::placeholder{
+    font-size: 0.8em;
+}
+
 .no-tienes-cuenta{
     text-align: center;
     color: black;
@@ -57,7 +62,7 @@ form.formulario div {
     margin:  10px auto;
     padding: 5px;
     border-radius: 8px;
-    height: 20%;
+    height: 18%;
     font-size: 700;
     
 }
@@ -82,7 +87,7 @@ form.formulario div {
 }
 
 
-button{
+.button-login{
     border: 1px solid #593515;
     border-radius: 8px;
     height: 30px;
@@ -95,13 +100,13 @@ button{
     justify-content: center;
 }
 
-button:hover{
+.button-login:hover{
     background-color: #593515;
     color: #ffff;
     font-family: "artifact" white;
 }
 
-button{
+.button-login{
     transition: background-color 1.5s;
 }
 
@@ -145,7 +150,7 @@ input:Focus:invalid {
         width: 85%;
         
     }
-    button {
+    .button-login {
         width: 40%;
     }
     .no-tienes-cuenta{
