@@ -25,12 +25,13 @@ body {
     align-items: center;
     justify-content: center;
     height: 80vh;
+    width: 100wv;
 }
 
 .tarjeta{
     background-color: #ffffff;
     width: 90%;
-    height: 90%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     max-height: 380px;
@@ -39,12 +40,12 @@ body {
 
 .tarjeta .imagen {
     width: 100%;
-    height: 40%;
+    height: 55%;
 }
 
 .tarjeta .info {
     width: 100%;
-    height: 60%;
+    height: 40%;
 }
 
 
@@ -55,7 +56,7 @@ div.info  {
     padding: 5px;
 }
 
-img.imagen{
+.imagen img{
     width: 100%;
     height: 100%;
 }
@@ -67,6 +68,7 @@ h2 {
     padding: 10px;
     font-family: gotham;
     font-weight: 900;
+    color: #593515;
 }
 
 .precio h3 {
@@ -76,6 +78,7 @@ h2 {
     font-weight: 800;
     padding: 0 0 0 10px;
     font-family: gotham;
+    color: #593515;
 }
 
 .descrip h4 {
@@ -85,14 +88,16 @@ h2 {
     font-weight: 800;
     padding: 10px 0 0 10px;
     font-family: gotham;
+    color: #593515;
 }
 
 .detalla-producto p {
     display: block;
     margin: 0px;
-    font-size: 0.4rem;
+    font-size: 0.5rem;
     font-weight: 800;
-    padding: 10px
+    padding: 10px;
+    color: #593515;
     
 }
 
@@ -132,7 +137,7 @@ h2 {
 
     }
 
-    img.imagen{
+    .imagen img{
         height: 280px;
     }
     h2 {
@@ -157,6 +162,7 @@ h2 {
     }
     
     .boton {
+        margin-top: 30px;
         height: 60px;
         display: flex;
         align-items: center;
