@@ -6,7 +6,7 @@
     "price": 1588.55,
     "discount": 35,
     "category": "helado",
-    "image": ""
+    "image": "choco-amargo-72.jpg"
   },
   {
     "id": 2,
@@ -167,7 +167,7 @@
     "description": "Es una mousse de pasas al ron",
     "price": "1379.35",
     "category": "bombón",
-    "image": "product-1658272570331.jpg"
+    "image": "bombones-pasas-ron.jpg"
   },
   {
     "id": 20,
@@ -179,3 +179,6 @@
     "image": "product-1658271907026.jpg"
   }
 ]
+
+
+
