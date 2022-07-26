@@ -17,9 +17,9 @@
                 <% for(let i = 0; i < json.length; i++) {%>
                 <article>
                     <% if(!json[i].image){%>
-                        <a href="/products/<%= json[i].id %>"><img src="/img/popu-7.jpg" alt="Foto default" ></a>
+                        <a href="/products/<%= json[i].id %>" class="hiper-fotos"><img  src="/img/popu-7.jpg" alt="Foto default" class='fotos-grilla'></a>
                     <%}else{%>
-                      <a href="/products/<%= json[i].id %>"><img src="img/product/<%= json[i].image%>" alt="Foto json" ></a>  
+                        <a href="/products/<%= json[i].id %>" class="hiper-fotos"><img  src="img/product/<%= json[i].image%>" alt="Foto json" class='fotos-grilla'></a>  
                     <%}%>
                         <div class="info-producto-grilla">
                         <div class="truck-grilla"><i class="fa-solid fa-truck"></i></div>
