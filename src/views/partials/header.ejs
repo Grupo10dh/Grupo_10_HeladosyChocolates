@@ -13,6 +13,16 @@
         </div>   
     </div>
     <!-- BUSCADOR-->    
+    <div class="userLogin">
+        <% if(typeof userLogin === "undefined"){%>
+            <h1>Falta logear usuario</h1>
+        <%}else{%>
+            <h1> Bienvenido <%=userLogin.username%></h1> 
+        <%}%>
+    </div>
+    
+    
+
     <div class="iconos">
         <div class="body-buscar">
             <div class="buscar">
@@ -24,11 +34,21 @@
         </div>
         <!--LOGIN/REGISTER-->
         <div class="login-register">
-            <a href="/login"><i class="fa-solid fa-user"></i></a>
+            <% if(typeof userLogin === "undefined"){%>
+                <a href="/login"><i class="fa-solid fa-user"></i></a>
+            <%}else{%>
+                <a href="/users/<%= userLogin.id%>/edit"><i class="fa-solid fa-user"></i></a> 
+            <%}%>
+            
         </div>
         <!--CARRITO-->
         <div class="carrito">
-           <a href="/cart"><i class="fa-solid fa-cart-arrow-down"></i></a> 
+            <% if(typeof userLogin === "undefined"){%>
+                <a href="/login"><i class="fa-solid fa-cart-arrow-down"></i></a>
+            <%}else{%>
+                <a href="/cart"><i class="fa-solid fa-cart-arrow-down"></i></a>
+            <%}%>
         </div>  
     </div>
 </div>
+

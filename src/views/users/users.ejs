@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head.ejs') %>
+    <link rel="stylesheet" href="./css/grilla.css">
+    <title>Productos</title>
+</head>
+<body>
+    <header>
+        <%- include('../partials/header.ejs') %>
+
+        <%- include('../partials/nav-bar.ejs') %>
+    </header>
+    <main>
+        <section>
+            <div class="grilla">
+                <% for(let i = 0; i < users.length; i++) {%>
+                <article>
+                    <% if(!users[i].image){%>
+                        <a href="/users/<%= users[i].id %>" class="hiper-fotos"><img  src="/img/users/foto-default.jpg" alt="Foto default" class='fotos-grilla'></a>
+                    <%}else{%>
+                        <a href="/users/<%= users[i].id %>" class="hiper-fotos"><img  src="img/users/<%= users[i].image%>" alt="Foto json" class='fotos-grilla'></a>  
+                    <%}%>
+                        <div class="info-producto-grilla">
+                        <div class="descripcion-grilla"><%= users[i].id %></div> 
+                        <div class="descripcion-grilla"><%= users[i].name %> <%= users[i].apellido %></div>
+                        <div class="precios-grilla"><%= users[i].username %></div>
+                        <div class="precios-grilla"><%= users[i].email %></div>
+                        <form action="/users/<%= users[i].id %>?_method=DELETE" method="POST"><button type="submit">Borrar</button></form>
+                        <a href="/users/<%= users[i].id%>/edit" class="boton-edit"><i class="fa-solid fa-pen-to-square"></i></a>
+                        </div>
+                </article>
+                <%}%>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <%- include('../partials/footer.ejs') %>
+    </footer>
+    
+</body>
+</html>

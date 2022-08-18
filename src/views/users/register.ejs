@@ -10,44 +10,95 @@
         <%- include('../partials/nav-bar.ejs') %>
     </header>  
     <!--Formulario de registro-->
-    <form action="/" method="GET" class="formulario" enctype="multipart/form-data">
+    <form action="/register" method="POST" class="formulario" enctype="multipart/form-data">
             <div class="nombre-apellido">
-                <input type="text" name="nombre" placeholder="Nombre y apellido" class="nombre-r" required minlength="8"  >
+                <input type="text" name="nombre" placeholder="Nombre(*)" class="nombre-r"  value="<%= locals.prev && prev.nombre ? prev.nombre : '' %>">
+            </div>
+            <div class="label">
+                <% if(locals.errors && errors.nombre){ %>
+                    <label class="label-form-msgError">!!! <%= errors.nombre.msg %> !!!</label>
+                    <%}%>
+            </div>
+            <div class="nombre-apellido">
+                <input type="text" name="apellido" placeholder="Apellido" class="nombre-r"  value="<%= locals.prev && prev.apellido ? prev.apellido : '' %>">
+            </div>
+            <div class="label">
+                <% if(locals.errors && errors.apellido){ %>
+                    <label class="label-form-msgError">!!! <%= errors.apellido.msg %> !!!</label>
+                    <%}%>
             </div>
             <div class="nombre-usuario">
-                <input type="text" name="usuario" placeholder="Nombre de usuario" class="usuario-r" required minlength="4">
+                <input type="text" name="usuario" placeholder="Nombre de usuario(*)" class="usuario-r"  value="<%= locals.prev && prev.usuario? prev.usuario : '' %>">
+            </div>
+            <div class="label">
+                <% if(locals.errors && errors.usuario){ %>
+                    <label class="label-form-msgError">!!! <%= errors.usuario.msg %> !!!</label>
+                    <%}%>
             </div>
             <div class="e-mail">
-                <input type="text" name="email" placeholder="E-mail" class="email-r" required>
+                <input type="text" name="email" placeholder="E-mail(*)" class="email-r"  value="<%= locals.prev && prev.email ? prev.email : '' %>">
+            </div>
+            <div class="label">
+                <% if(locals.errors && errors.email){ %>
+                    <label class="label-form-msgError">!!! <%= errors.email.msg %> !!!</label>
+                    <%}%>
+            </div>
+            
+            <div class="foto-productos">
+                <div><label class="label-form">Foto de perfil</label></div>
+                <div class="contenedor-foto-producto">
+                    <input type="file" name="foto-usuario" accept=".jpg, .png, .svg, .jpeg" class="adjuntar">
+                </div>
+                <span>.jpg, .png, .svg</span>
             </div>
             <div class="fecha-div">
                 <div class="label">
                     <label class="label-form-r">Fecha de nacimiento</label>
                 </div>
-                <input type="date" name="fecha" placeholder="Fecha de nacimiento" class="fecha-r">
+                <input type="date" name="fecha" placeholder="Fecha de nacimiento" class="fecha-r" >
+            </div>
+            <div class="label">
+                <% if(locals.errors && errors.fecha){ %>
+                    <label class="label-form-msgError">!!!  <%= errors.fecha.msg %>  !!!</label>
+                    <%}%>
             </div>
             <div class="domicilio-div">
-                <input type="text" name="domicilio" placeholder="Domicilio" class="domicilio-r">
+                <input type="text" name="domicilio" placeholder="Domicilio" class="domicilio-r" value="<%= locals.prev && prev.domicilio ? prev.domicilio : '' %>">
+            </div>
+            <div class="label">
+                <% if(locals.errors && errors.domicilio){ %>
+                    <label class="label-form-msgError">!!!  <%= errors.domicilio.msg %>  !!!</label>
+                    <%}%>
             </div>
             <div class="contraseña">
                 <div class="label-contraseña"><label class="label-form">Contraseña</label></div>
                 <div class="contenedor-contraseña">
-                    <input type="password" name="password" placeholder="Contraseña nueva" class= "password-r" required minlength="8">
-                    <input type="password" name="password" placeholder=" Confirmar contraseña" class= "password-r" required minlength="8">
+                    <input type="password" name="password" placeholder="Contraseña nueva(*)" class= "password-r" >
+                    <div class="label">
+                        <% if(locals.errors && errors.password){ %>
+                            <label class="label-form-msgError">!!!  <%= errors.password.msg %>  !!!</label>
+                            <%}%>
+                    </div>
+                    <input type="password" name="passwordConf" placeholder=" Confirmar contraseña(*)" class= "password-r" ><div class="label">
+                        <% if(locals.errors && errors.passwordConf){ %>
+                            <label class="label-form-msgError">!!!  <%= errors.passwordConf.msg %>  !!!</label>
+                            <%}%>
+                    </div>
                 </div> 
             </div>
+
             <div class="contenedor-button">
                 <div class="contenedor-button-uno">
                     <button type="submit" class="button-enviar">Enviar</button>
                 </div>
                 <div class="contenedor-button-dos">
                     <button type="reset" class="button-borrar">Borrar</button>
-                </div> 
-                    
-                
+                </div>          
             </div>
     </form>
+    
     <footer class="footer-login">
         <%- include('../partials/footer.ejs') %>
     </footer> 
 </html>
+

@@ -47,3 +47,28 @@
 - ## Stop Doing: 
 - 
 
+# Retrospectiva sprint 4
+
+- ## Start Doing: 
+- Slider 
+- Video
+- Agregar un icono de Whatsapp fijo para pedidos o consultas
+- Agregar un Chatbot(A futuro)
+
+- ## More of:
+- Usar subclases para las etiquetas CSS
+- Adaptar los tamaños de estructuras en CSS
+
+
+- ## Keep Doing :
+- Buen uso de Git
+- División de tareas
+
+- ## Less of: 
+- 
+
+
+- ## Stop Doing: 
+- 
+
+

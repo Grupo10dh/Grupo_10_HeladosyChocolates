@@ -11,15 +11,44 @@
     </header> 
             
     <section class="formulario-login">       
-        <form action="/" method="GET" class="formulario">
+        <form action="/login" method="POST" class="formulario">
 
             <div class="contenedor-usuario">
-                <input type="text"  name="inp-usuario" class="inp-usuario" placeholder="Nombre de Usuario" required minlength="4">
+                <input type="text"  name="inpUsuario" class="inp-usuario" placeholder="Nombre de Usuario" value="<%= locals.prev && prev.nombre ? prev.nombre : '' %>">
+            </div>
+
+            <div class="label">
+                <% if(locals.errors && errors.inpUsuario){ %>
+                    <label class="label-form-msgError">!!! <%= errors.inpUsuario.msg %> !!!</label>
+                    <%}%>
             </div>
 
             <div class="contrase">
-                <input type="password" name="contraseña" class="inp-contrase" placeholder="Ingrese su contraseña" required minlength="8" >
+                <input type="password" name="contraseña" class="inp-contrase" placeholder="Ingrese su contraseña">
             </div>
+
+            <div class="label">
+                <% if(locals.errors && errors.contraseña){ %>
+                    <label class="label-form-msgError">!!! <%= errors.contraseña.msg %> !!!</label>
+                    <%}%>
+            </div>
+
+            <div class="label">
+                <% if(typeof userNotLoggin === "undefined"){%>
+                    <h1></h1>
+                <%}else if(userNotLoggin){%>
+                    <label class="label-form-msgError">!!! No existe el usuario !!!</label>
+                <%}%>
+            </div>
+            
+            <!--<% if(userNotLoggin = undefined){%>
+                <h1> A</h1>
+            <%}else if(userNotLoggin){%>
+                <label class="label-form-msgError">!!! No existe el usuario !!!</label>
+            <%}else{%>
+                <h1> B</h1>
+            <%}%>-->
+            
 
             <div class="boton-login">
                 <button type="submit" class="button-login">Enviar</button>
@@ -37,3 +66,4 @@
     
 </body>           
 </html>
+

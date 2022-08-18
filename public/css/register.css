@@ -50,6 +50,14 @@ form.formulario div {
 
 }
 
+.label-form-msgError{
+    margin: 0;
+    display: block;
+    font-weight: 600;
+    padding-bottom: 5px;
+    color: red;
+}
+
 div.perfil .contenedor-pefil{
     display: flex;
     align-items: center;

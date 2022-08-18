@@ -21,15 +21,27 @@
             <h4 class="titular-pedido">¿Que vas a pedir hoy?</h4>
             <div class="pedido-productos">
                 <article class="conteiner-helado">
-                    <a href="/helados"> <img class="fotos-pedido" src="/img/helado-pedido.jpg" alt="Foto Helados"></a>
+                    <% if(userLogin != undefined){%>
+                        <a href="/#"> <img class="fotos-pedido" src="/img/helado-pedido.jpg" alt="Foto Helados"></a>  
+                    <%}else{%>
+                        <a href="/login"><img class="fotos-pedido" src="/img/helado-pedido.jpg" alt="Foto Helados"></a>
+                    <%}%>
                     <p>Helado</p> 
                 </article>
                 <article class="conteiner-chocolate">
-                    <a href="/chocolates"> <img class="fotos-pedido" src="/img/choco-pedido.jpg" alt="Foto-Chocolate"></a>
+                    <% if(userLogin != undefined){%>
+                        <a href="/#"> <img class="fotos-pedido" src="/img/choco-pedido.jpg" alt="Foto-Chocolate"></a> 
+                    <%}else{%>
+                        <a href="/login"><img class="fotos-pedido" src="/img/choco-pedido.jpg" alt="Foto-Chocolate"></a>
+                    <%}%>
                     <p>Chocolate</p>
                 </article>
                 <article class="conteiner-alfajor">
-                    <a href="/alfajores"> <img class="fotos-pedido" src="/img/alfajor-pedido.jpg" alt="Foto Alfajores"></a>
+                    <% if(userLogin != undefined){%>
+                        <a href="/#"> <img class="fotos-pedido" src="/img/alfajor-pedido.jpg" alt="Foto Alfajores"></a> 
+                    <%}else{%>
+                        <a href="/login"><img class="fotos-pedido" src="/img/alfajor-pedido.jpg" alt="Foto Alfajores"></a>
+                    <%}%>
                     <p>Alfajor</p>
                 </article>
             </div>
@@ -40,56 +52,88 @@
         <section class="productos-populares">
             <div class="productos">
                 <article>
-                    <a href="/products"> <img class="fotos" src="/img/popu-1.jpg" alt="Foto 1"></a>
+                    <% if(userLogin != undefined){%>
+                        <a href="/products"><img class="fotos" src="/img/popu-1.jpg" alt="Foto 1"></a> 
+                    <%}else{%>
+                        <a href="/login"><img class="fotos" src="/img/popu-1.jpg" alt="Foto 1"></i></a>
+                    <%}%>   
                     <div class="truck"><i class="fa-solid fa-truck"></i></div>
                     <div class="info-producto">
                         <div class="descripcion">Barra de chocolate</div>
                     </div>
                 </article>
                 <article>
-                    <a href="/products"><img class="fotos" src="/img/popu-2.jpg" alt="Foto 2"></a>
+                    <% if(userLogin != undefined){%>
+                        <a href="/products"><img class="fotos" src="/img/popu-2.jpg" alt="Foto 2"></a> 
+                    <%}else{%>
+                        <a href="/login"><img class="fotos" src="/img/popu-2.jpg" alt="Foto 2"></a>
+                    <%}%>
                     <div class="truck"><i class="fa-solid fa-truck"></i></div>
                     <div class="info-producto">  
                         <div class="descripcion">Chocolate </div>
                     </div>
                 </article>
                 <article>
-                    <a href="/products"> <img class="fotos" src="/img/popu-3.jpg" alt="Foto 3"></a>
+                    <% if(userLogin != undefined){%>
+                        <a href="/products"> <img class="fotos" src="/img/popu-3.jpg" alt="Foto 3"></a>
+                    <%}else{%>
+                        <a href="/login"><img class="fotos" src="/img/popu-3.jpg" alt="Foto 3"></a>
+                    <%}%>    
                     <div class="truck"><i class="fa-solid fa-truck"></i></div>
                     <div class="info-producto">                     
                         <div class="descripcion">Tableta chocolate</div>
                     </div>
                 </article>
                 <article>
-                    <a href="/products"><img class="fotos" src="/img/popu-5.jpg" alt="Foto 4"></a>
+                    <% if(userLogin != undefined){%>
+                        <a href="/products"><img class="fotos" src="/img/popu-5.jpg" alt="Foto 4"></a>
+                    <%}else{%>
+                        <a href="/login"><img class="fotos" src="/img/popu-5.jpg" alt="Foto 4"></a>
+                    <%}%>                   
                     <div class="truck"><i class="fa-solid fa-truck"></i></div>
                     <div class="info-producto">
                         <div class="descripcion">Copa helado</div>
                     </div>           
                 </article>
                 <article>
-                    <a href="/products"><img class="fotos" src="/img/popu-4.jpg" alt="Foto 5"></a>
+                    <% if(userLogin != undefined){%>
+                        <a href="/products"><img class="fotos" src="/img/popu-4.jpg" alt="Foto 5"></a>
+                    <%}else{%>
+                        <a href="/login"><img class="fotos" src="/img/popu-4.jpg" alt="Foto 5"></a>
+                    <%}%>                   
                     <div class="truck"><i class="fa-solid fa-truck"></i></div>
                     <div class="info-producto">
                         <div class="descripcion">Snack</div>
                     </div>           
                 </article>
                 <article>
-                    <a href="/products"><img class="fotos" src="/img/popu-6.jpg" alt="Foto 6"></a>
+                    <% if(userLogin != undefined){%>
+                        <a href="/products"><img class="fotos" src="/img/popu-6.jpg" alt="Foto 6"></a> 
+                    <%}else{%>
+                        <a href="/login"><img class="fotos" src="/img/popu-6.jpg" alt="Foto 6"></a>
+                    <%}%>               
                     <div class="truck"><i class="fa-solid fa-truck"></i></div>
                     <div class="info-producto">
                         <div class="descripcion">Tableta</div>
                     </div>           
                 </article>
                 <article>
-                    <a href="/products"><img class="fotos" src="/img/popu-7.jpg" alt="Foto 7"></a>
+                    <% if(userLogin != undefined){%>
+                        <a href="/products"><img class="fotos" src="/img/popu-7.jpg" alt="Foto 7"></a>
+                    <%}else{%>
+                        <a href="/login"><img class="fotos" src="/img/popu-7.jpg" alt="Foto 7"></a>
+                    <%}%>                
                     <div class="truck"><i class="fa-solid fa-truck"></i></div>
                     <div class="info-producto">
                         <div class="descripcion">Choco almendras</div>
                     </div>           
                 </article>
                 <article>
-                    <a href="/products"><img class="fotos" src="/img/popu-8.jpg" alt="Foto 8"></a>
+                    <% if(userLogin != undefined){%>
+                        <a href="/products"><img class="fotos" src="/img/popu-8.jpg" alt="Foto 8"></a>
+                    <%}else{%>
+                        <a href="/login"><img class="fotos" src="/img/popu-8.jpg" alt="Foto 8"></a>
+                    <%}%>
                     <div class="truck"><i class="fa-solid fa-truck"></i></div>
                     <div class="info-producto">
                         <div class="descripcion">Helado</div>
@@ -107,8 +151,7 @@
                 <p class="texto-mapa">Local 2: Dorrego y cabildo</p>
                 <p class="texto-mapa">Local 3: Dorrego y cabildo</p>
                 <p class="texto-mapa">Local 4: Dorrego y cabildo</p>
-            </div>
-            
+            </div>  
         </section>
     </main>
     <footer>

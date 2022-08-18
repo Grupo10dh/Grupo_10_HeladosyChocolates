@@ -10,16 +10,16 @@ const json = JSON.parse(fs.readFileSync(jsonPath,'utf-8'));
 
 const controller = {
     productList : (req,res) => {
-        res.render(path.join(__dirname,'../views/products/listProducts.ejs'),{'json':json})
+        res.render(path.join(__dirname,'../views/products/listProducts.ejs'),{'json':json,'userLogin':req.session.userLogged})
     },
     cart : (req,res) => {
-        res.render(path.join(__dirname,'../views/products/productCart.ejs'))
+        res.render(path.join(__dirname,'../views/products/productCart.ejs'),{'userLogin':req.session.userLogged})
     },
     productDetail : (req,res) => {
         const id = req.params.id;
         const product = json.find((e) => e.id == parseInt(id))
         if(product){
-        res.render(path.join(__dirname,'../views/products/productDetail.ejs'),{'product':product})
+        res.render(path.join(__dirname,'../views/products/productDetail.ejs'),{'product':product,'userLogin':req.session.userLogged})
         }else{
             res.send("Not found");
         }
@@ -62,7 +62,7 @@ const controller = {
         const id = req.params.id;
         const product = json.find((e) => e.id == parseInt(id))
         if(product){
-        res.render(path.join(__dirname,'../views/products/formProductsEdit.ejs'),{'detalle':product})
+        res.render(path.join(__dirname,'../views/products/formProductsEdit.ejs'),{'detalle':product,'userLogin':req.session.userLogged})
         }else{
             res.send("Not found");
         }
@@ -115,7 +115,7 @@ const controller = {
 
     },
     productListAdmin : (req,res) => {
-        res.render(path.join(__dirname,'../views/products/listProductsAdmin.ejs'),{'json':json})
+        res.render(path.join(__dirname,'../views/products/listProductsAdmin.ejs'),{'json':json,'userLogin':req.session.userLogged})
     }
 
 }
