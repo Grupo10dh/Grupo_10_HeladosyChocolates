@@ -6,11 +6,20 @@ const jsonPath = path.join(__dirname,'../data/products.json');
 
 const json = JSON.parse(fs.readFileSync(jsonPath,'utf-8'));
 
+const db = require('../database/models');
+const sequelize = db.sequelize;
+const { Op } = require("sequelize");
 
+const Producto = db.Producto
 
 const controller = {
     productList : (req,res) => {
-        res.render(path.join(__dirname,'../views/products/listProducts.ejs'),{'json':json,'userLogin':req.session.userLogged})
+
+        db.Producto.findAll()
+        .then(productos => {
+            res.render(path.join(__dirname,'../views/products/listProducts.ejs'),{'productos':productos,'userLogin':req.session.userLogged})
+        })
+        //res.render(path.join(__dirname,'../views/products/listProducts.ejs'),{'json':json,'userLogin':req.session.userLogged})
     },
     cart : (req,res) => {
         res.render(path.join(__dirname,'../views/products/productCart.ejs'),{'userLogin':req.session.userLogged})
@@ -28,44 +37,66 @@ const controller = {
         res.render(path.join(__dirname,'../views/products/formProducts.ejs'))
     },
     productCreate : (req,res) => {
-        const newEnOferta = req.body.enOferta
-        const newDescripcion = req.body.descripcion
-        const newFotoProducto = req.file ? req.file.filename : ""
-        const newCategoria = req.body.categoria
-        const newPrecio = req.body.precio
-        const newNombre = req.body.nombre
-
-        const id = json.length;
-        const newId = id + 1
-
-        const obj = {
-            id: newId,
-            name: newNombre,
-            description: newDescripcion,
-            price: newPrecio,
-            discount: newEnOferta,
-            category: newCategoria,
-            image: newFotoProducto
-        }
-
-        json.push(obj)
-
-        fs.writeFile(jsonPath,JSON.stringify(json),(error) => {
-            if(error){
-                res.send(error);
-            }else{
-                res.redirect('/products');
+        Producto
+        .create(
+            {
+                nombre: req.body.nombre,
+                descripcion: req.body.descripcion,
+                precio_unidad: req.body.precio,
+                descuento_id : "",
+                imagen: req.file ? req.file.filename : "",
+                stock: "" ,
+                Categorias_id : req.body.categoria
             }
-        })
+        )
+        .then(()=> {
+            return res.redirect('/products')})            
+        .catch(error => res.send(error))
+        // const newEnOferta = req.body.enOferta
+        // const newDescripcion = req.body.descripcion
+        // const newFotoProducto = req.file ? req.file.filename : ""
+        // const newCategoria = req.body.categoria
+        // const newPrecio = req.body.precio
+        // const newNombre = req.body.nombre
+
+        // const id = json.length;
+        // const newId = id + 1
+
+        // const obj = {
+        //     id: newId,
+        //     name: newNombre,
+        //     description: newDescripcion,
+        //     price: newPrecio,
+        //     discount: newEnOferta,
+        //     category: newCategoria,
+        //     image: newFotoProducto
+        // }
+
+        // json.push(obj)
+
+        // fs.writeFile(jsonPath,JSON.stringify(json),(error) => {
+        //     if(error){
+        //         res.send(error);
+        //     }else{
+        //         res.redirect('/products');
+        //     }
+        // })
     },
-    productEdit : (req,res) =>{
-        const id = req.params.id;
-        const product = json.find((e) => e.id == parseInt(id))
-        if(product){
-        res.render(path.join(__dirname,'../views/products/formProductsEdit.ejs'),{'detalle':product,'userLogin':req.session.userLogged})
-        }else{
-            res.send("Not found");
-        }
+    productEdit : async (req,res) =>{
+
+            const product = await Producto.findByPk(req.params.id);
+            if(product){
+                res.render(path.join(__dirname,'../views/products/formProductsEdit.ejs'),{'detalle':product,'userLogin':req.session.userLogged})
+            }else{
+                res.send("Not found");
+            }
+        
+        // const product = json.find((e) => e.id == parseInt(id))
+        // if(product){
+        // res.render(path.join(__dirname,'../views/products/formProductsEdit.ejs'),{'detalle':product,'userLogin':req.session.userLogged})
+        // }else{
+        //     res.send("Not found");
+        // }
     },
     productEditConfirm : (req,res) => { 
         const newId = req.body.id

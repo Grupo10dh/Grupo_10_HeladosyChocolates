@@ -1,17 +1,20 @@
 module.exports = (sequelize, dataTypes) =>{
-    const Movie = sequelize.define("Usuario",{
+    const Producto = sequelize.define("Producto",{
         id:{
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
+            allowNull: false,
         },
 
         nombre:{
-            type: dataTypes.STRING
+            type: dataTypes.STRING(45),
+            allowNull: false
         },
 
         descripcion: {
-            type: dataTypes.INTEGER
+            type: dataTypes.STRING(200),
+            allowNull: false
         },
 
         precio_unidad: {
@@ -19,15 +22,15 @@ module.exports = (sequelize, dataTypes) =>{
         },
 
         descuento_id: {
-            type: dataTypes.DATE
+            type: dataTypes.INTEGER(100)
         },
 
         imagen:{
-            type: dataTypes.INTEGER
+            type: dataTypes.STRING(100)
         },
 
         stock:{
-            type: dataTypes.INTEGER
+            type: dataTypes.INTEGER(1000)
         },
 
     },
@@ -35,6 +38,21 @@ module.exports = (sequelize, dataTypes) =>{
         tableName: 'productos',
         timestamps: false
     });
+    Producto.associate = function(models){
+        Producto.hasMany(models.Categoria, {
+            as : "categorias",
+            foreignkey: "Categorias_id"
+        })
+
+        Producto.belongsToMany(models.Carrito, { 
+            as: "Carrito",
+            through: 'Detalle_Orden',
+            foreignKey: 'producto_id',
+            otherKey: 'carrito_id',
+            timestamps: false
+        })
+    }
+    return Producto
 }
 
 //agregar relacion categorias_id

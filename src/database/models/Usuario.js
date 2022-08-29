@@ -1,49 +1,63 @@
 module.exports = (sequelize, dataTypes) =>{
-    const Movie = sequelize.define("Usuario",{
+    const Usuario = sequelize.define("Usuario",{
         id:{
             type: dataTypes.INTEGER,
             primaryKey: true,
-            autoIncrement: true,
+            allowNull: false,
+            autoIncrement: true
         },
 
         nombre:{
-            type: dataTypes.STRING
+            type: dataTypes.STRING(100),
+            allowNull: false
         },
 
         apellido: {
-            type: dataTypes.INTEGER
+            type: dataTypes.STRING(100)
         },
 
         usuario: {
-            type: dataTypes.INTEGER
+            type: dataTypes.STRING(100),
+            allowNull: false
         },
 
         email: {
-            type: dataTypes.DATE
+            type: dataTypes.STRING(100)
+            
         },
 
         telefono:{
-            type: dataTypes.INTEGER
+            type: dataTypes.STRING(45)
         },
 
         contraseña:{
-            type: dataTypes.INTEGER
+            type: dataTypes.STRING(200),
+            allowNull: false,
         },
 
         ciudad:{
-            type: dataTypes.INTEGER
+            type: dataTypes.STRING(45)
         },
 
         fecha_de_nacimiento:{
-            type: dataTypes.INTEGER
+            type: dataTypes.DATEONLY,
+            allowNull: false
         },
 
         foto_de_perfil:{
-            type: dataTypes.INTEGER
+            type: dataTypes.STRING(100)
         },
     },
     {
         tableName: 'usuarios',
         timestamps: false
     });
+    Usuario.associate = function(models){
+        Usuario.belongsTo(models.Carrito, {
+            as : "carrito",
+            foreignkey: "usuario_id"
+        })
+    }
+    return Usuario
 }
+

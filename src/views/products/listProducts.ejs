@@ -14,17 +14,17 @@
     <main>
         <section>
             <div class="grilla">
-                <% for(let i = 0; i < json.length; i++) {%>
+                <% for(let i = 0; i < productos.length; i++) {%>
                 <article>
-                    <% if(!json[i].image){%>
-                        <a href="/products/<%= json[i].id %>" class="hiper-fotos"><img  src="/img/popu-7.jpg" alt="Foto default" class='fotos-grilla'></a>
+                    <% if(!productos[i].image){%>
+                        <a href="/products/<%= productos[i].id %>" class="hiper-fotos"><img  src="/img/popu-7.jpg" alt="Foto default" class='fotos-grilla'></a>
                     <%}else{%>
-                        <a href="/products/<%= json[i].id %>" class="hiper-fotos"><img  src="img/product/<%= json[i].image%>" alt="Foto json" class='fotos-grilla'></a>  
+                        <a href="/products/<%= productos[i].id %>" class="hiper-fotos"><img  src="img/product/<%= productos[i].image%>" alt="Foto Productos" class='fotos-grilla'></a>  
                     <%}%>
                         <div class="info-producto-grilla">
                         <div class="truck-grilla"><i class="fa-solid fa-truck"></i></div>
-                        <div class="descripcion-grilla"><%= json[i].name %></div>
-                        <div class="precios-grilla">$ <%= json[i].price %></div>
+                        <div class="descripcion-grilla"><%= productos[i].name %></div>
+                        <div class="precios-grilla">$ <%= productos[i].price %></div>
                     </div>
                 </article>
                 <%}%>

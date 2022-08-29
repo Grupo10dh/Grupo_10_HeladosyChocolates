@@ -1,25 +1,26 @@
 module.exports = (sequelize, dataTypes) =>{
-    const Movie = sequelize.define("Usuario",{
+    const Categoria = sequelize.define("Categoria",{
         id:{
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
+            allowNull: false
         },
 
         alfajor:{
-            type: dataTypes.STRING
+            type: dataTypes.STRING(45)
         },
 
         chocolate: {
-            type: dataTypes.INTEGER
+            type: dataTypes.STRING(45)
         },
 
         helado: {
-            type: dataTypes.INTEGER
+            type: dataTypes.STRING(45)
         },
 
         mermelada: {
-            type: dataTypes.DATE
+            type: dataTypes.STRING(45)
         },
 
     },
@@ -27,6 +28,13 @@ module.exports = (sequelize, dataTypes) =>{
         tableName: 'categorias',
         timestamps: false
     });
+    Categoria.associate = function(models){
+        Categoria.belongsTo(models.Producto, {
+            as : "productos",
+            foreignkey: "Categorias_id"
+        })
+    }
+    return Categoria
 }
 
 //agregar relacion producto_id

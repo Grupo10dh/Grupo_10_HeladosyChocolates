@@ -1,22 +1,28 @@
 module.exports = (sequelize, dataTypes) =>{
-    const Movie = sequelize.define("Usuario",{
+    const Detalle_Orden = sequelize.define("Detalle_Orden",{
         id:{
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
+            allowNull: false
+        
         },
 
         subtotal:{
-            type: dataTypes.STRING
+            type: dataTypes.DOUBLE,
+            allowNull: false
         },
 
         cantidad: {
-            type: dataTypes.INTEGER
+            type: dataTypes.INTEGER,
+            allowNull: false
         },
     },
     {
         tableName: 'categorias',
         timestamps: false
     });
+
+    return Detalle_Orden
 }
 
