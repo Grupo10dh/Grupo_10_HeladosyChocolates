@@ -22,6 +22,8 @@ const upload = multer({ storage });
 router.get('/products/:id', productsController.productDetail)
 router.get('/cart', productsController.cart)
 
+router.post('/product/buscar', productsController.buscar)
+
 router.get('/products', productsController.productList)
 router.get('/product/create', productsController.productForm)
 

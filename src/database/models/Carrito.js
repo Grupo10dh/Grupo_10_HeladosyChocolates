@@ -1,36 +1,52 @@
 module.exports = (sequelize, dataTypes) =>{
-    const Carrito = sequelize.define("Carrito",{
-        id:{
+
+    const alias = "Carrito"
+
+    const cols = {
+        id_carrito:{
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
-            allowNull: false
+            allowNull: false,
+        },
+
+        id_usuario:{
+            type: dataTypes.INTEGER,
+            allowNull: false,
         },
 
         total:{
-            type: dataTypes.FLOAT(7,2)
+            type: dataTypes.FLOAT(7,2),
+            allowNull: false
         },
 
-    },
-    {
+    }
+
+    const config = {
         tableName: 'carrito',
         timestamps: false
-    });
+    }
+
+    const Carrito = sequelize.define(alias, cols, config);
+
+    
     Carrito.associate = function(models){
-        Carrito.hasMany(models.Usuario, {
+    /* Carrito.hasMany(models.Usuario, {
             as : "usuario",
             foreignkey: "usuario_id"
         })
+        */
 
-        Carrito.belongsToMany(models.Producto, { 
+    /* Carrito.belongsToMany(models.Producto, { 
             as: "Productos",
             through: 'Detalle_Orden',
-            foreignKey: 'carrito_id',
-            otherKey: 'producto_id',
+            foreignKey: 'id_carrito',
+            otherKey: 'id_producto',
             timestamps: false
-        })
+        })*/
     }
+
+
     return Carrito
 }
 
-//agregar relacion usuario_id

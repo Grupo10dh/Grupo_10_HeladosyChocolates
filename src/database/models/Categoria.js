@@ -1,42 +1,34 @@
 module.exports = (sequelize, dataTypes) =>{
-    const Categoria = sequelize.define("Categoria",{
-        id:{
+
+    const alias = "Categoria"
+
+    const cols = {
+        id_categoria:{
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
             allowNull: false
         },
 
-        alfajor:{
-            type: dataTypes.STRING(45)
+        nombre_categoria:{
+            type: dataTypes.STRING(45),
+            allowNull: false
         },
+    }
 
-        chocolate: {
-            type: dataTypes.STRING(45)
-        },
-
-        helado: {
-            type: dataTypes.STRING(45)
-        },
-
-        mermelada: {
-            type: dataTypes.STRING(45)
-        },
-
-    },
-    {
+    const config = {
         tableName: 'categorias',
         timestamps: false
-    });
+    }
+
+    const Categoria = sequelize.define(alias, cols, config);
+
     Categoria.associate = function(models){
         Categoria.belongsTo(models.Producto, {
-            as : "productos",
-            foreignkey: "Categorias_id"
+            as : 'productos',
+            foreignkey: 'id_categoria'
         })
     }
+
     return Categoria
 }
-
-//agregar relacion producto_id
-
-//agregar relacion carrito_id

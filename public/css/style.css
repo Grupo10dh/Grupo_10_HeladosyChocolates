@@ -281,6 +281,14 @@ justify-content: center;
     margin: 5px 2px 2px 2px;
 }
 
+.boton-inputBuscar{
+    background: #884800;
+    color: white;
+    border: 0px;
+}
+
+
+/* HOVERS PROBLEMA BOTON E INPUT BUSCAR
 .buscar:hover input {
     width: 127px;
 }
@@ -297,6 +305,14 @@ div.btn{
     transition: all 1s;
 }
 
+.boton-inputBuscar:hover{
+    background:#0e0088 ;
+}
+
+.boton-inputBuscar{
+    transition: all 1s;
+}
+
 div.carrito i:hover{
     background: #0e0088;
 }
@@ -310,7 +326,9 @@ div.login-register i:hover{
 
 div.login-register i{
     transition: all 1s;
-}
+}*/
+
+
 /*CLASES*/
 
 .header-principal{

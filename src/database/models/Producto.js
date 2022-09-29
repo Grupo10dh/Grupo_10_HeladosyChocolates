@@ -1,6 +1,10 @@
 module.exports = (sequelize, dataTypes) =>{
-    const Producto = sequelize.define("Producto",{
-        id:{
+
+    const alias = "Producto";
+
+    
+    const cols ={
+        id_producto:{
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
@@ -18,11 +22,12 @@ module.exports = (sequelize, dataTypes) =>{
         },
 
         precio_unidad: {
-            type: dataTypes.INTEGER
+            type: dataTypes.INTEGER,
+            allowNull: false
         },
 
-        descuento_id: {
-            type: dataTypes.INTEGER(100)
+        descuento: {
+            type: dataTypes.TINYINT
         },
 
         imagen:{
@@ -33,26 +38,37 @@ module.exports = (sequelize, dataTypes) =>{
             type: dataTypes.INTEGER(1000)
         },
 
-    },
-    {
-        tableName: 'productos',
-        timestamps: false
-    });
-    Producto.associate = function(models){
+        id_categoria:{
+            type: dataTypes.INTEGER(10),
+            allowNull: false
+        }
+    };
+
+    const config={
+            tableName: 'productos',
+            timestamps: false
+    }
+
+    const Producto = sequelize.define(alias, cols, config);
+
+    Producto.associate = (models)=>{
+
         Producto.hasMany(models.Categoria, {
-            as : "categorias",
-            foreignkey: "Categorias_id"
+            as:"categorias",
+            foreignkey: "id_categoria"
         })
 
-        Producto.belongsToMany(models.Carrito, { 
+        /*Producto.belongsToMany(models.Carrito, { 
             as: "Carrito",
             through: 'Detalle_Orden',
-            foreignKey: 'producto_id',
-            otherKey: 'carrito_id',
+            foreignKey: 'id_producto',
+            otherKey: 'id_carrito',
             timestamps: false
-        })
+        })*/
     }
+
     return Producto
+
 }
 
-//agregar relacion categorias_id
+

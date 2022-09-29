@@ -26,10 +26,13 @@
     <div class="iconos">
         <div class="body-buscar">
             <div class="buscar">
-                <input type="text" placeholder="Buscar" required class="buscar-input">
-                <div class="btn">
-                    <i class="fas fa-search icon"></i>
-                </div>
+                <form action="/product/buscar" method="POST">
+                    <input type="text" placeholder="Buscar" required class="buscar-input" name="buscar">
+
+                    <div class="btn">
+                        <button type="submit" class="boton-inputBuscar"><i class="fas fa-search icon"></i></button>  
+                    </div>
+                </form>
             </div>
         </div>
         <!--LOGIN/REGISTER-->

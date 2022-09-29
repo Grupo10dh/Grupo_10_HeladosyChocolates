@@ -72,3 +72,108 @@
 - 
 
 
+# Retrospectiva sprint 5
+
+- ## Start Doing: 
+- Slider 
+- Video
+- Agregar un icono de Whatsapp fijo para pedidos o consultas
+- Agregar un Chatbot(A futuro)
+- Implementar Cookies
+
+- ## More of:
+- Usar subclases para las etiquetas CSS
+- Adaptar los tamaños de estructuras en CSS
+
+
+- ## Keep Doing :
+- Buen uso de Git
+- División de tareas
+
+- ## Less of: 
+- 
+
+
+- ## Stop Doing: 
+- 
+
+
+
+
+# Retrospectiva sprint 6
+
+- ## Start Doing: 
+- Slider 
+- Video
+- Agregar un icono de Whatsapp fijo para pedidos o consultas
+- Agregar un Chatbot(A futuro)
+- Implementar Cookies
+
+- ## More of:
+
+
+
+- ## Keep Doing :
+- Buen uso de Git
+- División de tareas
+
+- ## Less of: 
+- 
+
+
+- ## Stop Doing: 
+- 
+
+
+
+
+
+
+
+# Retrospectiva sprint 7
+
+- ## Start Doing: 
+- Slider 
+- Video
+- Agregar un icono de Whatsapp fijo para pedidos o consultas
+- Agregar un Chatbot(A futuro)
+- Implementar Cookies
+
+- ## More of:
+
+
+
+- ## Keep Doing :
+- Buen uso de Git
+- División de tareas
+
+- ## Less of: 
+- 
+
+
+- ## Stop Doing: 
+- 
+
+
+
+
+
+
+
+# Retrospectiva sprint 8
+
+- ## Start Doing: 
+
+
+- ## More of:
+
+
+- ## Keep Doing :
+
+
+- ## Less of: 
+- 
+
+
+- ## Stop Doing: 
+- 

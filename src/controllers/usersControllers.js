@@ -12,17 +12,39 @@ const userModel = require('../model/userModel')
 
 const users = JSON.parse(fs.readFileSync(jsonPath,'utf-8'));
 
+const db = require('../database/models');
+const sequelize = db.sequelize;
+const { Op } = require("sequelize");
+
+const Usuario = db.Usuario
+
 const controller={
+
     login: (req,res) =>{
         res.render(path.join(__dirname,'../views/users/login.ejs'),{'userLogin':req.session.userLogged})
     },
+
+
     register: (req,res) =>{
         res.render(path.join(__dirname,'../views/users/register.ejs'),{'userLogin':req.session.userLogged})
     },
-    users: (req,res) =>{
-        res.render(path.join(__dirname,'../views/users/users.ejs'),{'users':users,'userLogin':req.session.userLogged})
-    },
-    postLogin:(req,res)=>{
+
+
+    usersList : (req,res) => {
+            db.Usuario.findAll(/*{
+                include: [ 
+                    {
+                        association: ,
+                    },      
+                ]
+            }*/)
+                .then(users => {
+                    res.render(path.join(__dirname,'../views/users/listUsers.ejs'),{'users':users,'userLogin':req.session.userLogged})
+                })
+            
+        },
+
+    postLogin : (req,res)=>{
         console.log(req.body)
 
         const {
@@ -55,66 +77,44 @@ const controller={
     },
     createUser: (req,res) =>{
         
-        const newNombre = req.body.nombre
-        const newApellido = req.body.apellido
-        const newUsuario = req.body.usuario
-        const newImage = req.file ? req.file.filename : ""
-        const newEmail = req.body.email
-        const newFecha = req.body.fecha
-        const newDomicilio = req.body.domicilio
-        const newPassword =req.body.password
-
-        console.log(req.body)
-        const errors = validationResult(req);
-        
-        
-
-        if(errors.isEmpty()){
-            const userEmail = userModel.findByField('email',newEmail)
-            const userUsuario = userModel.findByField('username',newUsuario)
-            if(userEmail){
-                res.send("Este email ya esta en uso");
-            }
-            if(userUsuario){
-                res.send("Este usuario ya esta en uso");
-            }else{
-                const id = users.length;
-                    const newId = id + 1
-                    const obj = {
-                        id: newId,
-                        name: newNombre,
-                        apellido : newApellido,
-                        username: newUsuario,
-                        email: newEmail,
-                        password: bcryptjs.hashSync(newPassword, 10),
-                        phonenumber: "",
-                        city: newDomicilio,
-                        date: newFecha,
-                        image: newImage
-                    }
-                    console.log(obj)
-                    users.push(obj)
-                    fs.writeFile(jsonPath,JSON.stringify(users),(error) => {
-                        if(error){
-                            res.send(error);
-                        }else{
-                            res.redirect('/');
-                        }
-                    })  
+            Usuario.create(
+                {
+                    nombre: req.body.nombre,
+                    apellido: req.body.apellido ? req.body.apellido : null,
+                    usuario: req.body.usuario,
+                    email : req.body.email ? req.body.email : null,
+                    telefono: req.body.telefono ? req.body.telefono : null,
+                    contraseña:  req.body.password, //encriptar contraseña
+                    ciudad : req.body.domicilio ?  req.body.domicilio : null,
+                    fecha_de_nacimiento : req.body.fecha ? parseInt(req.body.fecha) : null, //guardar bien la fecha
+                    foto_de_perfil : req.body.fotoUsuario ? req.body.fotoUsuario : null
                 }
-        }else{
-            console.log(errors.mapped())
-            res.render(path.join(__dirname,'../views/users/register.ejs'),{'errors':errors.mapped(),'prev': req.body})
-        }
+            )
+            .then(()=> {
+                console.log(req.body)
+                return res.redirect('/login')})            
+            .catch(error => res.send(error))
+
     },
-    editUser: (req,res) =>{
+    editUser: async (req,res) =>{
+
+        const user = await Usuario.findByPk(req.params.id);
+            if(user){
+                res.render(path.join(__dirname,'../views/users/userEdit.ejs'),{'user':user,'userLogin':req.session.userLogged})
+            }else{
+                res.send("Not found");
+            }
+        
+
+
+/*
         const id = req.params.id;
         const user = users.find((e) => e.id == parseInt(id))
         if(user){
         res.render(path.join(__dirname,'../views/users/userEdit.ejs'),{'user':user,'userLogin':req.session.userLogged})
         }else{
             res.send("Not found");
-        }
+        }*/
     },
     userEditConfirm: (req,res) =>{
         const newId = req.body.id
@@ -164,6 +164,15 @@ const controller={
                 res.redirect('/users');
             }
         })
+    },
+
+    userDetail : async (req,res) => {
+        const user = await Usuario.findByPk(req.params.id)
+        if(user){
+        res.render(path.join(__dirname,'../views/users/userDetail.ejs'),{'user':user,'userLogin':req.session.userLogged})
+        }else{
+            res.send("Not found");
+        }
     }
 }
 

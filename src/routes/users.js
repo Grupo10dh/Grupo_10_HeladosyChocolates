@@ -31,9 +31,10 @@ const validateLogin = [
 
 const validateRegister = [
     check('nombre').notEmpty().withMessage('Ingresar nombre')
-    .isLength({max:20}).withMessage('El nombre puede contener maximo 20 caracteres'),
+    .isLength({min: 2, max:20}).withMessage('El nombre puede contener maximo 20 caracteres'),
 
-    check('apellido').isLength({max:20}).withMessage('El apellido puede contener maximo 20 caracteres'),
+    check('apellido').notEmpty().withMessage('Ingresar apellido')
+    .isLength({min: 2 ,max:20}).withMessage('El apellido puede contener maximo 20 caracteres'),
 
     check('usuario').notEmpty().withMessage('Ingresar usuario')
     .isLength({min:8,max:20}).withMessage('El usuario debe contener entre 8 y 20 caracteres'),
@@ -79,7 +80,7 @@ router.get('/login',usersControllers.login)
 
 router.get('/register',usersControllers.register)
 
-router.get('/users', usersControllers.users)
+router.get('/users', usersControllers.usersList)
 
 router.post('/register', [ upload.single('foto-usuario'), validateRegister],usersControllers.createUser)
 
@@ -89,6 +90,8 @@ router.get('/users/:id/edit', usersControllers.editUser)
 router.put('/users/:id', upload.single('foto-usuario') ,usersControllers.userEditConfirm)
 
 router.delete('/users/:id',usersControllers.userDelete)
+
+router.get('/users/:id', usersControllers.userDetail)
 
 module.exports = router;
 

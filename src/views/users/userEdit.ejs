@@ -14,27 +14,27 @@
             <button>Editar usuario</button>
             <div><label>ID del usuario</label></div>
             <div class="nombre-apellido">
-                <input type="text" name="id" value="<%= user.id%>" readonly="true" >
+                <input type="text" name="id" value="<%= user.id_usuario%>" readonly="true" >
             </div>
             
             <div class="nombre-apellido">
             
-            <input type="text" name="nombre" placeholder="Nombre" class="nombre-r" required minlength="8" value="<%= user.name%>">
+            <input type="text" name="nombre" placeholder="Nombre" class="nombre-r" required minlength="8" value="<%= user.nombre%>">
             </div>
             <div class="nombre-apellido">
                 <input type="text" name="apellido" placeholder="Apellido" class="nombre-r" required minlength="8" value="<%= user.apellido%>">
             </div>
             <div class="nombre-usuario">
-                <input type="text" name="usuario" placeholder="Nombre de usuario" class="usuario-r" required minlength="4" value="<%= user.username%>">
+                <input type="text" name="usuario" placeholder="Nombre de usuario" class="usuario-r" required minlength="4" value="<%= user.usuario%>">
             </div>
             <div class="e-mail">
                 <input type="text" name="email" placeholder="E-mail" class="email-r" required value="<%= user.email%>">
             </div>
         
             <div class="foto-productos">
-                <div><label class="label-form">Foto del producto</label></div>
+                <div><label class="label-form">Foto de perfil</label></div>
                 <div class="contenedor-foto-producto">
-                    <input type="file" name="foto-usuario" accept=".jpg, .png, .svg, .jpeg" class="adjuntar">
+                    <input type="file" name="foto-usuario" accept=".jpg, .png, .svg, .jpeg" class="adjuntar" value="<%= user.foto_de_perfil%>">
                 </div>
                 <span>.jpg, .png, .svg</span>
             </div>
@@ -43,16 +43,16 @@
                 <div class="label">
                     <label class="label-form-r">Fecha de nacimiento</label>
                 </div>
-                <input type="date" name="fecha" placeholder="Fecha de nacimiento" class="fecha-r" value="<%= user.date%>">
+                <input type="date" name="fecha" placeholder="Fecha de nacimiento" class="fecha-r" value="<%= user.fecha_de_nacimiento%>">
             </div>
             <div class="domicilio-div">
-                <input type="text" name="domicilio" placeholder="Domicilio" class="domicilio-r" value="<%= user.city%>">
+                <input type="text" name="domicilio" placeholder="Domicilio" class="domicilio-r" value="<%= user.ciudad%>">
             </div>
             <div class="contraseña">
                 <div class="label-contraseña"><label class="label-form">Contraseña</label></div>
                 <div class="contenedor-contraseña">
-                    <input type="password" name="password" placeholder="Contraseña nueva" class= "password-r" required minlength="8" value="<%= user.password%>">
-                    <input type="password" name="password-conf" placeholder=" Confirmar contraseña" class= "password-r" required minlength="8" value="<%= user.password%>">
+                    <input type="password" name="password" placeholder="Contraseña nueva" class= "password-r" required minlength="8" value="<%= user.contraseña%>">
+                    <input type="password" name="password-conf" placeholder=" Confirmar contraseña" class= "password-r" required minlength="8" value="<%= user.contraseña%>">
                 </div> 
             </div>
             <div class="contenedor-button">

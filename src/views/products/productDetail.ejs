@@ -12,23 +12,23 @@
     <div class="container">
         <div class="tarjeta">
             <div class="imagen">
-                <% if(!product.image){%>
+                <% if(!product.imagen){%>
                     <img src="/img/popu-7.jpg" alt="Foto default" >
                 <%}else{%>
-                  <img src="<%= product.image%>" alt="Foto json" > 
+                  <img src="<%= product.imagen%>" alt="Foto producto" > 
                 <%}%>
             </div>
             <div class="info">
-                <h2><%= product.name%></h2>
+                <h2><%= product.nombre%></h2>
                 <div class="califi"></div>
                 <div class="precio">
-                    <h3><%= product.price%></h3>
+                    <h3>$<%= product.precio_unidad%></h3>
                 </div>
                 <div class="descrip">
                     <h4>Descripción</h4>
                 </div>
                 <div class="detalla-producto">
-                    <p><%= product.description%></p> 
+                    <p><%= product.descripcion%></p> 
                 </div>
                 <div class="boton">
                     <button type="submit" name="">Añadir al carrito</button>

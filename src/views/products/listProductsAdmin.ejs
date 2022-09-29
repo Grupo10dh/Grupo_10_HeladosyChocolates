@@ -12,25 +12,30 @@
         <%- include('../partials/nav-bar.ejs') %>
     </header>
     <main>
+
+        <a href="/product/create" class="crearProducto"><button type="submit">Crear producto</button></a>
         <section>
             <div class="grilla">
-                <% for(let i = 0; i < json.length; i++) {%>
+                <% for(let i = 0; i < productos.length; i++) {%>
                 <article>
-                    <% if(!json[i].image){%>
-                        <a href="/products/<%= json[i].id %>" class="hiper-fotos"><img src="/img/popu-7.jpg" alt="Foto default" class='fotos-grilla'></a>
+                    <% if(!productos[i].imagen){%>
+                        <a href="/products/<%= productos[i].id_producto %>" class="hiper-fotos"><img src="/img/popu-7.jpg" alt="Foto default" class='fotos-grilla'></a>
                     <%}else{%>
-                        <a href="/products/<%= json[i].id %>" class="hiper-fotos"><img src="img/product/<%=json[i].image%>" alt="Foto json" class='fotos-grilla'></a>  
+                        <a href="/products/<%= productos[i].id_producto %>" class="hiper-fotos"><img src="img/product/<%=productos[i].imagen%>" alt="Foto producto" class='fotos-grilla'></a>  
                     <%}%>
                         <div class="info-producto-grilla">
-                        <form action="/products/<%= json[i].id %>?_method=DELETE" method="POST"><button type="submit">Borrar</button></form><a href="/products/<%= json[i].id%>/edit"><i class="fa-solid fa-pen-to-square"></i></a>
-                        <div class="descripcion-grilla"><%= json[i].name %></div>
-                        <div class="precios-grilla">$ <%= json[i].price %></div>
+                        <form action="/products/<%= productos[i].id_producto %>?_method=DELETE" method="POST"><button type="submit">Borrar</button></form>
+                        <a href="/products/<%= productos[i].id_producto%>/edit" class="hiper-edit"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <div class="descripcion-grilla"><%= productos[i].nombre %></div>
+                        <div class="precios-grilla">$ <%= productos[i].precio_unidad %></div>
                     </div>
                     
                 </article>
                 <%}%>
             </div>
         </section>
+
+        
     </main>
     <footer>
         <%- include('../partials/footer.ejs') %>

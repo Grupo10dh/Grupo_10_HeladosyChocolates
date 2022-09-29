@@ -1,6 +1,9 @@
 module.exports = (sequelize, dataTypes) =>{
-    const Usuario = sequelize.define("Usuario",{
-        id:{
+
+    const alias = "Usuario";
+
+    const cols ={
+        id_usuario:{
             type: dataTypes.INTEGER,
             primaryKey: true,
             allowNull: false,
@@ -41,23 +44,30 @@ module.exports = (sequelize, dataTypes) =>{
 
         fecha_de_nacimiento:{
             type: dataTypes.DATEONLY,
-            allowNull: false
         },
 
         foto_de_perfil:{
             type: dataTypes.STRING(100)
-        },
-    },
-    {
+        }
+    }
+
+    const config={
         tableName: 'usuarios',
         timestamps: false
-    });
-    Usuario.associate = function(models){
+    }
+
+    const Usuario = sequelize.define(alias, cols, config);
+
+
+    Usuario.associate = (models)=>{
+        
+       /* 
         Usuario.belongsTo(models.Carrito, {
             as : "carrito",
             foreignkey: "usuario_id"
-        })
+        })*/
     }
+
     return Usuario
 }
 

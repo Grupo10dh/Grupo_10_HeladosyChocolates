@@ -15,25 +15,25 @@
             <h3 class="titulo-form-producto">Editar producto</h3>
             <div><label>ID del producto</label></div>
             <div class="control-formulario">
-                <input type="text" name="id" class="control"  value="<%= detalle.id%>" readonly="true" >
+                <input type="text" name="id" class="control"  value="<%= detalle.id_producto%>" readonly="true" >
             </div>
             <div><label>Nombre del producto</label></div>
             <div class="control-formulario">
-                <input type="text" name="nombre" class="control" placeholder="Alfajor de Frambuesa" value="<%= detalle.name%>" >
+                <input type="text" name="nombre" class="control" placeholder="Alfajor de Frambuesa" value="<%= detalle.nombre%>" >
             </div>
             <div class="control-formulario">
                 <div><label>Precio</label></div>
-                <input type="number" name="precio" placeholder="200.50" class="control" value="<%= detalle.price%>">
+                <input type="number" name="precio" placeholder="200.50" class="control" value="<%= detalle.precio_unidad%>">
             </div>
             <div class="control-formulario">
                 <div><label>Categoría</label></div>
                 <select name="categoria" class="control">
-                    <option value="<%= detalle.category%>">Actualmente : <%= detalle.category.toUpperCase()%></option>
-                    <option value="bombones">BOMBONES</option>
-                    <option value="tabletas">TABLETAS</option>
-                    <option value="helados">HELADOS</option>
-                    <option value="alfajores">ALFAJORES</option>
-                    <option value="mermeladas">MERMELADAS</option>
+                    <option value="<%= detalle.id_categoria%>">Actualmente : <%= detalle.id_categoria%></option>
+                    <option value="4">BOMBONES</option>
+                    <option value="6">TABLETAS</option>
+                    <option value="3">HELADOS</option>
+                    <option value="1">ALFAJORES</option>
+                    <option value="2">MERMELADAS</option>
                 </select>
             </div>
             <div class="foto-productos">
@@ -45,7 +45,7 @@
             </div>
             <div class="control-formulario">
                 <div><label>Descripción</label></div>
-                <textarea name="descripcion" class="control"><%= detalle.description%></textarea>
+                <textarea name="descripcion" class="control"><%= detalle.descripcion%></textarea>
             </div>
             <div class="control-formulario-descuento">
                 <div><label>Está en descuento</label></div>

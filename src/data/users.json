@@ -119,15 +119,16 @@
     "image": "user-1659134972071.jpg"
   },
   {
-    "id": 12,
-    "name": ["PRUEBA 3 CAMBIO", "AAAAAAAAAAAAAA"],
-    "username": "AAAAAAAAAAAAAA",
-    "email": "AAAAAAAAA@AAAAA",
-    "password": "aaaaaaaaaaaaaaaaaa",
-    "phonenumber": "",
-    "city": "AAAAAAAAAAAAAA",
-    "date": "11111-11-11",
-    "image": "user-1659135017401.jpg"
+    "id": 1,
+    "name": "Alexander",
+    "apellido": "Life",
+    "username": "alife0",
+    "email": "alife0@ibm.com",
+    "password": "o60wUVRdF",
+    "phonenumber": "279-506-7917",
+    "city": "Nyahururu",
+    "date": "",
+    "image": ""
   },
   {
     "id": 12,
