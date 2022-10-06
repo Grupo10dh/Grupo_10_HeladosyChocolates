@@ -11,10 +11,10 @@
     </header> 
             
     <section class="formulario-login">       
-        <form action="/login" method="POST" class="formulario">
+        <form action="/login" method="POST" class="formulario" id="login">
 
             <div class="contenedor-usuario">
-                <input type="text"  name="inpUsuario" class="inp-usuario" placeholder="Nombre de Usuario" value="<%= locals.prev && prev.nombre ? prev.nombre : '' %>">
+                <input type="text"  name="inpUsuario" class="inp-usuario" placeholder="Ingrese su correo electronico" value="<%= locals.prev && prev.nombre ? prev.nombre : '' %>" id="email-usuario-login">
             </div>
 
             <div class="label">
@@ -24,7 +24,7 @@
             </div>
 
             <div class="contrase">
-                <input type="password" name="contraseña" class="inp-contrase" placeholder="Ingrese su contraseña">
+                <input type="password" name="contraseña" class="inp-contrase" placeholder="Ingrese su contraseña" id="contraseña-usuario-login">
             </div>
 
             <div class="label">
@@ -63,6 +63,8 @@
     <footer class="footer-login">
         <%- include('../partials/footer.ejs') %>
     </footer> 
+    
+    <script src="/js/validacionLogin.js"></script> 
     
 </body>           
 </html>

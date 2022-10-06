@@ -10,17 +10,28 @@
         <%- include('../partials/nav-bar.ejs') %>
     </header>
     <!--Formulario-->
-    <form action="/products" method="POST" class="create-form" enctype="multipart/form-data" >
+    <form action="/products" method="POST" class="create-form" enctype="multipart/form-data" id="form-products">
+
         <div class="caja-form">
             <h3 class="titulo-form-producto">Crear producto</h3>
+
             <div><label>Nombre del producto</label></div>
+
             <div class="control-formulario">
-                <input type="text" name="nombre" class="control" placeholder="Alfajor de Frambuesa" >
+                <input type="text" name="nombre" class="control" placeholder="Alfajor de Frambuesa" value="<%= locals.prev && prev.nombre ? prev.nombre : '' %>" id="nombre">
             </div>
+
+            <div class="label">
+                <% if(locals.errors && errors.nombre){ %>
+                    <label class="label-form-msgError">!!!  <%= errors.nombre.msg %>  !!!</label>
+                    <%}%>
+            </div>
+
             <div class="control-formulario">
                 <div><label>Precio</label></div>
-                <input type="number" name="precio" placeholder="200.50" class="control">
+                <input type="number" name="precio" placeholder="200.50" class="control" value="<%= locals.prev && prev.precio ? prev.precio : '' %>">
             </div>
+
             <div class="control-formulario">
                 <div><label>Categoría</label></div>
                 <select name="categoria" class="control">
@@ -31,21 +42,38 @@
                     <option value="2">Mermeladas</option>
                 </select>
             </div>
+            
             <div class="foto-productos">
                 <div><label class="label-form">Foto del producto</label></div>
                 <div class="contenedor-foto-producto">
-                    <input type="file" name="foto-producto" accept=".jpg, .png, .svg" class="adjuntar">
+                    <input type="file" name="foto-producto" accept=".jpg, .png, .jpeg, .gif" class="adjuntar" value="<%= locals.prev && prev.file ? prev.file : '' %>" id="foto-producto">
                 </div>
-                <span>.jpg, .png, .svg</span>
+                <span>.JPG, .JPEG, .PNG, .GIF</span>
             </div>
+
+            <div class="label">
+                <% if(locals.errors && errors.fotoUsuario){ %>
+                    <label class="label-form-msgError">!!!  <%= errors.fotoUsuario.msg %>  !!!</label>
+                    <%}%>
+            </div>
+
+
             <div class="control-formulario">
                 <div><label>Descripción</label></div>
-                <textarea name="descripcion" class="control"></textarea>
+                <textarea name="descripcion" class="control" value="<%= locals.prev && prev.descripcion? prev.descripcion: '' %>" id="descripcion"></textarea>
             </div>
+
+            <div class="label">
+                <% if(locals.errors && errors.descripcion){ %>
+                    <label class="label-form-msgError">!!!  <%= errors.descripcion.msg %>  !!!</label>
+                    <%}%>
+            </div>
+            
             <div class="control-formulario-descuento">
                 <div><label>Está en descuento</label></div>
-                <input type="radio" name="enOferta">
+                <input type="radio" name="enOferta" value="<%= locals.prev && prev.enOferta ? prev.enOferta : '' %>">
             </div>
+            
             <button type="reset" class="boton-formulario">Borrar</button>
             <button type="submit" class="boton-formulario">Guardar</button>
         </div>
@@ -53,7 +81,8 @@
     </form>
     <footer>
         <%- include('../partials/footer.ejs') %>
-    </footer> 
+    </footer>
+    <script src="/js/validacionProducts.js"></script> 
 </body>
 </html>
 

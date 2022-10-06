@@ -6,6 +6,8 @@ const jsonPath = path.join(__dirname,'../data/products.json');
 
 const json = JSON.parse(fs.readFileSync(jsonPath,'utf-8'));
 
+const {validationResult} = require('express-validator');
+
 const db = require('../database/models');
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
@@ -52,21 +54,35 @@ const controller = {
 
 
     productCreate : (req,res) => {
-        Producto.create(
-            {
-                nombre: req.body.nombre,
-                descripcion: req.body.descripcion,
-                precio_unidad: req.body.precio,
-                descuento : req.body.enOferta ? req.body.enOferta : null,
-                imagen: req.file ? req.file.filename : null,
-                stock:  req.body.stock ? req.body.stock : null,
-                id_categoria : req.body.categoria
-            }
-        )
-        .then(()=> {
-            console.log(req.body)
-            return res.redirect('/products-admin')})            
-        .catch(error => res.send(error))
+
+        const errors = validationResult(req);
+
+        console.log(errors)
+
+        if(errors.isEmpty()){
+
+            Producto.create(
+                {
+                    nombre: req.body.nombre,
+                    descripcion: req.body.descripcion,
+                    precio_unidad: req.body.precio,
+                    descuento : req.body.enOferta ? req.body.enOferta : null,
+                    imagen: req.file ? req.file.filename : null,
+                    stock:  req.body.stock ? req.body.stock : null,
+                    id_categoria : req.body.categoria
+                }
+            )
+            .then(()=> {
+                console.log(req.body)
+                return res.redirect('/products-admin')})            
+            .catch(error => res.send(error))
+            
+        }else{
+
+            res.render(path.join(__dirname,'../views/products/formProducts.ejs'),{'errors':errors.mapped(),'prev': req.body})
+
+        }
+    
     },
 
 
@@ -88,7 +104,7 @@ const controller = {
         const descripcion = req.body.descripcion
         const  precio_unidad = req.body.precio
         const  descuento = req.body.enOferta ? req.body.enOferta : null
-        const  imagen = req.file ? req.file.filename : null
+        const  imagen = req.file.filename ? req.file.filename : null
         const  stock  =   req.body.stock ? req.body.stock : null
         const id_categoria = parseInt(req.body.categoria)
         
