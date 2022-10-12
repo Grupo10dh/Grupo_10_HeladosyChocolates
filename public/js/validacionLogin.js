@@ -4,7 +4,7 @@ window.addEventListener('load', function() {
 
     formularioLogin.addEventListener('submit',function(evento){
 
-        evento.preventDefault()
+        // evento.preventDefault()
 
         const emailUsuarioLogin = document.querySelector("#email-usuario-login")
         if(emailUsuarioLogin.value.length < 2){

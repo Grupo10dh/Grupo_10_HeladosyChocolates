@@ -104,7 +104,7 @@ const controller = {
         const descripcion = req.body.descripcion
         const  precio_unidad = req.body.precio
         const  descuento = req.body.enOferta ? req.body.enOferta : null
-        const  imagen = req.file.filename ? req.file.filename : null
+        const  imagen = req.file ? req.file.filename : null
         const  stock  =   req.body.stock ? req.body.stock : null
         const id_categoria = parseInt(req.body.categoria)
         
@@ -125,7 +125,7 @@ const controller = {
                     }
                 }
             );
-            res.redirect('/products');
+            res.redirect('/products-admin');
         } catch (error) {
             res.send(error);
         }
@@ -157,16 +157,39 @@ const controller = {
     },
 
     buscar : async (req,res) =>{
-        console.log(req.body.buscar)
-       const busquedaProducto = req.body.buscar
-       const product =  await db.Producto.findOne({
-            where: {nombre: busquedaProducto}
-       })
-       if(product){
-        res.render(path.join(__dirname,'../views/products/productDetail.ejs'),{'product':product,'userLogin':req.session.userLogged})
-       }else{
-        res.send ('No se encontró el producto') //CAMBIAR ESTO
-       }
+        let {buscar} = req.body
+
+        if(buscar){
+            let producto = await Producto.findAll({
+                where:{
+                    nombre : {[Op.like]: `%${buscar}%`}
+                }
+            })
+            producto.length ? res.render(path.join(__dirname,'../views/products/listProductsBuscar.ejs'),{'productos':producto,'userLogin':req.session.userLogged}) : res.redirect('/');
+        }else{
+            res.redirect('/')
+        }
+
+        
+
+        
+
+
+
+
+
+    //     console.log(req.body.buscar)
+    //    const busquedaProducto = req.body.buscar
+    //    const product =  await db.Producto.findOne({
+    //         where: {nombre: busquedaProducto}
+    //    })
+    //    if(product){
+    //     res.render(path.join(__dirname,'../views/products/productDetail.ejs'),{'product':product,'userLogin':req.session.userLogged})
+    //    }else{
+    //     res.send ('No se encontró el producto') //CAMBIAR ESTO
+    //    }
+
+
     }
 
 }

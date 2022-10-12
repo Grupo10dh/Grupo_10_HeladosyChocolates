@@ -98,7 +98,8 @@ const controller={
             const paswd = bcryptjs.compareSync(contraseña,userLogin.contraseña);
                 if(paswd){
                     req.session.userLogged = userLogin;
-                    res.redirect('/')
+                    req.session.id = req.params.id
+                    res.render(path.join(__dirname,'../views/index.ejs'),{'userLogin':req.session.userLogged,'id': req.session.id})
                 }else{
                     return res.send("Contraseña incorrecta"); 
                 }
@@ -174,54 +175,119 @@ const controller={
             res.send("Not found");
         }*/
     },
-    userEditConfirm: (req,res) =>{
-        const newId = req.body.id
-        const newNombre = req.body.nombre
-        const newApellido = req.body.apellido
-        const newUsuario = req.body.usuario
-        const newImage = req.file.filename ? req.file.filename : null
-        const newEmail = req.body.email
-        const newFecha = req.body.fecha
-        const newDomicilio = req.body.domicilio
-        const newPassword =req.body.password
+    userEditConfirm: async (req,res) =>{
+        // const newId = req.body.id
+        // const newNombre = req.body.nombre
+        // const newApellido = req.body.apellido
+        // const newUsuario = req.body.usuario
+        // const newImage = req.file.filename ? req.file.filename : null
+        // const newEmail = req.body.email
+        // const newFecha = req.body.fecha
+        // const newDomicilio = req.body.domicilio
+        // const newPassword =req.body.password
+        console.log(req.body)
+        const nombre = req.body.nombre
+        const apellido = req.body.apellido ? req.body.apellido : null
+        const  usuario= req.body.usuario
+        const  email = req.body.email ? req.body.email : null
+        const  telefono= req.body.telefono ? req.body.telefono : null
+        let contraseña = undefined
+        if(req.body.password == ''){
+            const userLogin = await Usuario.findOne({
+                where: {id_usuario: req.body.id} 
+            });
+            contraseña = userLogin.contraseña
+            console.log('A')
+            console.log(contraseña)
+        }else{
+            contraseña = bcryptjs.hashSync(req.body.password , 10) 
+            console.log('B')
+            console.log(contraseña)
+        }
+        console.log(contraseña)
 
-        users.forEach(element => {
-            if(element.id === parseInt(newId)){
-                element.id = parseInt(newId);
-                element.name = newNombre;
-                element.apellido = newApellido
-                element.username = newUsuario;
-                element.email = newEmail;
-                element.password = newPassword;
-                element.city = newDomicilio
-                element.date = newFecha
-                element.image = newImage
+        const   ciudad = req.body.domicilio ?  req.body.domicilio : null
+        const   fecha_de_nacimiento = req.body.fecha ? parseInt(req.body.fecha) : null
+        const   foto_de_perfil = req.file ? req.file.filename : null
+        try{
+            await Usuario.update(
+                {nombre,
+                apellido,
+                usuario,
+                email,
+                telefono,
+                contraseña,
+                ciudad,
+                fecha_de_nacimiento,
+                foto_de_perfil,
+                },
+                {
+                    where: {
+                        id_usuario : req.params.id
+                    }
+                }
 
-            }
-        });
+            )
+            res.redirect(`/users/detail/${req.params.id}`)
+        } catch (error) {
+            console.log(error)
+        }
 
-        fs.writeFile(jsonPath,JSON.stringify(users),(error) => {
-            if(error){
-                res.send(error);
-            }else{
-                res.redirect('/users');
-            }
-        })
+
+
+        // users.forEach(element => {
+        //     if(element.id === parseInt(newId)){
+        //         element.id = parseInt(newId);
+        //         element.name = newNombre;
+        //         element.apellido = newApellido
+        //         element.username = newUsuario;
+        //         element.email = newEmail;
+        //         element.password = newPassword;
+        //         element.city = newDomicilio
+        //         element.date = newFecha
+        //         element.image = newImage
+
+        //     }
+        // });
+
+        // fs.writeFile(jsonPath,JSON.stringify(users),(error) => {
+        //     if(error){
+        //         res.send(error);
+        //     }else{
+        //         res.redirect('/users');
+        //     }
+        // })
     },
-    userDelete : (req,res) =>{
-        console.log(req.params.id)
-        const id = req.params.id
-        const userFiltrado = users.filter( e=> e.id != parseInt(id))
+    userDelete : async (req,res) =>{
 
-        /*res.send(productFiltrado)*/
+        try {
+            await Usuario.destroy({
+                where: {
+                    id_usuario: req.params.id
+                },
+                force:true
+            });
+            res.redirect('/register');
+        } catch (error) {
+            console.log(error);
+        }
+
+
+
+
+        // console.log(req.params.id)
+        // const id = req.params.id
+        // const userFiltrado = users.filter( e=> e.id != parseInt(id))
+
+        // /*res.send(productFiltrado)*/
         
-        fs.writeFile(jsonPath,JSON.stringify(userFiltrado), (error)=>{
-            if(error){
-                res.send("Error " + error);
-            }else{
-                res.redirect('/users');
-            }
-        })
+        // fs.writeFile(jsonPath,JSON.stringify(userFiltrado), (error)=>{
+        //     if(error){
+        //         res.send("Error " + error);
+        //     }else{
+        //         res.redirect('/users');
+        //     }
+        // })
     },
 
     userDetail : async (req,res) => {

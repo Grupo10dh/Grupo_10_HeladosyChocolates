@@ -10,7 +10,7 @@
         <%- include('../partials/nav-bar.ejs') %>
     </header>
     <!--Formulario-->
-    <form action="/products/:id/?_method=PUT" method="POST" class="create-form" enctype="multipart/form-data" >
+    <form action="/products/<%= detalle.id_producto%>?_method=PUT" method="POST" class="create-form" enctype="multipart/form-data" >
         <div class="caja-form">
             <h3 class="titulo-form-producto">Editar producto</h3>
             <div><label>ID del producto</label></div>
@@ -39,7 +39,7 @@
             <div class="foto-productos">
                 <div><label class="label-form">Foto del producto</label></div>
                 <div class="contenedor-foto-producto">
-                    <input type="file" name="foto-producto" accept=".jpg, .png, .svg" class="adjuntar" value="<%= detalle.image%>">
+                    <input type="file" name="foto-producto" accept=".jpg, .png, .svg" class="adjuntar" value="<%= detalle.imagen%>">
                 </div>
                 <span>.jpg, .png, .svg</span>
             </div>

@@ -97,9 +97,9 @@ router.post('/login', validateLogin, usersControllers.postLogin)
 router.get('/users/:id/edit', usersControllers.editUser)
 router.put('/users/:id', upload.single('fotoUsuario') ,usersControllers.userEditConfirm)
 
-router.delete('/users/:id',usersControllers.userDelete)
+router.delete('/users/:id',usersControllers.userDelete) //DESACTUALIZADO
 
-router.get('/users/:id', usersControllers.userDetail)
+router.get('/users/detail/:id', usersControllers.userDetail)
 
 module.exports = router;
 

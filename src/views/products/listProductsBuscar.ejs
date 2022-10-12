@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <%- include('../partials/head.ejs') %>
-    <link rel="stylesheet" href="/css/grilla.css">
     <title>Productos</title>
 </head>
 <body>
@@ -12,30 +11,24 @@
         <%- include('../partials/nav-bar.ejs') %>
     </header>
     <main>
-
-        <a href="/product/create" class="crearProducto"><button type="submit">Crear producto</button></a>
         <section>
             <div class="grilla">
                 <% for(let i = 0; i < productos.length; i++) {%>
                 <article>
                     <% if(!productos[i].imagen){%>
-                        <a href="/products/<%= productos[i].id_producto %>" class="hiper-fotos"><img src="/img/popu-7.jpg" alt="Foto default" class='fotos-grilla'></a>
+                        <a href="/products/<%= productos[i].id_producto %>" class="hiper-fotos"><img  src="/img/popu-7.jpg" alt="Foto default" class='fotos-grilla'></a>
                     <%}else{%>
-                        <a href="/products/<%= productos[i].id_producto %>" class="hiper-fotos"><img src="img/product/<%=productos[i].imagen%>" alt="Foto producto" class='fotos-grilla'></a>  
+                        <a href="/products/<%= productos[i].id_producto %>" class="hiper-fotos"><img  src="img/product/<%= productos[i].imagen%>" alt="Foto Productos" class='fotos-grilla'></a>  
                     <%}%>
                         <div class="info-producto-grilla">
-                        <form action="/products/<%= productos[i].id_producto %>?_method=DELETE" method="POST"><button type="submit">Borrar</button></form>
-                        <a href="/products/<%= productos[i].id_producto%>/edit" class="hiper-edit"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <div class="truck-grilla"><i class="fa-solid fa-truck"></i></div>
                         <div class="descripcion-grilla"><%= productos[i].nombre %></div>
                         <div class="precios-grilla">$ <%= productos[i].precio_unidad %></div>
                     </div>
-                    
                 </article>
                 <%}%>
             </div>
         </section>
-
-        
     </main>
     <footer>
         <%- include('../partials/footer.ejs') %>
