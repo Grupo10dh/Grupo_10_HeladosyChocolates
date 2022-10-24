@@ -4,12 +4,14 @@ const morgan = require('morgan');
 const multer = require('multer')
 const session = require('express-session');
 const path = require("path")
-
+const cors = require('cors')
 const app = express();
 
 const routerMain = require('./routes/main')
 const routerUsers = require('./routes/users')
 const routerProduct = require('./routes/products')
+const routerUsersApi = require('./routes/api/usersApi')
+const routerProductsApi = require('./routes/api/productsApi')
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname,'../public')))
@@ -22,10 +24,13 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }))
+app.use(cors())
 
 
+app.use(routerUsersApi)
 app.use(routerUsers)
 app.use(routerMain)
 app.use(routerProduct)
+app.use(routerProductsApi)
 
 app.listen('3030', () => console.log("Servidor funcionando en puerto 3030"));

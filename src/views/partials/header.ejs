@@ -1,3 +1,14 @@
+<div class="userLogin">
+    <% if(typeof userLogin === "undefined"){%>
+        <h1>Falta logear usuario</h1>
+    <%}else if(userLogin.admin == "true"){%>
+        <h1>Bienvenido <%=userLogin.nombre%> ★</h1>
+    <%}else{%>
+        <h1> Bienvenido <%=userLogin.nombre%></h1> 
+    <%}%>
+</div>
+
+
 <div class="header-principal">
     <div class="header-principal-1">
         <!--BURGER-->
@@ -14,13 +25,7 @@
     </div>
     
     <!-- BUSCADOR-->    
-    <div class="userLogin">
-        <% if(typeof userLogin === "undefined"){%>
-            <h1>Falta logear usuario</h1>
-        <%}else{%>
-            <h1> Bienvenido <%=userLogin.nombre%></h1> 
-        <%}%>
-    </div>
+    
     
     
 

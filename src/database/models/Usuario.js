@@ -48,6 +48,10 @@ module.exports = (sequelize, dataTypes) =>{
 
         foto_de_perfil:{
             type: dataTypes.STRING(100)
+        },
+
+        admin:{
+            type: dataTypes.STRING(45)
         }
     }
 

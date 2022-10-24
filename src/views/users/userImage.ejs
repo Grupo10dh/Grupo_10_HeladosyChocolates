@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head.ejs') %>
+</head>
+<body>
+    <header>
+        <%- include('../partials/header.ejs') %>
+
+        <%- include('../partials/nav-bar.ejs') %>
+    </header>
+    <div class="container">
+        <div class="tarjeta">
+            <div class="imagen">
+                <% if(!user.foto_de_perfil){%>
+                    <img src="/img/users/foto-default.jpg" alt="Foto default usuario" >
+                <%}else{%>
+                    <img src="/img/users/<%= user.foto_de_perfil%>" alt="Foto usuario" > 
+                <%}%>
+            </div>
+    </div>
+    </div>
+    
+    <footer>
+        <%- include('../partials/footer.ejs') %>
+    </footer>
+
+
+</body>
+</html>

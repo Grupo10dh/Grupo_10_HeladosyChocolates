@@ -15,6 +15,7 @@
 
 a.hiper-fotos{
     display: block;
+    
 }
 
 a.boton-edit{
@@ -25,13 +26,17 @@ a.hiper-edit{
     display: block;
 }
 
-
+.botones-grilla{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
 
 .fotos-grilla{
     /*height: 70%;*/
     width: 70%;
     height: 200px;
-    
+    border-radius: 12px;
 }
 
 .info-producto-grilla{
@@ -51,6 +56,24 @@ main section div.grilla article img:hover{
     box-shadow: 0px 0px 50px rgb(230, 0, 0);
 }
 
+/* SACAR ESTILO A BOTON */
+button.borrar-producto-usuario{
+    background: none;
+    border: 0;
+    color: inherit;
+    /* cursor: default; */
+    font: inherit;
+    line-height: normal;
+    overflow: visible;
+    padding: 0;
+    
+}
+
+button.crear-producto-usuario{
+    width: 200px;
+    margin-top: 15px;   
+    border: 2px solid #730e16
+}
 
 
 

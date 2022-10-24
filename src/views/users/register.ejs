@@ -35,16 +35,25 @@
                 <input type="text" name="usuario" placeholder="Nombre de usuario(*)" class="usuario-r"  value="<%= locals.prev && prev.usuario? prev.usuario : '' %>">
             </div>
 
+            
+
             <div class="label">
-                <% if(locals.errors && errors.usuario){ %>
-                    <label class="label-form-msgError">!!! <%= errors.usuario.msg %> !!!</label>
+                <% if(locals.errors && errors.email){ %>
+                    <label class="label-form-msgError">!!! <%= errors.email.msg %> !!!</label>
                     <%}%>
             </div>
+
 
             <div class="e-mail">
                 <input type="text" name="email" placeholder="E-mail(*)" class="email-r"  value="<%= locals.prev && prev.email ? prev.email : '' %>" id="email-usuario-register">
             </div>
 
+            <div class="label">
+                <% if(locals.errors && errors.usuario){ %>
+                    <label class="label-form-msgError">!!! <%= errors.usuario.msg %> !!!</label>
+                    <%}%>
+            </div>
+            
             <div class="label">
                 <% if(typeof userNotLoggin === "undefined"){%>
                     <h1></h1>
@@ -53,11 +62,6 @@
                 <%}%>
             </div>
 
-            <div class="label">
-                <% if(locals.errors && errors.email){ %>
-                    <label class="label-form-msgError">!!! <%= errors.email.msg %> !!!</label>
-                    <%}%>
-            </div>
             
             <div class="foto-productos">
                 <div><label class="label-form">Foto de perfil</label></div>

@@ -101,6 +101,8 @@ router.delete('/users/:id',usersControllers.userDelete) //DESACTUALIZADO
 
 router.get('/users/detail/:id', usersControllers.userDetail)
 
+router.get('/img/users/:id', usersControllers.userImage)
+
 module.exports = router;
 
 

@@ -12,24 +12,38 @@
         <%- include('../partials/nav-bar.ejs') %>
     </header>
     <main>
+
+
+        <a href="/register" class="crearProducto"><button type="submit" class="crear-producto-usuario">Crear usuario</button></a>
         <section>
             <div class="grilla">
                 <% for(let i = 0; i < users.length; i++) {%>
                 <article>
                     <% if(!users[i].foto_de_perfil){%>
-                        <a href="/users/<%= users[i].id_usuario %>" class="hiper-fotos"><img  src="/img/users/foto-default.jpg" alt="Foto default" class='fotos-grilla'></a>
+                        <a href="/users/detail/<%= users[i].id_usuario %>" class="hiper-fotos"><img  src="/img/users/foto-default.jpg" alt="Foto default" class='fotos-grilla'></a>
                     <%}else{%>
-                        <a href="/users/<%= users[i].id_usuario %>" class="hiper-fotos"><img  src="img/users/<%= users[i].image%>" alt="Foto json" class='fotos-grilla'></a>  
+                        <a href="/users/detail/<%= users[i].id_usuario %>" class="hiper-fotos"><img  src="img/users/<%= users[i].foto_de_perfil%>" alt="Foto json" class='fotos-grilla'></a>  
                     <%}%>
+                        <br>
                         <div class="info-producto-grilla">
-                        <div class="descripcion-grilla"><%= users[i].id_usuario %></div> 
+                        <!-- <div class="descripcion-grilla"><%= users[i].id_usuario %></div>  -->
                         <div class="descripcion-grilla"><%= users[i].nombre %>   <%= users[i].apellido %></div>
+                        <br>
                         <div class="precios-grilla"><%= users[i].usuario %></div>
+                        <br>
                         <div class="precios-grilla"><%= users[i].email %></div>
+                        <br>
                         <div class="precios-grilla"><%= users[i].telefono %></div>
+                        <br>
                         <div class="precios-grilla"><%= users[i].ciudad %></div>
-                        <form action="/users/<%= users[i].id_usuario%>?_method=DELETE" method="POST"><button type="submit">Borrar</button></form>
+                        <br>
+                        <form action="/users/<%= users[i].id_usuario%>?_method=DELETE" method="POST"><button type="submit" class="borrar-producto-usuario"><i class="fa-regular fa-trash-can"></i></button></form>
+                        <br>
                         <a href="/users/<%= users[i].id_usuario%>/edit" class="boton-edit"><i class="fa-solid fa-pen-to-square"></i></a>
+                        
+                        
+                            
+                        
                         </div>
                 </article>
                 <%}%>

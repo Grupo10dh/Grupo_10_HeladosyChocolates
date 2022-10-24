@@ -34,6 +34,7 @@ const validateProduct = [
 
 
 // CLIENTE //
+router.get('/img/product/:id', productsController.productImage)
 
 router.get('/products/:id', productsController.productDetail)
 router.get('/cart', productsController.cart)

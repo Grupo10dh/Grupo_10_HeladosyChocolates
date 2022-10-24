@@ -15,7 +15,7 @@
                 <% if(!user.foto_de_perfil){%>
                     <img src="/img/users/foto-default.jpg" alt="Foto default usuario" >
                 <%}else{%>
-                    <img src="<%= user.foto_de_perfil%>" alt="Foto usuario" > 
+                    <img src="/img/users/<%= user.foto_de_perfil%>" alt="Foto usuario" > 
                 <%}%>
             </div>
             <div class="info">

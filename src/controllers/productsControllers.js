@@ -12,19 +12,30 @@ const db = require('../database/models');
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
 
-const Producto = db.Producto
+const Categorias = db.Categorias
+
+const Productos = db.Productos
 
 const controller = {
 
-    productList : (req,res) => {
-
-        db.Producto.findAll(/*{
+    productList : async (req,res) => {
+        
+    const productos = await Productos.findAll(
+        
+        {
             include: [ 
-                {
-                    association: 'categorias',
-                },      
+                "Categorias"
             ]
-        }*/)
+        }
+
+        // {   
+        //     attributes: ['id_producto', 'nombre', 'descripcion', 'precio_unidad' , 'descuento', 'imagen' , 'stock' , 'id_categoria'],
+        // },
+
+        // {
+        //     where :{ someAttribute: { [Op.not]: Producto.CategoriumIdCategoria} }
+        // }
+        )
             .then(productos => {
                 // res.send(productos)
                 res.render(path.join(__dirname,'../views/products/listProducts.ejs'),{'productos':productos,'userLogin':req.session.userLogged})
@@ -39,7 +50,7 @@ const controller = {
 
 
     productDetail : async (req,res) => {
-        const product = await Producto.findByPk(req.params.id)
+        const product = await Productos.findByPk(req.params.id)
         if(product){
         res.render(path.join(__dirname,'../views/products/productDetail.ejs'),{'product':product,'userLogin':req.session.userLogged})
         }else{
@@ -61,7 +72,7 @@ const controller = {
 
         if(errors.isEmpty()){
 
-            Producto.create(
+            Productos.create(
                 {
                     nombre: req.body.nombre,
                     descripcion: req.body.descripcion,
@@ -88,7 +99,7 @@ const controller = {
 
     productEdit : async (req,res) =>{
 
-            const product = await Producto.findByPk(req.params.id);
+            const product = await Productos.findByPk(req.params.id);
             if(product){
                 res.render(path.join(__dirname,'../views/products/formProductsEdit.ejs'),{'detalle':product,'userLogin':req.session.userLogged})
             }else{
@@ -109,7 +120,7 @@ const controller = {
         const id_categoria = parseInt(req.body.categoria)
         
         try {
-            await db.Producto.update(
+            await Productos.update(
                 {
                     nombre,
                     descripcion,
@@ -135,7 +146,7 @@ const controller = {
     productDelete : async (req,res) =>{
         
         try {
-            await db.Producto.destroy({
+            await Productos.destroy({
                 where: {
                     id_producto : req.params.id
                 }
@@ -149,7 +160,7 @@ const controller = {
 
     productListAdmin : (req,res) => {
 
-        db.Producto.findAll()
+        Productos.findAll()
             .then(productos => {
                 res.render(path.join(__dirname,'../views/products/listProductsAdmin.ejs'),{'productos':productos,'userLogin':req.session.userLogged})
             })
@@ -160,7 +171,7 @@ const controller = {
         let {buscar} = req.body
 
         if(buscar){
-            let producto = await Producto.findAll({
+            let producto = await Productos.findAll({
                 where:{
                     nombre : {[Op.like]: `%${buscar}%`}
                 }
@@ -190,6 +201,15 @@ const controller = {
     //    }
 
 
+    },
+
+    productImage : async (req,res) => {
+        const product = await Productos.findByPk(req.params.id)
+        if(product){
+        res.render(path.join(__dirname,'../views/products/productImage.ejs'),{'product':product,'userLogin':req.session.userLogged})
+        }else{
+            res.send("Not found");
+        }
     }
 
 }

@@ -92,9 +92,9 @@ const controller={
                 where: {email: inpUsuario}
             });
 
-            console.log(userLogin.contraseña)
         
             if(userLogin){
+            console.log(userLogin)
             const paswd = bcryptjs.compareSync(contraseña,userLogin.contraseña);
                 if(paswd){
                     req.session.userLogged = userLogin;
@@ -267,7 +267,7 @@ const controller={
                 },
                 force:true
             });
-            res.redirect('/register');
+            res.redirect('/users');
         } catch (error) {
             console.log(error);
         }
@@ -297,7 +297,16 @@ const controller={
         }else{
             res.send("Not found");
         }
-    }
+    },
+
+    userImage : async (req,res) => {
+        const user = await Usuario.findByPk(req.params.id)
+        if(user){
+        res.render(path.join(__dirname,'../views/users/userImage.ejs'),{'user':user,'userLogin':req.session.userLogged})
+        }else{
+            res.send("Not found");
+        }
+    },
 }
 
 

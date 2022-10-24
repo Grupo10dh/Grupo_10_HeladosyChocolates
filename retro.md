@@ -127,9 +127,6 @@
 
 
 
-
-
-
 # Retrospectiva sprint 7
 
 - ## Start Doing: 

@@ -21,10 +21,15 @@
                     <%}else{%>
                         <a href="/products/<%= productos[i].id_producto %>" class="hiper-fotos"><img  src="img/product/<%= productos[i].imagen%>" alt="Foto Productos" class='fotos-grilla'></a>  
                     <%}%>
-                        <div class="info-producto-grilla">
-                        <div class="truck-grilla"><i class="fa-solid fa-truck"></i></div>
+                    <br>
+                    <div class="info-producto-grilla">
                         <div class="descripcion-grilla"><%= productos[i].nombre %></div>
+                        <br>
                         <div class="precios-grilla">$ <%= productos[i].precio_unidad %></div>
+                        <br>
+                        <div class="icon-preguntas"> 
+                            <img src="/img/iconos/cart.png" alt="carrito" class="cart-icono">
+                        </div> 
                     </div>
                 </article>
                 <%}%>

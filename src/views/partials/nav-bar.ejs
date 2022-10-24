@@ -1,5 +1,76 @@
 <!--NAV BAR-->
-<nav class="barra-nav">
+
+<% if(typeof userLogin === "undefined"){%>
+    <nav class="barra-nav">
+        <ul class="opciones">
+            <li>
+                <% if(typeof userLogin === "undefined"){%>
+                    <a href="/#" class="button-navbar">HOME<a>
+                <%}else{%>
+                    <a href="/#" class="button-navbar">HOME<a>
+                <%}%>
+            </li>
+            
+            <li>
+                <% if(typeof userLogin === "undefined"){%>
+                    <a href="/login" class="button-navbar">PRODUCTOS</a>
+                <%}else{%>
+                    <a href="/products" class="button-navbar">PRODUCTOS<a>
+                <%}%>
+            </li>
+
+            <% if(typeof userLogin === "undefined"){%>
+                <li><a href="/login" class="button-navbar">HELADOS</a></li>
+            <%}else{%>
+                <li><a href="/#" class="button-navbar">HELADOS<a></li>
+            <%}%>
+
+            <% if(typeof userLogin === "undefined"){%>
+                <li><a href="/login" class="button-navbar">CHOCOLATES</a></li>
+            <%}else{%>
+                <li><a href="/#" class="button-navbar">CHOCOLATES<a></li>
+            <%}%>
+
+            <% if(typeof userLogin === "undefined"){%>
+                <li><a href="/login" class="button-navbar">ALFAJORES</a></li>
+            <%}else{%>
+                <li><a href="/#" class="button-navbar">ALFAJORES<a></li>
+            <%}%>   
+            
+            <li>
+                <% if(typeof userLogin === "undefined"){%>
+                    <a href="/#" class="button-navbar">VRAIKLAT<a>
+                <%}else{%>
+                    <a href="/#" class="button-navbar">VRAIKLAT<a>
+                <%}%>
+            </li>
+        </ul>
+    </nav>
+<%}else if(userLogin.admin == "true"){%>
+    <nav class="barra-nav">
+        <ul class="opciones">
+            <li><a href="/#" class="button-navbar">HOME<a></li>
+            <li><a href="/#" class="button-navbar">VRAIKLAT<a></li>
+            <li><a href="/products-admin" class="button-navbar">PRODUCTOS<a></li>
+            <li><a href="/users" class="button-navbar">USUARIOS<a></li>
+            <!-- <li><a href="/cart" class="button-navbar">CARRITO<a></li> -->
+        </ul>
+    </nav>
+<%}else{%>
+    <nav class="barra-nav">
+        <ul class="opciones">
+            <li><a href="/#" class="button-navbar">HOME<a></li>
+            <li><a href="/#" class="button-navbar">VRAIKLAT<a></li>
+            <li><a href="/products" class="button-navbar">PRODUCTOS<a></li>
+            <li><a href="/#" class="button-navbar">HELADOS<a></li>
+            <li><a href="/#" class="button-navbar">CHOCOLATES<a></li>
+            <li><a href="/#" class="button-navbar">ALFAJORES<a></li>
+        </ul>
+    </nav>
+<%}%>
+
+
+<!-- <nav class="barra-nav">
     <ul class="opciones">
         <li><a href="/#" class="button-navbar">HOME<a></li>
         <li><a href="/#" class="button-navbar">VRAIKLAT<a></li>
@@ -7,5 +78,6 @@
         <li><a href="/#" class="button-navbar">CHOCOLATES<a></li>
         <li><a href="/#" class="button-navbar">ALFAJORES<a></li>
     </ul>
-</nav>
+</nav> -->
+
 
