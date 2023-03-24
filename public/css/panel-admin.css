@@ -1,0 +1,180 @@
+
+
+.panelControlContainer{
+    height: 100%;
+    display: grid;
+    grid-template-columns: 75px 1fr ;
+    margin: auto;
+}
+
+.panelControlContainer.Desplegado{
+    height: 100%;
+    display: grid;
+    grid-template-columns: 175px 1fr ;
+    margin: auto;
+    transition: all 0.5s; 
+}
+
+
+
+.panel-admin-desplegado{
+    background: #730e16;
+    height: 100vh;
+    width: 100%;
+    text-align: left;
+    position: sticky;
+    top: 0;
+}
+
+.texto.Oculto{
+    display: block;
+    width: 75px;
+    height: 30px;
+    font-weight: 500;
+    font-size: 1.2em;
+}
+
+.texto{
+    display: none; 
+} 
+
+
+
+
+
+.contenedor-icono-btn{
+    width: 35px;
+    height: 30px;
+}
+
+
+.logo-panel-admin{
+    width: 100%;
+    display: none;
+}
+
+
+#icono-panel{
+    /* margin-right: 20px; */
+    margin: auto;
+    font-size: 30px;
+}
+
+
+.titulo-admin{
+    margin: 15px 5px 20px 20px;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-around;
+}
+
+.titulo-admin-carrito{
+    margin: 15px 5px 20px 20px;
+    color: #ffffff; 
+    display: flex;
+    justify-content: space-around;
+}
+
+a.btn-panel{
+    display: block;
+    color: #ffffff;
+}
+
+
+
+/* .contenido-panel{
+    
+    padding: 10px; 
+    
+} */
+
+
+/* .subtitulos-contenedor{
+
+} */
+
+.subtitulos{
+display: none;
+list-style: none; 
+text-align: center;   
+}
+
+.subtitulos.Oculto{
+display: block;
+list-style: none; 
+text-align: center;   
+transition: all 0.5s;
+}
+
+
+
+.texto-subtitulo{
+color: #ffffff;
+margin: auto;
+margin-bottom: 5px;
+width: 75px;
+height: 30px;
+text-align: initial;
+margin-left: 45px;
+}
+
+
+
+
+.slider__btn{
+    display: none;
+    /* position: absolute; */
+    width: 40px;
+    height: 40px;
+    background: rgb(5, 5, 5);
+    color: aliceblue;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    font-family: monospace;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* .slider__btn:hover {
+    background: #fff;
+  } */
+
+
+
+.slider__btn--left{
+    display: none;
+    left: 10px;
+}
+
+.slider__btn--right{
+    display: block;
+    right: 10px;
+} 
+
+.slider__btn--left.Desplegado{
+    display: block; 
+}
+
+.slider__btn--right.Oculto{
+    display: none;
+} 
+
+
+.flechas{
+    position: absolute;
+    top: 3.5%;
+    right: -20px;
+    transform: translateY(-50%);
+}
+
+
+/* @media(min-width:800px){
+.slider__btn{
+    display: block;
+}
+} */
+
+.panel-iconos{
+    margin-top: 65px;
+}

@@ -129,7 +129,15 @@ module.exports = (sequelize, DataTypes) => {
         
         Productos.belongsTo (models.Categorias, 
         { as: 'Categorias',            
-        foreingKey: 'CategoriasId'})        
+        foreingKey: 'CategoriasId'})
+        
+        Productos.belongsToMany(models.Carrito, { 
+            as: "Productos",
+            through: 'Detalle_orden',
+            foreignKey: 'id_producto',
+            otherKey: 'id_carrito',
+            timestamps: false
+        })
         
 }        
 

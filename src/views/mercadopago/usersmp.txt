@@ -1,0 +1,26 @@
+
+VENDEDOR
+{
+    "id": 1335888901,
+    "email": "test_user_408625956@testuser.com",
+    "nickname": "TEST_USER_408625956",
+    "site_status": "active",
+    "password": "6Lr3Luxz5W"
+    ACCESS TOKEN : APP_USR-1923087466888785-032118-cf2ed8b4d54ecbd76ebd78e0aef44bbe-1335888901 PRODUC
+
+    ACCESS TOKEN : TEST-1923087466888785-032118-c8ebcec38945180051f4420866b43b77-1335888901 PRUEBA
+}
+
+
+COMPRADOR
+{
+    "id": 1335896097,
+    "email": "test_user_1197960227@testuser.com",
+    "nickname": "TEST_USER_1197960227",
+    "site_status": "active",
+    "password": "   "
+
+    ACCESS TOKEN : APP_USR-4050106352049072-032118-782d5ddb9bc41871af2c3c35c316aa76-1335896097 PRODUC
+
+    ACCESS TOKEN : TEST-4050106352049072-032118-93f806d2279204ab715cad883d5a3e83-1335896097 PRUEBA
+}

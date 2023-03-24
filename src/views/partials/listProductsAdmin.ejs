@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="stylesheet" href="/css/listProductsAdmin.css">
+</head>
+<body>
+    
+    <main class="listProductsAdmin">
+
+        <a href="/product/create" class="crearProducto"><button type="submit" class="crear-producto-usuario">Crear producto</button></a>
+        <section>
+            <div class="grilla">
+                <% for(let i = 0; i < productos.length; i++) {%>
+                <article>
+                    <% if(!productos[i].imagen){%>
+                        <a href="/products/<%= productos[i].id_producto %>" class="hiper-fotos"><img src="/img/popu-7.jpg" alt="Foto default" class='fotos-grilla'></a>
+                    <%}else{%>
+                        <a href="/products/<%= productos[i].id_producto %>" class="hiper-fotos"><img src="img/product/<%=productos[i].imagen%>" alt="Foto producto" class='fotos-grilla'></a>  
+                    <%}%>
+                    <div class="info-producto-grilla">
+                        <br>
+                        <div class="descripcion-grilla"><%= productos[i].nombre %></div>
+                        <br>
+                        <div class="precios-grilla">$ <%= productos[i].precio_unidad %></div>
+                        <form action="/products/<%= productos[i].id_producto %>?_method=DELETE" method="POST"><button type="submit" class="borrar-producto-usuario"><i class="fa-regular fa-trash-can"></i></button></form>
+                        <br>
+                        <a href="/products/<%= productos[i].id_producto%>/edit" class="hiper-edit"><i class="fa-solid fa-pen-to-square"></i></a>
+                    </div>
+                    
+                </article>
+                <%}%>
+            </div>
+        </section>
+
+        
+    </main>
+    
+</body>
+</html>

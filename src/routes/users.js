@@ -103,6 +103,10 @@ router.get('/users/detail/:id', usersControllers.userDetail)
 
 router.get('/img/users/:id', usersControllers.userImage)
 
+router.get('/logout', usersControllers.userLogOut)
+
+router.get('/users/profile/:id', usersControllers.userProfile)
+
 module.exports = router;
 
 

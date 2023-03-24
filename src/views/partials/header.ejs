@@ -45,10 +45,11 @@
         <div class="login-register">
             <% if(typeof userLogin === "undefined"){%>
                 <a href="/login"><i class="fa-solid fa-user"></i></a>
+            <%}else if (userLogin.admin == "true"){%>
+                <a href="/users/detail/<%= userLogin.id_usuario%>"><i class="fa-solid fa-user"></i></a> 
             <%}else{%>
-                <a href="/users/<%= userLogin.id_usuario%>/edit"><i class="fa-solid fa-user"></i></a> 
+                <a href="/users/profile/<%= userLogin.id_usuario%>"><i class="fa-solid fa-user"></i></a>
             <%}%>
-            
         </div>
         <!--CARRITO-->
         <div class="carrito">

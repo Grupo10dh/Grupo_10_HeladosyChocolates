@@ -8,6 +8,13 @@
     flex-direction: column;
 }
 
+
+.articulo-cantidad , .articulo-nombre , .articulo-precio , .articulo-subtotal{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
 .tabla{
     height: 100%;
     width: 100%;
@@ -70,8 +77,8 @@ tbody .lista-articulos{
 /*contador cantidad*/
 .input-articulo-cantidad{
     width: 30%;
-    
     height: 70%;
+    padding: 2px;
 }
 
 .nombre, .precio, .subtotal{
@@ -119,18 +126,20 @@ tbody .lista-articulos{
 .boton-borrar-articulo{
     background-color: #D92B4B;
     border-radius: 50%;
-    width: 18px;
-    height: 18px;
-    border: 1px solid black;
-    padding-bottom: 5px;
-    
+    width: 25px;
+    height: 25px;
+    border: 2px solid black;
+    padding-bottom: 2px;
+    font-weight: bolder;
 }
 
 .x{
     display: block;
     font-size: 15px;
-    
-    
+}
+
+.x-btn{
+    margin:auto
 }
 
 
@@ -143,10 +152,9 @@ tbody .lista-articulos{
 
 /*campo de introducir el cupón*/
 .input-cupon{
-    width: 35%;
-    height: 30px;
-    font-size: 0.6em;
-    padding-left: 5px;
+    width: 80%;
+    height: 32px;
+    font-size: 1.1em;
 
 }
 
@@ -154,11 +162,11 @@ tbody .lista-articulos{
 button.activar-cupon {
     border: 2px solid #ebebeb;
     border-radius: 50%;
-    width: 6%;
-    height: 15px;
+    width: 10%;
+    height: 20px;
     background-color: #ffff;
     color: black;
-    font-size: 0.6em;
+    font-size: 0.7em;
     margin: 5px 0px 0px 5px;
 }
 
@@ -166,12 +174,10 @@ button.actualizar-carrito {
     border: 2px solid #ebebeb;
     border-radius: 6px;
     height: 30px;
-    width: 20%;
+    width: 100%;
     background-color: #ffff;
     color: black;
-    font-size: 0.6em;
-    margin-left: 100px;
-
+    font-size: 0.7em;
 }
 
 .contenedor-resumen{
@@ -249,9 +255,30 @@ button{
     transition: background-color 1s;
 }
 
+input#nostyle {
+    border: none;
+    border-bottom: 1px solid gray;
+}
 
+.input-sin-estilo{
+    background-color: #D92B4B;
+    border: none;
+    color: white;
+    border-bottom: none;
+    width: 55px;
+}
 
+.id-oculto{
+    display: none;
+}
 
+.contenedor-actualizarCarrito{
+    margin-top: 10px;
+}
+
+td.fila-formulario-cupon{
+    padding: 10px;
+}
 
 
 @media(min-width:361px){
@@ -312,7 +339,7 @@ button{
     }
     /*contador cantidad*/
     .input-articulo-cantidad{
-        width: 18%;
+        width: 20%;
         height: 70%;
     }
     /*boton finalizar compra*/
@@ -341,7 +368,7 @@ button{
     }
     
     .nombre, .precio, .subtotal{
-        font-size: 0.84em;
+        font-size: 0.90em;
     }
     /* titulos encabezados tabla*/
     .titulos th{
@@ -350,7 +377,7 @@ button{
     
     /*contador cantidad*/
     .input-articulo-cantidad{
-        width: 14%;
+        width: 20%;
         height: 70%;
     }
     /*boton finalizar compra*/

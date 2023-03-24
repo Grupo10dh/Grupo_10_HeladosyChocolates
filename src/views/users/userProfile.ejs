@@ -29,10 +29,12 @@
                 <h2><%= user.telefono%></h2>
                 
                 <h2><%= user.fecha_de_nacimiento%></h2>
-                
-                <button class="btn-detail"><a href="/logout"> Cerrar sesión </a></button>
 
-                <button class="btn-detail"><a href="/users/<%= user.id_usuario%>/edit"> Editar</a></button>
+                <div class="botones-perfil">
+                    <button class="btn-cerrarSesion"><a href="/logout"> Cerrar sesión </a></button>
+                    <button class="btn-editar"><a href="/users/<%= user.id_usuario%>/edit"> Editar</a></button>
+                </div>
+                
             </div>
         </div>
     </div>

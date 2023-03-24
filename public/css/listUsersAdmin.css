@@ -1,4 +1,3 @@
-
 .grilla{
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
@@ -15,7 +14,6 @@
 
 a.hiper-fotos{
     display: block;
-    
 }
 
 a.boton-edit{
@@ -24,6 +22,8 @@ a.boton-edit{
 
 a.hiper-edit{
     display: block;
+    color:#000000;
+    font-size: 30px;
 }
 
 .botones-grilla{
@@ -42,6 +42,12 @@ a.hiper-edit{
 
 .info-producto-grilla{
     text-align: center;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+div.precios-grilla{
+    margin-bottom: 15px;
 }
 
 .descripcion-grilla{
@@ -51,6 +57,13 @@ a.hiper-edit{
 
 .truck-grilla{
     color: black;
+}
+
+main.listUsersAdmin{
+    background-color: #d9ad77;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
 }
 
 /* main section div.grilla article img:hover{
@@ -67,18 +80,24 @@ button.borrar-producto-usuario{
     line-height: normal;
     overflow: visible;
     padding: 0;
+    color: #730e16;
+    font-size: 30px;
     
 }
 
 button.crear-producto-usuario{
     width: 200px;
     margin-top: 15px;   
-    border: 2px solid #730e16
+    border: 2px solid #730e16;
+    padding:0.6em 2em;
+    border-radius: 8px;
+    font-size: 1.1em;
 }
 
-.id-producto{
-        display: none;
-}
+/* a.btn-panel{
+    display: block;
+    color: #6f4b39;
+} */
 
 @media (min-width:500px) {
     .fotos-grilla{
@@ -109,3 +128,4 @@ button.crear-producto-usuario{
         object-fit: cover;
     }
 }
+

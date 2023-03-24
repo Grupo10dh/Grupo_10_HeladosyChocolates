@@ -6,9 +6,9 @@
 <body>
     <header>
         <%- include('../partials/header.ejs') %>
-
         <%- include('../partials/nav-bar.ejs') %>
     </header>
+    
     <div class="container">
         <div class="tarjeta">
             <div class="imagen">
@@ -19,21 +19,26 @@
                 <%}%>
             </div>
             <div class="info">
-                <h2><%= product.nombre%></h2>
+                <h2 class="titulo-detalle"><%= product.nombre%></h2>
                 <div class="califi"></div>
                 <div class="precio">
                     <h3>$<%= product.precio_unidad%></h3>
                 </div>
                 <div class="descrip">
-                    <h4>Descripción</h4>
-                </div>
-                <div class="detalla-producto">
-                    <p><%= product.descripcion%></p> 
-                </div>
-                <div class="boton">
-                    <button type="submit" name="">Añadir al carrito</button>
+                    <h4><%= product.descripcion%></h4>
                 </div>
 
+                <div class="boton">
+                    <form action="/products/agregar" method="POST">
+                            <input type="text" class="input-hidden" name="idProducto" value= "<%= product.id_producto%>">
+                            <input type="number" class="input-detalle-cantidad" name="cantidadDetalle" value="0" min="0">
+                            <button type="submit" name="">Añadir al carrito</button>
+                    </form>
+                    
+                </div>
+                <div class="boton-volver">
+                    <button type="submit" name="">Volver a la lista</button>
+                </div>
 
 
             </div>

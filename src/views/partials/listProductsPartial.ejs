@@ -3,14 +3,9 @@
 <head>
     <%- include('../partials/head.ejs') %>
     <link rel="stylesheet" href="/css/grilla.css">
-    <title>Productos</title>
 </head>
 <body>
-    <header>
-        <%- include('../partials/header.ejs') %>
-
-        <%- include('../partials/nav-bar.ejs') %>
-    </header>
+    
     <main>
         <section>
             <div class="grilla">
@@ -28,20 +23,23 @@
                         <div class="precios-grilla">$ <%= productos[i].precio_unidad %></div>
                         <br>
 
-                        <div class="icon-preguntas"> 
-                            <button type="submit" class="borrar-producto-usuario" id="boton-carrito"><img src="/img/iconos/cart.png" alt="carrito" class="cart-icono"></button>
-                        </div> 
-                        
+                        <form action="/products/<%= productos[i].id_producto%>" method="GET" >
+                            <div class="id-producto">
+                                <input type="text" name="id" value="<%= productos[i].id_producto %>" readonly="true" id="id-producto" >
+                            </div>
+                            <div class="icon-preguntas"> 
+                                <button type="submit" class="borrar-producto-usuario" id="boton-carrito"><img src="/img/iconos/cart.png" alt="carrito" class="cart-icono"></button>
+                            </div> 
+                        </form>
                     </div>
                 </article>
                 <%}%>
 
+    
             </div>
         </section>
     </main>
-    <footer>
-        <%- include('../partials/footer.ejs') %>
-    </footer>
-    <script src="/js/listaProductos.js"></script>
+    
+    
 </body>
 </html>

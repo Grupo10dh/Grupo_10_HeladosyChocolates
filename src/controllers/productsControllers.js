@@ -16,6 +16,10 @@ const Categorias = db.Categorias
 
 const Productos = db.Productos
 
+const Detalle = db.Detalle_Orden
+
+const Carrito = db.Carrito
+
 const controller = {
 
     productList : async (req,res) => {
@@ -28,24 +32,52 @@ const controller = {
             ]
         }
 
-        // {   
-        //     attributes: ['id_producto', 'nombre', 'descripcion', 'precio_unidad' , 'descuento', 'imagen' , 'stock' , 'id_categoria'],
-        // },
-
-        // {
-        //     where :{ someAttribute: { [Op.not]: Producto.CategoriumIdCategoria} }
-        // }
         )
             .then(productos => {
-                // res.send(productos)
+                
                 res.render(path.join(__dirname,'../views/products/listProducts.ejs'),{'productos':productos,'userLogin':req.session.userLogged})
             })
         
     },
 
 
-    cart : (req,res) => {
-        res.render(path.join(__dirname,'../views/products/productCart.ejs'),{'userLogin':req.session.userLogged})
+    cart : async (req,res) => {
+
+        let userId = req.session.userLogged.id_usuario
+
+        const productosCarrito = await Detalle.findAll({
+            include:[
+                {
+                    model: Carrito, as :"carrito", where : {'id_carrito': userId} , attributes: []
+                },
+                {
+                    model: Productos, as :"productos", attributes:['nombre','precio_unidad','imagen','id_producto']
+                }
+            ]
+        })
+
+        // res.render(path.join(__dirname,'../views/products/productCart.ejs'),{'productosCarrito':productosCarrito,'subtotal':undefined,'userLogin':req.session.userLogged})
+
+        console.log(productosCarrito)
+
+        if(productosCarrito.length){
+            let subtotalArray =[]
+
+            let subtotal  =  productosCarrito.map(e => subtotalArray.push(e.subtotal))
+    
+            let subtotalSuma = subtotalArray.reduce(((accumulator, e) => accumulator + e))
+
+            let envio = 600
+
+            let total = subtotalSuma + envio
+
+            res.render(path.join(__dirname,'../views/products/productCart.ejs'),{'productosCarrito':productosCarrito,'subtotal':subtotalSuma,'envio':envio , 'total':total ,'userLogin':req.session.userLogged})
+        }
+        else{
+            res.render(path.join(__dirname,'../views/products/productCartEmpty.ejs'),{'userLogin':req.session.userLogged})
+            // res.send("Carrito Vacio") // CAMBIAR ESTO POR UNA VISTA DE CARRITO VACIO O ALERTA
+        }
+
     },
 
 
@@ -162,8 +194,9 @@ const controller = {
 
         Productos.findAll()
             .then(productos => {
-                res.render(path.join(__dirname,'../views/products/listProductsAdmin.ejs'),{'productos':productos,'userLogin':req.session.userLogged})
+                res.render(path.join(__dirname,'../views/partials/partialListProductsAdmin.ejs'),{'productos':productos,'userLogin':req.session.userLogged})
             })
+            
         
     },
 
@@ -180,27 +213,6 @@ const controller = {
         }else{
             res.redirect('/')
         }
-
-        
-
-        
-
-
-
-
-
-    //     console.log(req.body.buscar)
-    //    const busquedaProducto = req.body.buscar
-    //    const product =  await db.Producto.findOne({
-    //         where: {nombre: busquedaProducto}
-    //    })
-    //    if(product){
-    //     res.render(path.join(__dirname,'../views/products/productDetail.ejs'),{'product':product,'userLogin':req.session.userLogged})
-    //    }else{
-    //     res.send ('No se encontró el producto') //CAMBIAR ESTO
-    //    }
-
-
     },
 
     productImage : async (req,res) => {
@@ -210,11 +222,142 @@ const controller = {
         }else{
             res.send("Not found");
         }
-    }
+    },
 
+    slider : (req,res) => {
+        res.render(path.join(__dirname,'../views/partials/slider.ejs'))
+    },
+
+    panelAdmin : (req,res) => {
+        Productos.findAll()
+        .then(productos => {
+            res.render(path.join(__dirname,'../views/admin/panelAdminProducts.ejs'),{'productos':productos,'userLogin':req.session.userLogged})
+        })
+        
+    },
+
+    Añadir : async (req,res) => {
+
+        const productoElegidoId = parseInt(req.body.idProducto) //OK
+
+        const product = await Productos.findByPk(productoElegidoId); //OK
+
+        // const productosDetalle = await Detalle.findAll();
+
+        const productosDetalle = await Detalle.findOne({
+            where:{
+                id_producto : productoElegidoId,
+                id_carrito : req.session.userLogged.id_usuario
+            }
+        });
+        
+        console.log(productosDetalle)
+
+
+        if(productosDetalle){
+            Detalle.update(
+                {
+                    id_producto: productoElegidoId,
+                    subtotal: product.precio_unidad * req.body.cantidadDetalle,
+                    cantidad: req.body.cantidadDetalle,
+                    id_carrito: req.session.userLogged.id_usuario ,
+                    productosIdProducto : productoElegidoId,
+                    carritoIdCarrito : req.session.userLogged.id_usuario
+                },
+                {
+                    where:{id_producto : productoElegidoId}
+                }
+            )
+            .then(()=> {
+                
+                return res.redirect(`/products/${productoElegidoId}`)})
+                // alert("Producto actualizado en el carrito")            
+            .catch(error => res.send(error))
+            
+        }else{
+            Detalle.create(
+                {
+                    id_producto: productoElegidoId,
+                    subtotal: product.precio_unidad * req.body.cantidadDetalle,
+                    cantidad: req.body.cantidadDetalle,
+                    id_carrito: req.session.userLogged.id_usuario ,
+                    productosIdProducto : productoElegidoId,
+                    carritoIdCarrito : req.session.userLogged.id_usuario
+                }
+            )
+            .then(()=> {
+                
+                return res.redirect('/products')}) 
+                // alert("Producto nuevo agregado al carrito")
+            .catch(error => res.send(error))
+        }
+    },
+
+    ActualizarCarrito : async (req,res) => {
+
+        let [...idProducto_a] = req.body.idProducto 
+        let [...precioUnidad_a] = req.body.precioUnidad 
+        let [...cantidadArticulo_a] = req.body.cantidadArticulo
+        
+        var idProducto_b = idProducto_a.map(function (x) { 
+            return parseInt(x); 
+        });
+        var precioUnidad_b = precioUnidad_a.map(function (x) { 
+            return parseInt(x); 
+        });
+        var cantidadArticulo_b = cantidadArticulo_a.map(function (x) { 
+            return parseInt(x); 
+        });
+
+        console.log('Ids productos'+idProducto_b)
+        console.log('Precios'+precioUnidad_b)
+        
+        console.log('Cantidades'+cantidadArticulo_b)
+        
+        
+        
+        let idPersona = req.session.userLogged.id_usuario
+
+        console.log('Id persona'+idPersona)
+
+        Detalle.sequelize.transaction(function(t){
+            var Promises=[];
+            for(var i = 0 ; i<idProducto_b.length;i++)
+            {
+                var newPromise=Detalle.update({
+                    cantidad:cantidadArticulo_b[i],
+                    subtotal : cantidadArticulo_b[i] * precioUnidad_b[i] 
+                },            
+                {
+                    transaction: t,
+                    where:{id_producto : idProducto_b[i]}
+                });
+                Promises.push(newPromise);
+            };
+            return Promise.all(Promises).then(()=> {
+                
+                return res.redirect('/cart')})
+                .catch(error => res.send(error))
+            })
+        },
+        cartDelete : async (req,res) =>{
+
+            let idPersona = req.session.userLogged.id_usuario
+        
+            try {
+                await Detalle.destroy({
+                    where: {
+                        id_producto : req.params.id,
+                        id_carrito : idPersona
+                    }
+                });
+                res.redirect('/cart');
+            } catch (error) {
+                res.send(error);
+            }
+        }
+        
 }
-
 module.exports = controller;
-
 
 

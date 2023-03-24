@@ -129,6 +129,16 @@ input:Focus:invalid {
 }
 
 
+
+.label-recordame{
+    color: #ffff;
+}
+
+.info h2{
+    color: black;
+}
+
+
 @media(min-width:361px){
     .formulario{
         width: 70%;

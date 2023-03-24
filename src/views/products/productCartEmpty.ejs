@@ -27,7 +27,7 @@
     
         <tbody class="lista-articulos">
 
-            <% for(let i = 0; i < productosCarrito.length; i++) {%>
+    
 
 
                             
@@ -35,52 +35,50 @@
                     
                     <td class="articulo-eliminar">
                         <div class="conten  edor-boton-eliminar">
-                            <form action="/cart/delete/<%= productosCarrito[i].productos.id_producto %>?_method=DELETE" method="POST" id="form-borrarCarrito"><button type="submit" class="boton-borrar-articulo" form="form-borrarCarrito"><p class="x-btn">X</p></button></form>
+                            
                         </div>
                     </td>
                     
                     
                     <td class="articulo-img">
                             <div class="contenedor-articulo-img">
-                            <% if(!productosCarrito[i].productos.imagen){%>
-                            <img  src="/img/popu-7.jpg" alt="Foto default" class='imagen-articulo'>
-                            <%}else{%>
-                            <img  src="img/product/<%= productosCarrito[i].productos.imagen%>" alt="Foto Productos" class='imagen-articulo'>  
-                            <%}%>
+                            
+                            
+                            
                             </div>
                     </td>
 
                     
-                    <input type="number" class="id-oculto" name="idProducto" form="form-updateCart" value=<%= productosCarrito[i].productos.id_producto %>>
+                    
                     
 
     
                     <td class="articulo-nombre">
-                            <a href="/"><span class="nombre"><%= productosCarrito[i].productos.nombre %> </span></a>
+                            
                     </td>
     
                     <td class="articulo-precio">
                         <div class="contenedor-precio">
-                            $<input type="text" class="input-sin-estilo" name="precioUnidad" readonly="true" form="form-updateCart" value=<%= productosCarrito[i].productos.precio_unidad %>>
+                            <h2>No hay articulos</h2>
                         </div>
                     </td>
     
                     <td class="articulo-cantidad">
                         <div class="contenedor-cantidad">
                                         
-                            <input type="number" class="input-articulo-cantidad" name="cantidadArticulo" form="form-updateCart"  value =<%= productosCarrito[i].cantidad %> >
+                            
                                         
                         </div>
                     </td>
                     <td class="articulo-subtotal">
                         <div class="contenedor-subtotal">
-                            <span class="subtotal">$<%= productosCarrito[i].subtotal %></span>
+                            <span class="subtotal"></span>
                         </div>
                     </td>
                 </tr>    
                                     
                             
-                        <%}%>
+                        
                 <tr>
                     <td colspan="6" class="fila-formulario-cupon">
                         <div class="contenedor-cupon">
@@ -111,7 +109,7 @@
                                 <th class="resumen-titulo-subtotal">Subtotal</th>
                                 <td>
                                     <div class="contenedor-resumen-subtotal">
-                                        <span class="resumen-subtotal">$<%= subtotal %></span>
+                                        <span class="resumen-subtotal">$</span>
                                     </div>  
                                 </td>
                             </tr>
@@ -119,7 +117,7 @@
                                 <th class="resumen-titulo-envio">Envio</th>
                                 <td>
                                     <div class="contenedor-resumen-envio">
-                                        <span class="resumen-subtotal">$<%= envio %></span>
+                                        <span class="resumen-subtotal">$500</span>
                                     </div>  
                                 </td>
                             </tr>
@@ -127,15 +125,14 @@
                                 <th class="total-carrito">Total</th>
                                 <td>
                                     <div class="contenedor-total-carrito">
-                                        <span class="resumen-total">$<%= total %></span>
+                                        <span class="resumen-total">$</span>
                                     </div>  
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                     <div class="boton-finalizar-compra">
-                        <form action="/cart/finish" class="formulario-finalizar-comprar">
-                            
+                        <form action="#" class="formulario-finalizar-comprar">
                             <button type="submit" name="finalizar-compra" class="finalizar-compra">Finalizar compra</button>
                         </form>
                     </div>

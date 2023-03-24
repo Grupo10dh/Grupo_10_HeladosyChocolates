@@ -10,8 +10,11 @@ const app = express();
 const routerMain = require('./routes/main')
 const routerUsers = require('./routes/users')
 const routerProduct = require('./routes/products')
+const routerAdmin = require('./routes/admin')
 const routerUsersApi = require('./routes/api/usersApi')
 const routerProductsApi = require('./routes/api/productsApi')
+
+
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname,'../public')))
@@ -27,10 +30,11 @@ app.use(session({
 app.use(cors())
 
 
-app.use(routerUsersApi)
-app.use(routerUsers)
 app.use(routerMain)
 app.use(routerProduct)
+app.use(routerUsers)
+app.use(routerAdmin)
 app.use(routerProductsApi)
+app.use(routerUsersApi)
 
 app.listen('3030', () => console.log("Servidor funcionando en puerto 3030"));

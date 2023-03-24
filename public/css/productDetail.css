@@ -34,7 +34,7 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
-    max-height: 380px;
+    max-height: 450px;
 
 }
 
@@ -45,7 +45,7 @@ body {
 
 .tarjeta .info {
     width: 100%;
-    height: 40%;
+    height: 100%;
 }
 
 
@@ -61,7 +61,7 @@ div.info  {
     height: 100%;
 }
 
-h2 {
+h2.titulo-detalle {
     display: block;
     margin: 0px;
     font-size: 0.8rem;
@@ -79,6 +79,11 @@ h2 {
     padding: 0 0 0 10px;
     font-family: gotham;
     color: #593515;
+}
+
+
+.descrip{
+    margin-bottom: 10px;
 }
 
 .descrip h4 {
@@ -103,20 +108,41 @@ h2 {
 
 .boton {
     height: 40px;
+    width: 99%;
     display: flex;
     align-items: center;
     justify-content: right;
-    
+    gap: 15px
 }
 
-.boton button{
-    width: 100px;
+
+.boton-volver{
+    height: 40px;
+    width: 99%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    /* gap: 15px */
+}
+
+.boton-volver button{
+    
     height: 34px;
     font-size: 0.6rem;
     border: none;
     border-radius: 40px;
     color: #ffff;
-    background-color: #D92B4B;
+    background-color: red;
+}
+
+.boton button{
+    
+    height: 34px;
+    font-size: 0.6rem;
+    border: none;
+    border-radius: 40px;
+    color: #ffff;
+    background-color: #363fbc;
     
 }
 
@@ -128,6 +154,27 @@ h2 {
 .boton button{
     transition: background-color 1s, border 2s;
 }
+
+.input-detalle-cantidad:after,.input-detalle-cantidad:before {
+    position: absolute;
+    font-size: 10px;
+    pointer-events: none;
+    background-color: #D92B4B;
+}   
+.input-detalle-cantidad{
+    position: relative;
+    width: 40px;
+    height: 30px;
+    border : 2px solid #000000;
+    padding: 2px;
+}
+
+.input-hidden{
+    display: none;
+}
+
+
+
 @media(min-width:361px){
     .tarjeta{
         flex-direction: row;
@@ -140,7 +187,7 @@ h2 {
     .imagen img{
         height: 280px;
     }
-    h2 {
+    h2.titulo-detalle {
         font-size: .85rem;
         padding: 10 10px;
     }
@@ -162,7 +209,7 @@ h2 {
     }
     
     .boton {
-        margin-top: 30px;
+        /* margin-top: 30px; */
         height: 60px;
         display: flex;
         align-items: center;
@@ -177,13 +224,13 @@ h2 {
         border: none;
         border-radius: 40px;
         color: #ffff;
-        background-color: #D92B4B;
+        /* background-color: #D92B4B; */
         
     }
 }
 
 @media(min-width:450px){
-    h2 {
+    h2.titulo-detalle {
         font-size: 1rem;
         padding: 10 10px;
     }
@@ -219,14 +266,18 @@ h2 {
         border: none;
         border-radius: 40px;
         color: #ffff;
-        background-color: #D92B4B;
+        /* background-color: #D92B4B; */
         
     }
 }
 
 @media(min-width:500px){
 
-    h2 {
+    .tarjeta{
+        max-height: 330px;
+    }
+
+    h2.titulo-detalle {
         font-size: 1.2rem;
         padding: 10 10px;
     }
@@ -254,8 +305,6 @@ h2 {
         align-items: center;
         justify-content: right;
         margin-right: 10px;
-        
-        
     }
     
     .boton button{
@@ -265,10 +314,99 @@ h2 {
         border: none;
         border-radius: 40px;
         color: #ffff;
-        background-color: #D92B4B;
+        /* background-color: #D92B4B; */
     }
 
     img.imagen{
         height: 100%;
     }
+
+    .imagen img{
+        height: 330px;
+    }
+
+    /* estilo botones perfil */
+    .btn-cerrarSesion{ 
+        background-color: #D92B4B;
+    }
+
+    .btn-editar{
+        background-color: #1c19d3;
+    }
+
+    .botones-perfil{
+        display: flex;
+        flex-direction: row-reverse;
+        height: 70%;
+        align-items: center;
+    }
+}
+
+@media(min-width:800px){
+    .tarjeta{
+        max-height: 410px; 
+    }
+
+    .imagen img{
+        height: 410px;
+    }
+
+    h2.titulo-detalle {
+        height: 15%;
+        font-size: 1.3rem;
+        padding: 10 10px;
+    }
+
+    .precio{
+        height: 12.5%;
+    }
+    
+    .precio h3 {
+        font-size: 1rem;
+        padding: 10px 0 0 10px;
+    }
+    
+    .descrip{
+        height: 30%;
+        margin-bottom: 30px;
+    }
+}
+
+@media(min-width:1000px){
+    .tarjeta{
+        max-height: 450px;
+        max-width: 700px;
+    
+    }
+
+    .imagen img{
+        height: 450px;
+    }
+
+    h2.titulo-detalle {
+        height: 15%;
+        font-size: 1.5rem;
+        padding: 10 10px;
+    }
+
+    .precio{
+        height: 12.5%;
+    }
+    
+    .precio h3 {
+        font-size: 1rem;
+        padding: 10px 0 0 10px;
+    }
+    
+    .descrip{
+        height: 30%;
+        margin-bottom: 30px;
+    }
+
+    .descrip h4 {
+        font-size: 1.1rem;
+        padding: 10px 0 0 10px;
+        margin-top: 5px;
+    }
+
 }
