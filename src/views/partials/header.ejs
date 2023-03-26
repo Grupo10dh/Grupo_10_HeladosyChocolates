@@ -17,7 +17,7 @@
         <% if(typeof userLogin === "undefined"){%>
             <h1>Falta logear usuario</h1>
         <%}else{%>
-            <h1> Bienvenido <%=userLogin.username%></h1> 
+            <h1> Bienvenido <%=userLogin.nombre%></h1> 
         <%}%>
     </div>
     
@@ -40,7 +40,7 @@
             <% if(typeof userLogin === "undefined"){%>
                 <a href="/login"><i class="fa-solid fa-user"></i></a>
             <%}else{%>
-                <a href="/users/<%= userLogin.id%>/edit"><i class="fa-solid fa-user"></i></a> 
+                <a href="/users/<%= userLogin.id_usuario %>/edit"><i class="fa-solid fa-user"></i></a> 
             <%}%>
             
         </div>

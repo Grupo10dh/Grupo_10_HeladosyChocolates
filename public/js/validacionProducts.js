@@ -4,7 +4,7 @@ window.addEventListener('load', function() {
     const formulario = document.querySelector('#form-products')
 
     formulario.addEventListener('submit',function(evento){
-        evento.preventDefault()
+        //evento.preventDefault()
 
         const nombre = document.querySelector("#nombre")
         if(nombre.value.length < 5){

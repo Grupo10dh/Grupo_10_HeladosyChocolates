@@ -23,7 +23,7 @@ const Usuario = db.Usuario
 const controller={
 
     login: (req,res) =>{
-        res.render(path.join(__dirname,'../views/users/login.ejs'),{'userLogin':req.session.userLogged})
+        res.render(path.join(__dirname,'../views/users/login.ejs'),{'userLogin':req.session.userLogged,"id": req.session.id})
     },
 
 
@@ -41,7 +41,7 @@ const controller={
                 ]
             }*/)
                 .then(users => {
-                    res.render(path.join(__dirname,'../views/users/listUsers.ejs'),{'users':users,'userLogin':req.session.userLogged})
+                    res.render(path.join(__dirname,'../views/users/listUsers.ejs'),{'users':users,'userLogin':req.session.userLogged,"id": req.session.id})
                 })
             
         },
@@ -93,12 +93,14 @@ const controller={
             });
 
             console.log(userLogin.contraseña)
+            console.log(userLogin.id_usuario)
         
             if(userLogin){
             const paswd = bcryptjs.compareSync(contraseña,userLogin.contraseña);
                 if(paswd){
                     req.session.userLogged = userLogin;
-                    res.redirect('/')
+                    req.session.id = req.params.id
+                    res.render(path.join(__dirname,'../views/index.ejs'),{'userLogin':req.session.userLogged, "id": req.session.id})
                 }else{
                     return res.send("Contraseña incorrecta"); 
                 }
