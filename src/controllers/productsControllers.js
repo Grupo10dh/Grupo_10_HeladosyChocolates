@@ -294,51 +294,97 @@ const controller = {
     },
 
     ActualizarCarrito : async (req,res) => {
+        
+        let productoArray = []
+        let precioUnidadArray = []
+        let cantidadProductoArray = []
 
-        let [...idProducto_a] = req.body.idProducto 
-        let [...precioUnidad_a] = req.body.precioUnidad 
-        let [...cantidadArticulo_a] = req.body.cantidadArticulo
+        let producto = req.body.idProducto
+        let precioUnidad = req.body.precioUnidad 
+        let cantidadProducto = req.body.cantidadArticulo
         
-        var idProducto_b = idProducto_a.map(function (x) { 
-            return parseInt(x); 
-        });
-        var precioUnidad_b = precioUnidad_a.map(function (x) { 
-            return parseInt(x); 
-        });
-        var cantidadArticulo_b = cantidadArticulo_a.map(function (x) { 
-            return parseInt(x); 
-        });
+        productoArray.push(producto)
+        precioUnidadArray.push(precioUnidad)
+        cantidadProductoArray.push(cantidadProducto)
 
-        console.log('Ids productos'+idProducto_b)
-        console.log('Precios'+precioUnidad_b)
-        
-        console.log('Cantidades'+cantidadArticulo_b)
-        
-        
-        
-        let idPersona = req.session.userLogged.id_usuario
+        console.log(producto)
+        console.log(precioUnidad)
 
-        console.log('Id persona'+idPersona)
+        // console.log(productoArray)
+        // console.log(precioUnidadArray.length)
+        // console.log(cantidadProductoArray.length)
 
-        Detalle.sequelize.transaction(function(t){
-            var Promises=[];
-            for(var i = 0 ; i<idProducto_b.length;i++)
-            {
-                var newPromise=Detalle.update({
-                    cantidad:cantidadArticulo_b[i],
-                    subtotal : cantidadArticulo_b[i] * precioUnidad_b[i] 
-                },            
+        if(Array.isArray(producto) && Array.isArray(precioUnidad)  && Array.isArray(cantidadProducto)){
+
+            console.log("caso 1")
+
+            let [...idProducto_a] = producto
+            let [...precioUnidad_a] = precioUnidad
+            let [...cantidadArticulo_a] = cantidadProducto
+
+            var idProducto_b = idProducto_a.map(function (x) { 
+                return parseInt(x); 
+            });
+
+            console.log(idProducto_b)
+    
+            var precioUnidad_b = precioUnidad_a.map(function (x) { 
+                return parseInt(x); 
+            });
+            var cantidadArticulo_b = cantidadArticulo_a.map(function (x) { 
+                return parseInt(x); 
+            });
+            
+            let idPersona = req.session.userLogged.id_usuario
+    
+    
+            Detalle.sequelize.transaction(function(t){
+                var Promises=[];
+                for(var i = 0 ; i<idProducto_b.length;i++)
                 {
-                    transaction: t,
-                    where:{id_producto : idProducto_b[i]}
-                });
-                Promises.push(newPromise);
-            };
-            return Promise.all(Promises).then(()=> {
+                    var newPromise=Detalle.update({
+                        cantidad:cantidadArticulo_b[i],
+                        subtotal : cantidadArticulo_b[i] * precioUnidad_b[i] 
+                    },            
+                    {
+                        transaction: t,
+                        where:{id_producto : idProducto_b[i]}
+                    });
+                    Promises.push(newPromise);
+                };
+                return Promise.all(Promises).then(()=> {
+                    
+                    return res.redirect('/cart')})
+                    .catch(error => res.send(error))
+                })
+        }else{
+
+            console.log("caso 2")
+
+            let idProducto_b = parseInt(producto)
+            let precioUnidad_b = parseInt(precioUnidad)
+            let cantidadArticulo_b = parseInt(cantidadProducto)
+
+            console.log(idProducto_b)
+            console.log(precioUnidad_b)
+            console.log(cantidadArticulo_b)
+
+
+            let idPersona = req.session.userLogged.id_usuario
+
+            Detalle.update({
+                cantidad:cantidadArticulo_b,
+                subtotal : cantidadArticulo_b * precioUnidad_b 
+            },            
+            {
+                where:{id_producto : idProducto_b}
+            })
+            .then(()=> {
                 
                 return res.redirect('/cart')})
-                .catch(error => res.send(error))
-            })
+                    .catch(error => res.send(error))
+        }
+
         },
         cartDelete : async (req,res) =>{
 
