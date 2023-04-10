@@ -5,16 +5,19 @@ const multer = require('multer')
 const session = require('express-session');
 const path = require("path")
 const cors = require('cors')
+
+
 const app = express();
 
-const routerMain = require('./routes/main')
-const routerUsers = require('./routes/users')
-const routerProduct = require('./routes/products')
-const routerAdmin = require('./routes/admin')
-const routerUsersApi = require('./routes/api/usersApi')
-const routerProductsApi = require('./routes/api/productsApi')
+//settings
+
+app.set('port', 3030 || process.env.PORT )
 
 
+
+
+
+//Middlewares
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname,'../public')))
@@ -30,6 +33,18 @@ app.use(session({
 app.use(cors())
 
 
+// Variables Globales
+
+
+// Routes
+
+const routerMain = require('./routes/main')
+const routerUsers = require('./routes/users')
+const routerProduct = require('./routes/products')
+const routerAdmin = require('./routes/admin')
+const routerUsersApi = require('./routes/api/usersApi')
+const routerProductsApi = require('./routes/api/productsApi')
+
 app.use(routerMain)
 app.use(routerProduct)
 app.use(routerUsers)
@@ -37,4 +52,25 @@ app.use(routerAdmin)
 app.use(routerProductsApi)
 app.use(routerUsersApi)
 
-app.listen('3030', () => console.log("Servidor funcionando en puerto 3030"));
+
+
+// Public
+
+
+// Starting the server
+
+app.listen(app.get('port'), () =>{
+    console.log("Server on port", app.get("port"));
+})
+
+
+
+
+
+
+
+
+
+
+
+
